@@ -1,16 +1,14 @@
 package fr.adaming.model;
 
 import java.util.Date;
-
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import fr.adaming.enums.EtatBienAchat;
 import fr.adaming.enums.TypeBien;
 
 @Entity
-@Table(name="biens_achat")
+@DiscriminatorValue("ACHAT")
 public class BienAchat extends BienImmobilier {
 	private static final long serialVersionUID = 1L;
 	
@@ -48,7 +46,6 @@ public class BienAchat extends BienImmobilier {
 	public EtatBienAchat getEtatBien() {
 		return etatBien;
 	}
-	
 	public void setEtatBien(EtatBienAchat etatBien) {
 		this.etatBien = etatBien;
 	}

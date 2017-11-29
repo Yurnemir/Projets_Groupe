@@ -28,15 +28,15 @@ public class Client implements Serializable {
 	private String nom;
 	@Column(name="telephone_cl")
 	private String telephone;
-//	@OneToOne
-//	private Adresse adresse;
-//	@OneToMany(mappedBy="client")
-//	private List<Visite> listeVisites;
-//	@OneToMany(mappedBy="client")
-//	private List<Contrat> listeContrats;
-//	@ManyToOne
-//	@JoinColumn(name="agent_id",referencedColumnName="id_a")
-//	private Agent agent;
+	@OneToOne(mappedBy="client")
+	private Adresse adresse;
+	@OneToMany(mappedBy="client")
+	private List<Visite> listeVisites;
+	@OneToMany(mappedBy="client")
+	private List<Contrat> listeContrats;
+	@ManyToOne
+	@JoinColumn(name="agent_id",referencedColumnName="id_ag")
+	private Agent agent;
 
 	//====================== Constructeurs ======================
 	public Client() {
@@ -73,30 +73,30 @@ public class Client implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
-//	public List<Visite> getListeVisites() {
-//		return listeVisites;
-//	}
-//	public void setListeVisites(List<Visite> listeVisites) {
-//		this.listeVisites = listeVisites;
-//	}
-//	public List<Contrat> getListeContrats() {
-//		return listeContrats;
-//	}
-//	public void setListeContrats(List<Contrat> listeContrats) {
-//		this.listeContrats = listeContrats;
-//	}
-//	public Agent getAgent() {
-//		return agent;
-//	}
-//	public void setAgent(Agent agent) {
-//		this.agent = agent;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+	public List<Visite> getListeVisites() {
+		return listeVisites;
+	}
+	public void setListeVisites(List<Visite> listeVisites) {
+		this.listeVisites = listeVisites;
+	}
+	public List<Contrat> getListeContrats() {
+		return listeContrats;
+	}
+	public void setListeContrats(List<Contrat> listeContrats) {
+		this.listeContrats = listeContrats;
+	}
+	public Agent getAgent() {
+		return agent;
+	}
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 
 	//====================== Methodes ======================
 	@Override

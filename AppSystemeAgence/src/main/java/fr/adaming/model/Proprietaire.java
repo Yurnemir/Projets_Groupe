@@ -3,10 +3,8 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,18 +17,23 @@ import javax.persistence.Table;
 public class Proprietaire implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	//====================== Attributs ======================
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_p")
 	private int id;
+	@Column(name="nom_p")
 	private String nom;
+	@Column(name="telPrive_p")
 	private String telPrive;
+	@Column(name="telTravail_p")
 	private String telTravail;
-//	@OneToOne(mappedBy="adresseProp")
-//	private Adresse adresseProprietaire;
-//	@OneToMany(mappedBy="", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	private List<BienImmobilier> listeBiens;
+	@OneToOne(mappedBy="proprietaire")
+	private Adresse adresse;
+	@OneToMany(mappedBy="proprietaire")
+	private List<BienImmobilier> listeBiens;
 
+	//====================== Constructeurs ======================
 	public Proprietaire() {
 		super();
 	}
@@ -48,6 +51,7 @@ public class Proprietaire implements Serializable{
 		this.telTravail = telTravail;
 	}
 
+	//====================== Getters / Setters ======================
 	public int getId() {
 		return id;
 	}
@@ -72,19 +76,20 @@ public class Proprietaire implements Serializable{
 	public void setTelTravail(String telTravail) {
 		this.telTravail = telTravail;
 	}
-//	public Adresse getAdresseProprietaire() {
-//		return adresseProprietaire;
-//	}
-//	public void setAdresseProprietaire(Adresse adresseProprietaire) {
-//		this.adresseProprietaire = adresseProprietaire;
-//	}
-//	public List<BienImmobilier> getListeBiens() {
-//		return listeBiens;
-//	}
-//	public void setListeBiens(List<BienImmobilier> listeBiens) {
-//		this.listeBiens = listeBiens;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+	public List<BienImmobilier> getListeBiens() {
+		return listeBiens;
+	}
+	public void setListeBiens(List<BienImmobilier> listeBiens) {
+		this.listeBiens = listeBiens;
+	}
 
+	//====================== Methodes ======================
 	@Override
 	public String toString() {
 		return "Proprietaire [id=" + id + ", nom=" + nom + ", telPrive=" + telPrive + ", telTravail=" + telTravail

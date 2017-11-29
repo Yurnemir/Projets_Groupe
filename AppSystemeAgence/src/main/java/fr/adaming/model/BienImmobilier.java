@@ -2,23 +2,30 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import fr.adaming.enums.TypeBien;
 
-@MappedSuperclass
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Table(name="biens")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="typeAction_b")
 public abstract class BienImmobilier implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -37,6 +44,15 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
+	@OneToOne(mappedBy="bien")
+	private Adresse adresse;
+	@ManyToOne
+	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
+	private Proprietaire proprietaire;
+	@OneToMany(mappedBy="bien")
+	private List<Visite> listeVisites;
+	@OneToMany(mappedBy="bien")
+	private List<Contrat> listeContrats;
 	
 	//====================== Constructeurs ======================
 	public BienImmobilier() {
@@ -88,6 +104,30 @@ public abstract class BienImmobilier implements Serializable {
 	}
 	public void setTypeBien(TypeBien typeBien) {
 		this.typeBien = typeBien;
+	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+	public List<Visite> getListeVisites() {
+		return listeVisites;
+	}
+	public void setListeVisites(List<Visite> listeVisites) {
+		this.listeVisites = listeVisites;
+	}
+	public List<Contrat> getListeContrats() {
+		return listeContrats;
+	}
+	public void setListeContrats(List<Contrat> listeContrats) {
+		this.listeContrats = listeContrats;
 	}
 	
 	//====================== Methodes ======================

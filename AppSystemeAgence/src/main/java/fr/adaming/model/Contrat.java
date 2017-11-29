@@ -24,12 +24,12 @@ public class Contrat implements Serializable {
 	private int id;
 	@Column(name="dateSignature_co")
 	private Date dateSignature; 
-//	@ManyToOne
-//	@JoinColumn(name="id_cl", referencedColumnName="id_cl")
-//	private Client client ;
-//	@ManyToOne
-//	@JoinColumn(name="id_b", referencedColumnName="id_b")
-//	private BienImmobilier bien;
+	@ManyToOne
+	@JoinColumn(name="client_id", referencedColumnName="id_cl")
+	private Client client;
+	@ManyToOne
+	@JoinColumn(name="bien_id", referencedColumnName="id_b")
+	private BienImmobilier bien;
 	
 	//====================== Constructeurs ======================
 	public Contrat() {
@@ -58,18 +58,18 @@ public class Contrat implements Serializable {
 	public void setDateSignature(Date dateSignature) {
 		this.dateSignature = dateSignature;
 	}
-//	public Client getClient() {
-//		return client;
-//	}
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
-//	public BienImmobilier getBien() {
-//		return bien;
-//	}
-//	public void setBien(BienImmobilier bien) {
-//		this.bien = bien;
-//	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	public BienImmobilier getBien() {
+		return bien;
+	}
+	public void setBien(BienImmobilier bien) {
+		this.bien = bien;
+	}
 
 	//====================== Methodes ======================
 	@Override

@@ -20,14 +20,23 @@ public class Adresse implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_ad")
 	private int id;
+	@Column(name="numero_ad")
 	private int numero;
+	@Column(name="rue_ad")
 	private String rue;
+	@Column(name="cp_ad")
 	private String cp;
+	@Column(name="ville_ad")
 	private String ville;
-//	@OneToOne()
-//	@JoinColumn(name="prop_id", referencedColumnName="id_p")
-//	private Proprietaire adresseProp;
-//	private BienImmobilier adresseBien;
+	@OneToOne
+	@JoinColumn(name="client_id", referencedColumnName="id_cl")
+	private Client client;
+	@OneToOne
+	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
+	private Proprietaire proprietaire;
+	@OneToOne
+	@JoinColumn(name="bien_id", referencedColumnName="id_b")
+	private BienImmobilier bien;
 
 	public Adresse() {
 		super();
@@ -78,12 +87,18 @@ public class Adresse implements Serializable {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-//	public BienImmobilier getAdresseBien() {
-//		return adresseBien;
-//	}
-//	public void setAdresseBien(BienImmobilier adresseBien) {
-//		this.adresseBien = adresseBien;
-//	}
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+	public BienImmobilier getBien() {
+		return bien;
+	}
+	public void seBien(BienImmobilier bien) {
+		this.bien = bien;
+	}
 
 	@Override
 	public String toString() {

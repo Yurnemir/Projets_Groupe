@@ -25,8 +25,8 @@ public class Agent implements Serializable {
 	private String identifiant;
 	@Column(name="mdp_ag")
 	private String mdp;
-//	@OneToMany(mappedBy="agent")
-//	private List<Client> listeClients;
+	@OneToMany(mappedBy="agent")
+	private List<Client> listeClients;
 
 	//====================== Constructeurs ======================
 	public Agent() {
@@ -63,12 +63,12 @@ public class Agent implements Serializable {
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
-//	public List<Client> getListeClients() {
-//		return listeClients;
-//	}
-//	public void setListeClients(List<Client> listeClients) {
-//		this.listeClients = listeClients;
-//	}
+	public List<Client> getListeClients() {
+		return listeClients;
+	}
+	public void setListeClients(List<Client> listeClients) {
+		this.listeClients = listeClients;
+	}
 	
 	//====================== Methodes ======================
 	@Override
