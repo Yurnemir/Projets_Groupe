@@ -86,8 +86,8 @@ public abstract class BienImmobilier implements Serializable {
 	public TypeBien getTypeBien() {
 		return typeBien;
 	}
-	public void setTypeBien(TypeBien type) {
-		this.typeBien = type;
+	public void setTypeBien(TypeBien typeBien) {
+		this.typeBien = typeBien;
 	}
 	
 	//====================== Methodes ======================
@@ -95,6 +95,6 @@ public abstract class BienImmobilier implements Serializable {
 	public String toString() {
 		return "BienImmobilier [id=" + id + ", disponible=" + disponible
 				+ ", dateSoumission=" + dateSoumission + ", dateDispo="
-				+ dateDispo + ", type=" + type + "]";
+				+ dateDispo + ", typeBien=" + typeBien + "]";
 	}
 }
