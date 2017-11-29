@@ -32,16 +32,22 @@ public class ContratDaoImpl implements IContratDao {
 
 	@Override
 	public Contrat addContrat(Contrat c) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.getCurrentSession(); 
+		s.save(c) ; 
+		return c;
 	}
 
 	@Override
 	public Contrat getContratById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.getCurrentSession(); 
+		Query query = s.createQuery("FROM Contrat c WHERE c.id=:pId");	
+		query.setParameter("pId", id);
+		return (Contrat) query.uniqueResult() ;
 	}
 
 
+
+
+	
 
 }

@@ -24,14 +24,12 @@ public class ContratServiceImpl implements IContratService{
 
 	@Override
 	public Contrat addContrat(Contrat c) {
-		// TODO Auto-generated method stub
-		return null;
+		return contratDao.addContrat(c);
 	}
 
 	@Override
-	public Contrat getContratById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Contrat getContratById(int id) {	
+		return contratDao.getContratById(id);
 	}
 
 	
