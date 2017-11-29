@@ -2,6 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.NonUniqueResultException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,39 +20,40 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	
 	public List<Client> getAllClients() {
-		String req = "FROM Client";
+		String req = "FROM Client u";
 		
 		return sf.getCurrentSession().createQuery(req).list();
 	}
 
 	@Override
 	public List<Client> getAllClientsByAgent(Agent agent) {
-		// TODO Auto-generated method stub
-		return null;
+		String req = "FROM Client u WHERE u.agent.id=:aId";
+		Query query = sf.getCurrentSession().createQuery(req);
+		query.setParameter("aId", agent.getId());
+		
+		return query.list();
 	}
 
 	@Override
 	public Client getClientById(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Client) sf.getCurrentSession().get(Client.class, client.getId());
 	}
 
 	@Override
 	public Client addClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		sf.getCurrentSession().persist(client);
+		return client;
 	}
 
 	@Override
 	public Client updateClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		sf.getCurrentSession().saveOrUpdate(client);
+		return client;
 	}
 
 	@Override
 	public void deleteClient(Client client) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().delete(client);	
 	}
 
 }
