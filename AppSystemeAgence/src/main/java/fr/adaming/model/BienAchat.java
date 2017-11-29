@@ -1,0 +1,64 @@
+package fr.adaming.model;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import fr.adaming.enums.EtatBienAchat;
+import fr.adaming.enums.TypeBien;
+
+@Entity
+@Table(name="biens_achat")
+public class BienAchat extends BienImmobilier {
+	private static final long serialVersionUID = 1L;
+	
+	//====================== Attributs ======================
+	@Column(name="prixVente_b")
+	private double prixVente;
+	@Column(name="etatBien_b")
+	private EtatBienAchat etatBien;
+	
+	//====================== Constructeurs ======================
+	public BienAchat() {
+		super();
+	}
+	public BienAchat(boolean disponible, Date dateSoumission, Date dateDispo,
+			TypeBien typeBien, double prixVente, EtatBienAchat etatBien) {
+		super(disponible, dateSoumission, dateDispo, typeBien);
+		this.prixVente = prixVente;
+		this.etatBien = etatBien;
+	}
+	public BienAchat(int id, boolean disponible, Date dateSoumission,
+			Date dateDispo, TypeBien typeBien, double prixVente,
+			EtatBienAchat etatBien) {
+		super(id, disponible, dateSoumission, dateDispo, typeBien);
+		this.prixVente = prixVente;
+		this.etatBien = etatBien;
+	}
+
+	//====================== Getters / Setters ======================
+	public double getPrixVente() {
+		return prixVente;
+	}
+	public void setPrixVente(double prixVente) {
+		this.prixVente = prixVente;
+	}
+	public EtatBienAchat getEtatBien() {
+		return etatBien;
+	}
+	
+	public void setEtatBien(EtatBienAchat etatBien) {
+		this.etatBien = etatBien;
+	}
+
+	//====================== Methodes ======================
+	@Override
+	public String toString() {
+		return "BienAchat [prixVente=" + prixVente + ", etatBien=" + etatBien
+				+ ", id=" + id + ", disponible=" + disponible
+				+ ", dateSoumission=" + dateSoumission + ", dateDispo="
+				+ dateDispo + ", typeBien=" + typeBien + "]";
+	}
+}
