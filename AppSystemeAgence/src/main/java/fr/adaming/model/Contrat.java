@@ -7,7 +7,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.springframework.http.client.ClientHttpRequest;
+
 
 @Entity
 @Table(name="contrats")
