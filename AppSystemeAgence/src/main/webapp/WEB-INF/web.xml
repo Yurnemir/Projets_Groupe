@@ -4,34 +4,34 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	<display-name>AppSystemeAgence</display-name>
-	
-	
-<!-- contexte de l'applicaiton web -->
-<listener>
-	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
 
-<context-param>
-	<param-name>contextConfigLocation</param-name>
-	<param-value>/WEB-INF/application-context.xml</param-value>
-</context-param>
 
-<!-- servlet pour l'application spring -->
-<servlet>
-	<servlet-name>springRest</servlet-name>
-	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>	
-	<init-param>
+	<!-- contexte de l'applicaiton web -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/servlet.xml</param-value>
-	</init-param>
-	<load-on-startup>1</load-on-startup>
-</servlet>
+		<param-value>/WEB-INF/application-context.xml</param-value>
+	</context-param>
 
-<servlet-mapping>
-	<servlet-name>springRest</servlet-name>
-	<url-pattern>/</url-pattern>
-</servlet-mapping>
-	
+	<!-- servlet pour l'application spring -->
+	<servlet>
+		<servlet-name>springRest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springRest</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

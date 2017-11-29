@@ -23,28 +23,23 @@ public class Proprietaire implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_p")
 	private int id;
-	
 	private String nom;
 	private String telPrive;
 	private String telTravail;
-	
-	@OneToOne(mappedBy="adresseProp")
-	private Adresse adresseProprietaire;
-	
-	@OneToMany(mappedBy="", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<BienImmobilier> listeBiens;
+//	@OneToOne(mappedBy="adresseProp")
+//	private Adresse adresseProprietaire;
+//	@OneToMany(mappedBy="", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+//	private List<BienImmobilier> listeBiens;
 
 	public Proprietaire() {
 		super();
 	}
-
 	public Proprietaire(String nom, String telPrive, String telTravail) {
 		super();
 		this.nom = nom;
 		this.telPrive = telPrive;
 		this.telTravail = telTravail;
 	}
-
 	public Proprietaire(int id, String nom, String telPrive, String telTravail) {
 		super();
 		this.id = id;
@@ -56,50 +51,39 @@ public class Proprietaire implements Serializable{
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getNom() {
 		return nom;
 	}
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 	public String getTelPrive() {
 		return telPrive;
 	}
-
 	public void setTelPrive(String telPrive) {
 		this.telPrive = telPrive;
 	}
-
 	public String getTelTravail() {
 		return telTravail;
 	}
-
 	public void setTelTravail(String telTravail) {
 		this.telTravail = telTravail;
 	}
-
-	public Adresse getAdresseProprietaire() {
-		return adresseProprietaire;
-	}
-
-	public void setAdresseProprietaire(Adresse adresseProprietaire) {
-		this.adresseProprietaire = adresseProprietaire;
-	}
-
-	public List<BienImmobilier> getListeBiens() {
-		return listeBiens;
-	}
-
-	public void setListeBiens(List<BienImmobilier> listeBiens) {
-		this.listeBiens = listeBiens;
-	}
+//	public Adresse getAdresseProprietaire() {
+//		return adresseProprietaire;
+//	}
+//	public void setAdresseProprietaire(Adresse adresseProprietaire) {
+//		this.adresseProprietaire = adresseProprietaire;
+//	}
+//	public List<BienImmobilier> getListeBiens() {
+//		return listeBiens;
+//	}
+//	public void setListeBiens(List<BienImmobilier> listeBiens) {
+//		this.listeBiens = listeBiens;
+//	}
 
 	@Override
 	public String toString() {

@@ -63,8 +63,8 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		propUpdate.setNom(prop.getNom());
 		propUpdate.setTelPrive(prop.getTelPrive());
 		propUpdate.setTelTravail(prop.getTelTravail());
-		propUpdate.setAdresseProprietaire(prop.getAdresseProprietaire());
-		propUpdate.setListeBiens(prop.getListeBiens());
+//		propUpdate.setAdresseProprietaire(prop.getAdresseProprietaire());
+//		propUpdate.setListeBiens(prop.getListeBiens());
 		
 		s.saveOrUpdate(propUpdate);
 		
