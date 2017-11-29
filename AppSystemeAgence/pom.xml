@@ -10,7 +10,6 @@
 	<properties>
 		<spring-version>4.1.9.RELEASE</spring-version>
 		<hibernate-version>4.2.20.Final</hibernate-version>
-		<jersey-version>1.8</jersey-version>
 	</properties>
 
 	<!-- Déclaration des dépendences du projet -->
@@ -116,6 +115,36 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.4.6</version>
 		</dependency>
+		
+			<!-- https://mvnrepository.com/artifact/org.webjars.bower/angular -->
+		<dependency>
+		    <groupId>org.webjars.bower</groupId>
+		    <artifactId>angular</artifactId>
+		    <version>1.6.6</version>
+		</dependency>
+				
+				<!-- https://mvnrepository.com/artifact/org.webjars.bower/angular-route -->
+		<dependency>
+		    <groupId>org.webjars.bower</groupId>
+		    <artifactId>angular-route</artifactId>
+		    <version>1.6.6</version>
+		</dependency>
+				
+			<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>3.3.7</version>
+		</dependency>
+				
+						<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+				
+		
 	</dependencies>
 
 
