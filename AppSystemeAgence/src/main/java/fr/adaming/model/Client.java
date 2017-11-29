@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Client {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_c")
 	private int id;
 	private String nom;
 	private String telephone;
@@ -25,8 +27,8 @@ public class Client {
 	@OneToOne
 	private Adresse adresse;
 	
-	@OneToMany(mappedBy="client")
-	private List<Visite> listeVisites;
+//	@OneToMany(mappedBy="client")
+//	private List<Visite> listeVisites;
 	
 	@OneToMany(mappedBy="client")
 	private List<Contrat> listeContrats;
@@ -84,21 +86,21 @@ public class Client {
 		this.adresse = adresse;
 	}
 
-	public List<Visite> getListeVisites() {
-		return listeVisites;
-	}
-
-	public void setListeVisites(List<Visite> listeVisites) {
-		this.listeVisites = listeVisites;
-	}
-
-	public List<Contrat> getListeContrats() {
-		return listeContrats;
-	}
-
-	public void setListeContrats(List<Contrat> listeContrats) {
-		this.listeContrats = listeContrats;
-	}
+//	public List<Visite> getListeVisites() {
+//		return listeVisites;
+//	}
+//
+//	public void setListeVisites(List<Visite> listeVisites) {
+//		this.listeVisites = listeVisites;
+//	}
+//
+//	public List<Contrat> getListeContrats() {
+//		return listeContrats;
+//	}
+//
+//	public void setListeContrats(List<Contrat> listeContrats) {
+//		this.listeContrats = listeContrats;
+//	}
 
 	public Agent getAgent() {
 		return agent;
