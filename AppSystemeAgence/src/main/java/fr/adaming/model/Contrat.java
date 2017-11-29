@@ -35,6 +35,7 @@ public class Contrat {
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien ;
 
+
 	
 	//====================== Constructeurs ======================
 	public Contrat() {
