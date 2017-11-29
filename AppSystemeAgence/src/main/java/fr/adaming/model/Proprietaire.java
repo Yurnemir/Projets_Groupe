@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "proprietaires")
 public class Proprietaire implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -106,7 +106,4 @@ public class Proprietaire implements Serializable{
 		return "Proprietaire [id=" + id + ", nom=" + nom + ", telPrive=" + telPrive + ", telTravail=" + telTravail
 				+ "]";
 	}
-	
-	
-	
 }
