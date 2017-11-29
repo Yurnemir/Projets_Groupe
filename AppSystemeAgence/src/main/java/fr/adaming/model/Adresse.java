@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="adresses")
 public class Adresse implements Serializable {
@@ -28,12 +30,15 @@ public class Adresse implements Serializable {
 	private String cp;
 	@Column(name="ville_ad")
 	private String ville;
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
 	private Proprietaire proprietaire;
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien;

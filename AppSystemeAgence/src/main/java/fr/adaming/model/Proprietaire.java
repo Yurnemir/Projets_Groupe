@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "proprietaires")
 public class Proprietaire implements Serializable{
@@ -28,8 +30,10 @@ public class Proprietaire implements Serializable{
 	private String telPrive;
 	@Column(name="telTravail_p")
 	private String telTravail;
+	@JsonIgnore
 	@OneToOne(mappedBy="proprietaire")
 	private Adresse adresse;
+	@JsonIgnore
 	@OneToMany(mappedBy="proprietaire")
 	private List<BienImmobilier> listeBiens;
 

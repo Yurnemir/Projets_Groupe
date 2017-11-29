@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="agents")
 public class Agent implements Serializable {
@@ -25,6 +27,7 @@ public class Agent implements Serializable {
 	private String identifiant;
 	@Column(name="mdp_ag")
 	private String mdp;
+	@JsonIgnore
 	@OneToMany(mappedBy="agent")
 	private List<Client> listeClients;
 

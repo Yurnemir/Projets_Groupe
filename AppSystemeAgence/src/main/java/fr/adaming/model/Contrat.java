@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="contrats")
 public class Contrat implements Serializable {
@@ -24,9 +26,11 @@ public class Contrat implements Serializable {
 	private int id;
 	@Column(name="dateSignature_co")
 	private Date dateSignature; 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien;

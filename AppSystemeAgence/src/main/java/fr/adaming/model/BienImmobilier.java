@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.adaming.enums.TypeBien;
 
 @Entity
@@ -44,13 +46,17 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
+	@JsonIgnore
 	@OneToOne(mappedBy="bien")
 	private Adresse adresse;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
 	private Proprietaire proprietaire;
+	@JsonIgnore
 	@OneToMany(mappedBy="bien")
 	private List<Visite> listeVisites;
+	@JsonIgnore
 	@OneToMany(mappedBy="bien")
 	private List<Contrat> listeContrats;
 	

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="visites")
 public class Visite implements Serializable{
@@ -30,9 +32,11 @@ public class Visite implements Serializable{
 	@Temporal(TemporalType.TIME)
 	@Column(name="heure_v")
 	private Date heure;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
