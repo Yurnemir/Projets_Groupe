@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Proprietaire;
 
 @Repository
-public class ProprietaireDaoImpl implements IProprietaireDao{
+public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Autowired
 	private SessionFactory sf;
@@ -22,40 +22,61 @@ public class ProprietaireDaoImpl implements IProprietaireDao{
 
 	@Override
 	public List<Proprietaire> getAllProprietaires() {
-		
+
 		Session s = sf.getCurrentSession();
-		
+
 		String req = "from Proprietaire p";
-		
+
 		Query query = s.createQuery(req);
-		
+
 		@SuppressWarnings("unchecked")
 		List<Proprietaire> liste = query.list();
-		
+
 		return liste;
 	}
 
 	@Override
-	public Proprietaire getProprietaireById(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return null;
+	public Proprietaire getProprietaireById(int id) {
+
+		Session s = sf.getCurrentSession();
+
+		return (Proprietaire) s.get(Proprietaire.class, id);
 	}
 
 	@Override
 	public Proprietaire addProprietaire(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session s = sf.getCurrentSession();
+		
+		s.save(prop);
+		
+		return prop;
 	}
 
 	@Override
-	public Proprietaire updateProprietaire(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Proprietaire updateProprietaire(Proprietaire prop) {
+		
+		Session s = sf.getCurrentSession();
+		
+		Proprietaire propUpdate = (Proprietaire) s.get(Proprietaire.class, prop.getId());
+		
+		propUpdate.setNom(prop.getNom());
+		propUpdate.setTelPrive(prop.getTelPrive());
+		propUpdate.setTelTravail(prop.getTelTravail());
+		propUpdate.setAdresseProprietaire(prop.getAdresseProprietaire());
+		propUpdate.setListeBiens(prop.getListeBiens());
+		
+		s.saveOrUpdate(propUpdate);
+		
+		return propUpdate;
 	}
 
 	@Override
 	public void deleteProprietaire(int id) {
-		// TODO Auto-generated method stub
+		Session s = sf.getCurrentSession();
 		
+		Proprietaire propDelete = (Proprietaire) s.get(Proprietaire.class, id);
+		
+		s.delete(propDelete);
 	}
 }

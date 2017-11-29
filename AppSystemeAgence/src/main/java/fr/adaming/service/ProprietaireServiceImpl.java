@@ -22,27 +22,23 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 	}
 
 	@Override
-	public Proprietaire getProprietaireById(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return null;
+	public Proprietaire getProprietaireById(int id) {
+		return propDao.getProprietaireById(id);
 	}
 
 	@Override
 	public Proprietaire addProprietaire(Proprietaire prop) {
-		// TODO Auto-generated method stub
-		return null;
+		return propDao.addProprietaire(prop);
 	}
 
 	@Override
-	public Proprietaire updateProprietaire(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Proprietaire updateProprietaire(Proprietaire prop) {
+		return propDao.updateProprietaire(prop);
 	}
 
 	@Override
 	public void deleteProprietaire(int id) {
-		// TODO Auto-generated method stub
-		
+		propDao.deleteProprietaire(id);
 	}
 
 	
