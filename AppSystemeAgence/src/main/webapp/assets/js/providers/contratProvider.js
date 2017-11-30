@@ -35,7 +35,7 @@ monApp.factory("contratProvider", function($http) {
 		// appel du WS via $http
 		$http({
 			method:"GET",
-			url :  urlRacine +'/getContrat/'+idRech,
+			url :  urlRacine +'/getContrat/'+idRech
 			
 			
 		}).then(function success(responseWS) {
@@ -48,11 +48,11 @@ monApp.factory("contratProvider", function($http) {
 		
 	}
 	
-	function addContratFunction(contratAjout, callBack) {
+	function addContratFunction(contratAjout, idCl, idB, callBack) {
 		// appel du web service via le $http
 		$http({
 			method : 'POST',
-			url : urlRacine+'/addContrat',
+			url : urlRacine+'/addContrat/'+idCl+'/'+idB,
 			data : angular.toJson(contratAjout),
 			headers : {
 				'content-type':'application/json'

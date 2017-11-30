@@ -29,11 +29,11 @@ public class Contrat implements Serializable {
 	@Column(name="dateSignature_co")
 	@Temporal(TemporalType.DATE)
 	private Date dateSignature; 
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien;

@@ -48,6 +48,9 @@ monApp.controller("rechercheContratCtrl", function($scope, contratProvider) {
 monApp.controller("ajoutContratCtrl", function($scope, contratProvider, $location) {
 
 	// déclaration d'une variable dans le scope pour initialiser le formulaire
+	$scope.idCl = undefined;
+	$scope.idB = undefined;
+	
 	$scope.contratForm={
 			id : undefined,
 			dateSignature : undefined, 
@@ -60,7 +63,7 @@ monApp.controller("ajoutContratCtrl", function($scope, contratProvider, $locatio
 		
 		// appel de la fonction de contratProvider pour ajouter le contrat dans la
 		// base de données
-		contratProvider.addContrat($scope.contratForm, function(callBack){
+		contratProvider.addContrat($scope.contratForm, $scope.idCl, $scope.idB, function(callBack){
 			
 			if (callBack !=undefined && callBack !="") {
 				// si tout se passe bien aller dans la vue listeContrats.html et
