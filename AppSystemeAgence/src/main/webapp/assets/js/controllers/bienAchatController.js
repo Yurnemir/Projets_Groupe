@@ -16,5 +16,16 @@ monApp.controller("rechercheBienAchatCtrl", function($scope, bienAchatProvider) 
 });
 
 monApp.controller("ajoutBienAchatCtrl", function($scope, bienAchatProvider) {
-	$scope.message = "ajoutBienAchatCtrl";
+	$scope.bienAchatForm = {
+		nom:"",
+		capitale:"",
+		population:0
+	}
+	$scope.addBienAchat = function() {
+		bienAchatProvider.addBienAchat($scope.bienAchatForm, function(callBack) {
+			if (callBack!=undefined && callBack!="") {
+				$location.path("listeBiensAchat");
+			}
+		});
+	}
 });

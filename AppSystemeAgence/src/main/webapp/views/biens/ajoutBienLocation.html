@@ -1,4 +1,65 @@
 <h1 align="center">Ajout d'un Bien de Location</h1>
 <br/>
 <br/>
-<h1 align="center">{{message}}</h1>
+
+<form class=form-horizontal>
+	<div class="form-group">
+		<label for="idDateSoumission" class="col-sm-2 control-label">Date Soumission :</label>
+		<div class="col-sm-4">
+			<input type="date" class="form-control" id="idDateSoumission" ng-model="bienLocationForm.dateSoumission">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idDateDispo" class="col-sm-2 control-label">Date Dispo :</label>
+		<div class="col-sm-4">
+			<input type="date" class="form-control" id="idDateDispo" ng-model="bienLocationForm.dateSoumission">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idDisponible" class="col-sm-2 control-label">Disponible :</label>
+		<div class="col-sm-4">
+			<input type="checkbox" class="form-control" id="idDisponible" ng-model="bienLocationForm.disponible">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idTypeBien" ng-model="bienLocationForm.typeBien">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idLoyer" class="col-sm-2 control-label">Loyer :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idLoyer" ng-model="bienLocationForm.loyer">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idCaution" class="col-sm-2 control-label">Caution :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idCaution" ng-model="bienLocationForm.caution">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idCharges" class="col-sm-2 control-label">Charges :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idCharges" ng-model="bienLocationForm.charges">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idMeuble" class="col-sm-2 control-label">Meuble :</label>
+		<div class="col-sm-4">
+			<input type="checkbox" class="form-control" id="idMeuble" ng-model="bienLocationForm.meuble">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idTypeBail" class="col-sm-2 control-label">Type de Bail :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idTypeBail" ng-model="bienLocationForm.typeBail">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-primary" ng-click="addBienLocation()">Ajouter</button>
+		</div>
+	</div>
+</form>
