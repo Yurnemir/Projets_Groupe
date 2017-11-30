@@ -1,9 +1,40 @@
 
 monApp.controller("listeClientsCtrl", function($scope, clientProvider) {
 	
+	$scope.showList = true;
 	clientProvider.getAllClients(function(callBack){
 		$scope.listeClients = callBack;
 	});
+	
+	$scope.agentID = 0;
+	
+	$scope.agentSelect = function(){
+		clientProvider.getClientsByAgent($scope.agentID,function(callBack){
+			$scope.listeClients = callBack;
+			if(callBack == "" || callBack == undefined){
+				$scope.showList = false;
+				$scope.message = "Cet agent ne gere aucun client";
+			} else {
+				$scope.showList = true;
+				$scope.message = "";
+			}
+		});
+	}
+		
+	$scope.agentDeSelect = function(){
+		clientProvider.getAllClients(function(callBack){
+			$scope.listeClients = callBack;
+			if(callBack == "" || callBack == undefined){
+				$scope.showList = false;
+				$scope.message = "Aucun client enregistré";
+			} else {
+				$scope.showList = true;
+				$scope.message = "";
+			}
+		});
+	}
+	
+	
 });
 
 monApp.controller("rechercheClientCtrl", function($scope, clientProvider) {
