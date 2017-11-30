@@ -57,7 +57,7 @@ monApp.factory("bienLocationProvider", function($http) {
 	function deleteBienLocationFunction(idSuppr, callBack) {
 		$http({
 			method: "DELETE",
-			url: urlRacine + "/bien/location?pId=" + idSuppr,
+			url: urlRacine + "/bien/location?pId=" + idSuppr
 		}).then(function success(response) {
 			callBack(response.data);
 		}, function error(response) {

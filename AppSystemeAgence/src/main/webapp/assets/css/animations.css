@@ -1,0 +1,12 @@
+
+.animate.ng-enter, .animate.ng-leave {
+    transition: 500ms linear all;
+}
+
+.animate.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.animate.ng-enter.ng-enter-active {
+    opacity: 1;
+}
