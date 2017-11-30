@@ -4,30 +4,12 @@
 
 
 <form>
-
-	Agent ID:<input type="number" ng-model="agentID">
-	
-	Nom du Client:<input type="text" ng-model="client.nom">
-	
-	Téléphone du Client:<input type="text" ng-model="client.telephone">
-	
-	Numero:<input type="text" ng-model="client.adresse.numero">
-	
-	Rue:<input type="text" ng-model="client.adresse.rue">
-	
-	Code Postal:<input type="text" ng-model="client.adresse.cp">
-	
-	Ville:<input type="text" ng-model="client.adresse.ville">	
-	<input type="button" ng-click="ajout()" value="Ajouter">
-	
-</form>
-
-<table class="table table-bordered" ng-show="clientCreated">
+<table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>Id</td>
+			<td>Agent ID</td>
 			<td>Nom</td>
-			<td>Telephone</td>
+			<td>Téléphone</td>
 			<td>Numéro</td>
 			<td>Rue</td>
 			<td>Code Postal</td>
@@ -38,13 +20,41 @@
 	
 	<tbody>
 		<tr>
-			<td>{{client.id}}</td>
-			<td>{{client.nom}}</td>
-			<td>{{client.telephone}}</td>
-			<td>{{client.adresse.numero}}</td>
-			<td>{{client.adresse.rue}}</td>
-			<td>{{client.adresse.cp}}</td>
-			<td>{{client.adresse.ville}}</td>
+			<td><input type="number" ng-model="agentID"></td>
+			<td><input type="text" ng-model="inClient.nom"></td>
+			<td><input type="text" ng-model="inClient.telephone"></td>
+			<td><input type="text" ng-model="inClient.adresse.numero"></td>
+			<td><input type="text" ng-model="inClient.adresse.rue"></td>
+			<td><input type="text" ng-model="inClient.adresse.cp"></td>
+			<td><input type="text" ng-model="inClient.adresse.ville"></td>
+		</tr>
+	</tbody>
+	
+</table>
+	<input type="button" ng-click="ajout()" value="Ajouter">
+</form>
+<br/>
+<table class="table table-bordered" ng-show="clientCreated">
+	<thead>
+		<tr>
+			<td>Client ID</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+			<td>Numéro</td>
+			<td>Rue</td>
+			<td>Code Postal</td>
+			<td>Ville</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{outClient.id}}</td>
+			<td>{{outClient.nom}}</td>
+			<td>{{outClient.telephone}}</td>
+			<td>{{outClient.adresse.numero}}</td>
+			<td>{{outClient.adresse.rue}}</td>
+			<td>{{outClient.adresse.cp}}</td>
+			<td>{{outClient.adresse.ville}}</td>
 		</tr>
 	</tbody>
 </table>

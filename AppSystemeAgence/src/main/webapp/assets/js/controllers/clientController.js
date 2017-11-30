@@ -1,5 +1,5 @@
 
-monApp.controller("listeClientsCtrl", function($scope, clientProvider) {
+monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, clientProvider) {
 	
 	$scope.showList = true;
 	clientProvider.getAllClients(function(callBack){
@@ -35,7 +35,8 @@ monApp.controller("listeClientsCtrl", function($scope, clientProvider) {
 	}
 	
 	$scope.modifLien = function(client){
-		console.log(client);
+		$rootScope.client = client;
+		$location.path("/modifClient");
 	};
 	
 	
@@ -61,7 +62,7 @@ monApp.controller("rechercheClientCtrl", function($scope, clientProvider) {
 monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 	$scope.message = "";
 	
-	$scope.client={
+	$scope.inClient={
 			nom : "",
 			telephone : "",
 			adresse:{
@@ -71,14 +72,26 @@ monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 				ville:""
 			}
 	};
+	
+	$scope.outClient={
+			nom : "",
+			telephone : "",
+			adresse:{
+				numero:0,
+				rue:"",
+				cp:"",
+				ville:""
+			}
+	};
+	
 	$scope.clientCreated = false;
 	
 	$scope.agentID = 0;
 	
 	$scope.ajout = function(){
-		clientProvider.addClient($scope.client,$scope.agentID,function(callBack){
+		clientProvider.addClient($scope.inClient,$scope.agentID,function(callBack){
 			if(callBack!=undefined && callBack != ""){
-				$scope.client = callBack;
+				$scope.outClient = callBack;
 				$scope.clientCreated = true;
 				$scope.message = "";
 			} else {
@@ -89,22 +102,27 @@ monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 	};
 });
 
-monApp.controller("modifClientCtrl", function($scope,clientProvider){
+monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider){
 	$scope.message="";
 	
 	$scope.agentID=0;
 	
-	$scope.client={
-			id:0,
-			nom:"",
-			telephone:"",
-			adresse:{
-				numero:0,
-				rue:"",
-				cp:"",
-				ville:""
-			}
-	}
+	if($rootScope.client!=null){
+		$scope.client=$rootScope.client;
+	} else {
+		$scope.client={
+				id:0,
+				nom:"",
+				telephone:"",
+				adresse:{
+					numero:0,
+					rue:"",
+					cp:"",
+					ville:""
+				}
+		}
+	};
+	
 	
 	$scope.modClient={
 			id:0,
@@ -116,7 +134,7 @@ monApp.controller("modifClientCtrl", function($scope,clientProvider){
 				cp:"",
 				ville:""
 			}
-	}
+	};
 	
 	$scope.clientModified = false;
 	
