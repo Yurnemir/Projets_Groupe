@@ -11,6 +11,13 @@
 	
 	Téléphone du Client:<input type="text" ng-model="client.telephone">
 	
+	Numero:<input type="text" ng-model="client.adresse.numero">
+	
+	Rue:<input type="text" ng-model="client.adresse.rue">
+	
+	Code Postal:<input type="text" ng-model="client.adresse.cp">
+	
+	Ville:<input type="text" ng-model="client.adresse.ville">	
 	<input type="button" ng-click="ajout()" value="Ajouter">
 	
 </form>
@@ -21,6 +28,10 @@
 			<td>Id</td>
 			<td>Nom</td>
 			<td>Telephone</td>
+			<td>Numéro</td>
+			<td>Rue</td>
+			<td>Code Postal</td>
+			<td>Ville</td>
 		</tr>
 	</thead>
 	
@@ -30,6 +41,10 @@
 			<td>{{client.id}}</td>
 			<td>{{client.nom}}</td>
 			<td>{{client.telephone}}</td>
+			<td>{{client.adresse.numero}}</td>
+			<td>{{client.adresse.rue}}</td>
+			<td>{{client.adresse.cp}}</td>
+			<td>{{client.adresse.ville}}</td>
 		</tr>
 	</tbody>
 </table>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,9 @@ public class Client implements Serializable {
 	@Column(name="telephone_cl")
 	private String telephone;
 
+	@Embedded
+	private Adresse adresse;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy="client")
 	private List<Visite> listeVisites;
@@ -78,6 +82,12 @@ public class Client implements Serializable {
 		this.telephone = telephone;
 	}
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}

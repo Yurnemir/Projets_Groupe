@@ -59,7 +59,13 @@ monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 	
 	$scope.client={
 			nom : "",
-			telephone : ""
+			telephone : "",
+			adresse:{
+				numero:0,
+				rue:"",
+				cp:"",
+				ville:""
+			}
 	};
 	$scope.clientCreated = false;
 	
@@ -87,13 +93,25 @@ monApp.controller("modifClientCtrl", function($scope,clientProvider){
 	$scope.client={
 			id:0,
 			nom:"",
-			telephone:""
+			telephone:"",
+			adresse:{
+				numero:0,
+				rue:"",
+				cp:"",
+				ville:""
+			}
 	}
 	
 	$scope.modClient={
 			id:0,
 			nom:"",
-			telephone:""
+			telephone:"",
+			adresse:{
+				numero:0,
+				rue:"",
+				cp:"",
+				ville:""
+			}
 	}
 	
 	$scope.clientModified = false;

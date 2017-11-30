@@ -13,6 +13,14 @@
 	
 	Téléphone du Client:<input type="text" ng-model="client.telephone">
 	
+	Numero:<input type="text" ng-model="client.adresse.numero">
+	
+	Rue:<input type="text" ng-model="client.adresse.rue">
+	
+	Code Postal:<input type="text" ng-model="client.adresse.cp">
+	
+	Ville:<input type="text" ng-model="client.adresse.ville">
+	
 	<input type="button" ng-click="modif()" value="Modifier">
 	
 </form>
@@ -23,6 +31,10 @@
 			<td>Id</td>
 			<td>Nom</td>
 			<td>Telephone</td>
+			<td>Numéro</td>
+			<td>Rue</td>
+			<td>Code Postal</td>
+			<td>Ville</td>
 		</tr>
 	</thead>
 	
@@ -32,6 +44,10 @@
 			<td>{{modClient.id}}</td>
 			<td>{{modClient.nom}}</td>
 			<td>{{modClient.telephone}}</td>
+			<td>{{modClient.adresse.numero}}</td>
+			<td>{{modClient.adresse.rue}}</td>
+			<td>{{modClient.adresse.cp}}</td>
+			<td>{{modClient.adresse.ville}}</td>
 		</tr>
 	</tbody>
 </table>
