@@ -3,29 +3,19 @@ monApp.controller("listeBiensLocationCtrl", function($scope, $rootScope, $locati
 	bienLocationProvider.getAllBiensLocation(function(callBack) {
 		$scope.listeBiensLocation = callBack;
 	});
-	$rootScope.bienLocationForm = {
-		id:undefined,
-		dateSoumission:undefined,
-		dateDispo:undefined,
-		disponible:false,
-		typeBien:0,
-		loyer:0,
-		caution:0,
-		charges:0,
-		meuble:false,
-		typeBail:0
-	}
 	$scope.modifBienLocationViaLien = function(bienLocation) {
-		$rootScope.bienLocationForm.id = bienLocation.id;
-		$rootScope.bienLocationForm.dateSoumission = bienLocation.dateSoumission;
-		$rootScope.bienLocationForm.dateDispo = bienLocation.dateDispo;
-		$rootScope.bienLocationForm.disponible = bienLocation.disponible;
-		$rootScope.bienLocationForm.typeBien = bienLocation.typeBien;
-		$rootScope.bienLocationForm.loyer = bienLocation.loyer;
-		$rootScope.bienLocationForm.caution = bienLocation.caution;
-		$rootScope.bienLocationForm.charges = bienLocation.charges;
-		$rootScope.bienLocationForm.meuble = bienLocation.meuble;
-		$rootScope.bienLocationForm.typeBail = bienLocation.typeBail;
+		$rootScope.bienLocationForm = {
+			id:bienLocation.id,
+			dateSoumission:bienLocation.dateSoumission,
+			dateDispo:bienLocation.dateDispo,
+			disponible:bienLocation.disponible,
+			typeBien:bienLocation.typeBien,
+			loyer:bienLocation.loyer,
+			caution:bienLocation.caution,
+			charges:bienLocation.charges,
+			meuble:bienLocation.meuble,
+			typeBail:bienLocation.typeBail
+		};
 		$location.path("modifBienLocation");
 	}
 });
@@ -69,19 +59,6 @@ monApp.controller("modifBienLocationCtrl", function($scope, $rootScope, $locatio
 	$scope.listeTypesBail = listeTypesBail;
 	if ($rootScope.bienLocationForm == undefined) {
 		$scope.bienLocationForm = {
-			id:$rootScope.bienLocationForm.id,
-			dateSoumission:$rootScope.bienLocationForm.dateSoumission,
-			dateDispo:$rootScope.bienLocationForm.dateDispo,
-			disponible:$rootScope.bienLocationForm.disponible,
-			typeBien:$rootScope.bienLocationForm.typeBien,
-			loyer:$rootScope.bienLocationForm.loyer,
-			caution:$rootScope.bienLocationForm.caution,
-			charges:$rootScope.bienLocationForm.charges,
-			meuble:$rootScope.bienLocationForm.meuble,
-			typeBail:$rootScope.bienLocationForm.typeBail
-		}
-	} else {
-		$scope.bienLocationForm = {
 			id:undefined,
 			dateSoumission:undefined,
 			dateDispo:undefined,
@@ -92,6 +69,19 @@ monApp.controller("modifBienLocationCtrl", function($scope, $rootScope, $locatio
 			charges:0,
 			meuble:false,
 			typeBail:0
+		}
+	} else {
+		$scope.bienLocationForm = {
+			id:$rootScope.bienLocationForm.id,
+			dateSoumission:new Date($rootScope.bienLocationForm.dateSoumission),
+			dateDispo:new Date($rootScope.bienLocationForm.dateDispo),
+			disponible:$rootScope.bienLocationForm.disponible,
+			typeBien:$rootScope.bienLocationForm.typeBien,
+			loyer:$rootScope.bienLocationForm.loyer,
+			caution:$rootScope.bienLocationForm.caution,
+			charges:$rootScope.bienLocationForm.charges,
+			meuble:$rootScope.bienLocationForm.meuble,
+			typeBail:$rootScope.bienLocationForm.typeBail
 		}
 	}
 	$scope.updateBienLocation = function() {
