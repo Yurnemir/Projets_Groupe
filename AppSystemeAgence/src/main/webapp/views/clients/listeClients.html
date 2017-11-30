@@ -18,9 +18,9 @@
 			<td>Rue</td>
 			<td>Code Postal</td>
 			<td>Ville</td>
+			<td>Operations</td>
 		</tr>
 	</thead>
-	
 	
 	<tbody ng-repeat="client in listeClients">
 		<tr>
@@ -31,6 +31,7 @@
 			<td>{{client.adresse.rue}}</td>
 			<td>{{client.adresse.cp}}</td>
 			<td>{{client.adresse.ville}}</td>
+			<td><a ng-click="modifLien(client)">Modifier</a></td>
 		</tr>
 	</tbody>
 </table>

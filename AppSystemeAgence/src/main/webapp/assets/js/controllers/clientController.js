@@ -34,6 +34,10 @@ monApp.controller("listeClientsCtrl", function($scope, clientProvider) {
 		});
 	}
 	
+	$scope.modifLien = function(client){
+		console.log(client);
+	};
+	
 	
 });
 
