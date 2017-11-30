@@ -56,6 +56,7 @@ monApp.controller("ajoutBienLocationCtrl", function($scope, $location, bienLocat
 		typeBail:0
 	}
 	$scope.addBienLocation = function() {
+		console.log($scope.bienLocationForm);
 		bienLocationProvider.addBienLocation($scope.bienLocationForm, function(callBack) {
 			if (callBack!=undefined && callBack!="") {
 				$location.path("listeBiensLocation");

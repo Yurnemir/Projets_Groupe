@@ -19,10 +19,36 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
-	function getVisiteByIdFunction(callBack) {
+	function getVisiteByIdFunction(idRech, callBack) {
+		// Envoyer la requete au webService
+		$http({
+			method:'GET',
+			url: urlRacine + '/visite?pId=' + idRech
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : "+reponse.statusText)
+		});
 	}
 	
-	function addVisiteFunction(callBack) {
+	function addVisiteFunction(visiteAjout, callBack) {
+		// Envoyer la requete au webservice
+		$http({
+			method : 'POST',
+			url : urlRacine + '/visite',
+			data : angular.toJson(visiteAjout),
+			headers: {
+				'content-type': 'application/json'
+			}
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : "+reponse.statusText)
+		});
 	}
 	
 	return {

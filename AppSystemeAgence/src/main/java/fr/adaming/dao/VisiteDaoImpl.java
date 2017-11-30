@@ -69,7 +69,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		Visite vUpdate = (Visite) s.get(Visite.class, visite.getId());
 		
 		vUpdate.setDate(visite.getDate());
-		vUpdate.setHeure(visite.getHeure());
+//		vUpdate.setHeure(visite.getHeure());
 		vUpdate.setBien(visite.getBien());
 		vUpdate.setClient(visite.getClient());
 		
