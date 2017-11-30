@@ -54,10 +54,22 @@ monApp.factory("bienLocationProvider", function($http) {
 		});
 	}
 	
+	function deleteBienLocationFunction(idSuppr, callBack) {
+		$http({
+			method: "DELETE",
+			url: urlRacine + "/bien/location?pId=" + idSuppr,
+		}).then(function success(response) {
+			callBack(response.data);
+		}, function error(response) {
+			console.log("error : " + response.statusText);
+		});
+	}
+	
 	return {
 		getAllBiensLocation:getAllBiensLocationFunction,
 		getBienLocationById:getBienLocationByIdFunction,
 		addBienLocation:addBienLocationFunction,
-		updateBienLocation:updateBienLocationFunction
+		updateBienLocation:updateBienLocationFunction,
+		deleteBienLocation:deleteBienLocationFunction
 	}
 });
