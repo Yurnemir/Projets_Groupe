@@ -1,4 +1,28 @@
 <h1 align="center">Liste des Proprietaires</h1>
-<br/>
-<br/>
+<br />
+<br />
 <h1 align="center">{{message}}</h1>
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+			<td>Adresse</td>
+			<td>Opération</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="proprio in listeProprio">
+			<td>{{proprio.id}}</td>
+			<td>{{proprio.nom}}</td>
+			<td>{{proprio.telPrive}} / {{proprio.telTravail}}</td>
+			<td>{{proprio.adresse.numero}}</td>
+			<td>Opération</td>
+		</tr>
+	</tbody>
+
+</table>

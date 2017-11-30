@@ -34,7 +34,7 @@ public class Adresse implements Serializable {
 	@OneToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
 	private Proprietaire proprietaire;
