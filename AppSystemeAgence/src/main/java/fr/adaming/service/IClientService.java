@@ -11,7 +11,9 @@ public interface IClientService {
 	
 	public List<Client> getAllClientsByAgent(Agent agent);
 	
-	public Client getClientById(Client client, Agent agent);
+	public Client getClientById(Client client);
+	
+	public Client getClientByName(Client client);
 	
 	public Client addClient(Client client, Agent agent);
 	

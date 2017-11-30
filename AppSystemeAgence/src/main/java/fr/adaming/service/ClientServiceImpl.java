@@ -31,29 +31,39 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public Client getClientById(Client client, Agent agent) {
-		Client outClient = clientDao.getClientById(client);
-		if(outClient.getAgent().getId() == agent.getId()){
-			return outClient;
-		} else {
-			return null;
-		}
+	public Client getClientById(Client client) {
+		return clientDao.getClientById(client);
+	}
+
+	@Override
+	public Client getClientByName(Client client) {
+		return clientDao.getClientByName(client);
 	}
 
 	@Override
 	public Client addClient(Client client, Agent agent) {
-		if(agentService.getAgentById(agent)!=null){
-			client.setAgent(agent);
+		Client outClient = getClientByName(client);
+		Agent outAgent = agentService.getAgentById(agent);
+		
+		if(outClient==null && outAgent !=null){
+			client.setAgent(outAgent);
 			return clientDao.addClient(client);
 		} else {
-			return null;
+			return getClientByName(client);
 		}
 	}
 	@Override
 	public Client updateClient(Client client, Agent agent) {
-		if(agentService.getAgentById(agent)!=null){
-			client.setAgent(agent);
-			return clientDao.updateClient(client);
+		Client outClient = getClientById(client);
+		Agent outAgent = agentService.getAgentById(agent);
+		
+		if(outClient!=null && outAgent!=null){
+			if(outClient.getAgent().getId() == outAgent.getId()){
+				client.setAgent(outAgent);
+				return clientDao.updateClient(client);
+			} else {
+				return null;
+			}
 		} else {
 			return null;
 		}
@@ -61,8 +71,14 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public void deleteClient(Client client, Agent agent) {
-		// TODO Auto-generated method stub
+		Client outClient = getClientById(client);
+		Agent outAgent = agentService.getAgentById(agent);
 		
+		if(outClient!=null && outAgent!=null){
+			if(outClient.getAgent().getId() == outAgent.getId()){
+				clientDao.deleteClient(outClient);
+			}
+		}
 	}
 
 }

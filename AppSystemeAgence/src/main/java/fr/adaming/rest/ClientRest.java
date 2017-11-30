@@ -29,8 +29,10 @@ public class ClientRest {
 		return clientService.getAllClients();
 	}
 	
-	@RequestMapping(value="/allFromAgent", method=RequestMethod.GET,consumes="application/json",produces="application/json")
-	public List<Client> getAllClientsByAgent(@RequestBody Agent agent ){
+	@RequestMapping(value="/allFromAgent", method=RequestMethod.GET,produces="application/json")
+	public List<Client> getAllClientsByAgent(@RequestParam(value="agentID") int agentID){
+		Agent agent= new Agent();
+		agent.setId(agentID);
 		return clientService.getAllClientsByAgent(agent);
 	}
 	
@@ -41,7 +43,7 @@ public class ClientRest {
 		Client client = new Client();
 		client.setId(clientID);
 		
-		return clientService.getClientById(client, agent);
+		return clientService.getClientById(client);
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST,consumes="application/json",produces="application/json")
@@ -63,10 +65,13 @@ public class ClientRest {
 		return client;
 	}
 	
-	@RequestMapping(value="/delete",method=RequestMethod.DELETE,consumes="application/json")
-	public void deleteClient(@RequestBody Client client, @RequestParam(value="agentID") int agentID){
+	@RequestMapping(value="/delete",method=RequestMethod.DELETE)
+	public void deleteClient(@RequestParam(value="clientID")int clientID, @RequestParam(value="agentID") int agentID){
 		Agent agent = new Agent();
 		agent.setId(agentID);
+		
+		Client client = new Client();
+		client.setId(clientID);
 
 		clientService.deleteClient(client, agent);
 	}

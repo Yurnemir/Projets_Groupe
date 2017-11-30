@@ -13,6 +13,8 @@ public interface IClientDao {
 	
 	public Client getClientById(Client client);
 	
+	public Client getClientByName(Client client);
+	
 	public Client addClient(Client client);
 	
 	public Client updateClient(Client client);

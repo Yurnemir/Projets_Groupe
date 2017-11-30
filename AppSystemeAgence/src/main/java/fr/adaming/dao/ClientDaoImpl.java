@@ -40,6 +40,14 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
+	public Client getClientByName(Client client) {
+		String req = "FROM Client c WHERE c.nom=:cNom";
+		Query query = sf.getCurrentSession().createQuery(req);
+		query.setParameter("cNom", client.getNom());
+		return (Client) query.uniqueResult();
+	}
+
+	@Override
 	public Client addClient(Client client) {
 		sf.getCurrentSession().persist(client);
 		return client;
@@ -47,7 +55,7 @@ public class ClientDaoImpl implements IClientDao{
 
 	@Override
 	public Client updateClient(Client client) {
-		sf.getCurrentSession().saveOrUpdate(client);
+		sf.getCurrentSession().merge(client);
 		return client;
 	}
 
