@@ -24,9 +24,24 @@ monApp.factory("bienLocationProvider", function($http) {
 		});
 	}
 
-	function addBienLocation(bienLocationForm, callBack) {
+	function addBienLocationFunction(bienLocationForm, callBack) {
 		$http({
 			method: "POST",
+			url: paysRestURL + "/bien/location",
+			data:angular.toJson(bienLocationForm),
+			headers:{
+				"content-type":"application/json"
+			}
+		}).then(function success(response) {
+			callBack(response.data);
+		}, function error(response) {
+			console.log("error : " + response.statusText);
+		});
+	}
+	
+	function updateBienLocationFunction(bienLocationForm, callBack) {
+		$http({
+			method: "PUT",
 			url: paysRestURL + "/bien/location",
 			data:angular.toJson(bienLocationForm),
 			headers:{
@@ -42,6 +57,7 @@ monApp.factory("bienLocationProvider", function($http) {
 	return {
 		getAllBiensLocation:getAllBiensLocationFunction,
 		getBienLocationById:getBienLocationByIdFunction,
-		addBienLocation:addBienLocationFunction
+		addBienLocation:addBienLocationFunction,
+		updateBienLocation:updateBienLocationFunction
 	}
 });

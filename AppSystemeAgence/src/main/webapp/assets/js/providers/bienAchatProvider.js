@@ -24,9 +24,24 @@ monApp.factory("bienAchatProvider", function($http) {
 		});
 	}
 	
-	function addBienAchat(bienAchatForm, callBack) {
+	function addBienAchatFunction(bienAchatForm, callBack) {
 		$http({
 			method: "POST",
+			url: paysRestURL + "/bien/achat",
+			data:angular.toJson(bienAchatForm),
+			headers:{
+				"content-type":"application/json"
+			}
+		}).then(function success(response) {
+			callBack(response.data);
+		}, function error(response) {
+			console.log("error : " + response.statusText);
+		});
+	}
+	
+	function updateBienAchatFunction(bienAchatForm, callBack) {
+		$http({
+			method: "PUT",
 			url: paysRestURL + "/bien/achat",
 			data:angular.toJson(bienAchatForm),
 			headers:{
@@ -42,6 +57,7 @@ monApp.factory("bienAchatProvider", function($http) {
 	return {
 		getAllBiensAchat:getAllBiensAchatFunction,
 		getBienAchatById:getBienAchatByIdFunction,
-		addBienAchat:addBienAchatFunction
+		addBienAchat:addBienAchatFunction,
+		updateBienAchat:updateBienAchatFunction
 	}
 });
