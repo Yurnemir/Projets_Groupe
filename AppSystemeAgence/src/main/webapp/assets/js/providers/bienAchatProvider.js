@@ -27,7 +27,7 @@ monApp.factory("bienAchatProvider", function($http) {
 	function addBienAchatFunction(bienAchatForm, callBack) {
 		$http({
 			method: "POST",
-			url: paysRestURL + "/bien/achat",
+			url: urlRacine + "/bien/achat",
 			data:angular.toJson(bienAchatForm),
 			headers:{
 				"content-type":"application/json"
@@ -42,7 +42,7 @@ monApp.factory("bienAchatProvider", function($http) {
 	function updateBienAchatFunction(bienAchatForm, callBack) {
 		$http({
 			method: "PUT",
-			url: paysRestURL + "/bien/achat",
+			url: urlRacine + "/bien/achat",
 			data:angular.toJson(bienAchatForm),
 			headers:{
 				"content-type":"application/json"

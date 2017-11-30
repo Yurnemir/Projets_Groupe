@@ -15,17 +15,46 @@ monApp.controller("rechercheBienLocationCtrl", function($scope, bienLocationProv
 	}
 });
 
-monApp.controller("ajoutBienLocationCtrl", function($scope, bienLocationProvider) {
+monApp.controller("ajoutBienLocationCtrl", function($scope, $location, bienLocationProvider) {
 	$scope.bienLocationForm = {
-			nom:"",
-			capitale:"",
-			population:0
-		}
-		$scope.addBienAchat = function() {
-			bienLocationProvider.addBienLocation($scope.bienLocationForm, function(callBack) {
-				if (callBack!=undefined && callBack!="") {
-					$location.path("listeBiensLocation");
-				}
-			});
-		}
+		id:undefined,
+//		dateSoumission:undefined,
+//		dateDispo:undefined,
+		disponible:false,
+		typeBien:1,
+		loyer:0,
+		caution:0,
+		charges:0,
+		meuble:false,
+		typeBail:1
+	}
+	$scope.addBienLocation = function() {
+		bienLocationProvider.addBienLocation($scope.bienLocationForm, function(callBack) {
+			if (callBack!=undefined && callBack!="") {
+				$location.path("listeBiensLocation");
+			}
+		});
+	}
+});
+
+monApp.controller("modifBienLocationCtrl", function($scope, $location, bienLocationProvider) {
+	$scope.bienLocationForm = {
+		id:undefined,
+//		dateSoumission:undefined,
+//		dateDispo:undefined,
+		disponible:false,
+		typeBien:1,
+		loyer:0,
+		caution:0,
+		charges:0,
+		meuble:false,
+		typeBail:1
+	}
+	$scope.updateBienLocation = function() {
+		bienLocationProvider.updateBienLocation($scope.bienLocationForm, function(callBack) {
+			if (callBack!=undefined && callBack!="") {
+				$location.path("listeBiensLocation");
+			}
+		});
+	}
 });

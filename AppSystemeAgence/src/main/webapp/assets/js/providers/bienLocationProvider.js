@@ -27,7 +27,7 @@ monApp.factory("bienLocationProvider", function($http) {
 	function addBienLocationFunction(bienLocationForm, callBack) {
 		$http({
 			method: "POST",
-			url: paysRestURL + "/bien/location",
+			url: urlRacine + "/bien/location",
 			data:angular.toJson(bienLocationForm),
 			headers:{
 				"content-type":"application/json"
@@ -42,7 +42,7 @@ monApp.factory("bienLocationProvider", function($http) {
 	function updateBienLocationFunction(bienLocationForm, callBack) {
 		$http({
 			method: "PUT",
-			url: paysRestURL + "/bien/location",
+			url: urlRacine + "/bien/location",
 			data:angular.toJson(bienLocationForm),
 			headers:{
 				"content-type":"application/json"

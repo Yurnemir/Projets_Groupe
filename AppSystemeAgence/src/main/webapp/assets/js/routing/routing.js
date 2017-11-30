@@ -10,6 +10,9 @@ monApp.config(function($routeProvider) {
 	}).when("/ajoutBienAchat", {
 		templateUrl: "views/biens/ajoutBienAchat.html",
 		controller: "ajoutBienAchatCtrl"
+	}).when("/modifBienAchat", {
+		templateUrl: "views/biens/modifBienAchat.html",
+		controller: "modifBienAchatCtrl"
 	});
 	
 	// ====================== Biens Location ======================
@@ -22,6 +25,9 @@ monApp.config(function($routeProvider) {
 	}).when("/ajoutBienLocation", {
 		templateUrl: "views/biens/ajoutBienLocation.html",
 		controller: "ajoutBienLocationCtrl"
+	}).when("/modifBienLocation", {
+		templateUrl: "views/biens/modifBienLocation.html",
+		controller: "modifBienLocationCtrl"
 	});
 	
 	// ====================== Clients ======================
