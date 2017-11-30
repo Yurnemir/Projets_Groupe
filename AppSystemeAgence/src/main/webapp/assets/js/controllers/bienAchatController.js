@@ -15,6 +15,13 @@ monApp.controller("listeBiensAchatCtrl", function($scope, $rootScope, $location,
 		};
 		$location.path("modifBienAchat");
 	}
+	$scope.supprBienAchatViaLien = function(idSuppr) {
+		bienAchatProvider.deleteBienAchat(idSuppr, function(callBack) {
+			bienAchatProvider.getAllBiensAchat(function(callBack) {
+				$scope.listeBiensAchat = callBack;
+			});
+		});
+	}
 });
 
 monApp.controller("rechercheBienAchatCtrl", function($scope, bienAchatProvider) {

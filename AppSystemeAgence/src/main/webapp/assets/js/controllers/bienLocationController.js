@@ -18,6 +18,13 @@ monApp.controller("listeBiensLocationCtrl", function($scope, $rootScope, $locati
 		};
 		$location.path("modifBienLocation");
 	}
+	$scope.supprBienLocationViaLien = function(idSuppr) {
+		bienLocationProvider.deleteBienLocation(idSuppr, function(callBack) {
+			bienLocationProvider.getAllBiensLocation(function(callBack) {
+				$scope.listeBiensLocation = callBack;
+			});
+		});
+	}
 });
 
 monApp.controller("rechercheBienLocationCtrl", function($scope, bienLocationProvider) {

@@ -54,10 +54,22 @@ monApp.factory("bienAchatProvider", function($http) {
 		});
 	}
 	
+	function deleteBienAchatFunction(idSuppr, callBack) {
+		$http({
+			method: "DELETE",
+			url: urlRacine + "/bien/achat?pId=" + idSuppr,
+		}).then(function success(response) {
+			callBack(response.data);
+		}, function error(response) {
+			console.log("error : " + response.statusText);
+		});
+	}
+	
 	return {
 		getAllBiensAchat:getAllBiensAchatFunction,
 		getBienAchatById:getBienAchatByIdFunction,
 		addBienAchat:addBienAchatFunction,
-		updateBienAchat:updateBienAchatFunction
+		updateBienAchat:updateBienAchatFunction,
+		deleteBienAchat:deleteBienAchatFunction
 	}
 });
