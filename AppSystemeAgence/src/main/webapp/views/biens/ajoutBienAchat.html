@@ -1,4 +1,54 @@
 <h1 align="center">Ajout d'un Bien d'Achat</h1>
 <br/>
 <br/>
-<h1 align="center">{{message}}</h1>
+
+<form class=form-horizontal>
+	<div class="form-group">
+		<label for="idDateSoumission" class="col-sm-2 control-label">Date Soumission :</label>
+		<div class="col-sm-4">
+			<input type="date" class="form-control" id="idDateSoumission" ng-model="bienAchatForm.dateSoumission">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idDateDispo" class="col-sm-2 control-label">Date Dispo :</label>
+		<div class="col-sm-4">
+			<input type="date" class="form-control" id="idDateDispo" ng-model="bienAchatForm.dateSoumission">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idDisponible" class="col-sm-2 control-label">Disponible :</label>
+		<div class="col-sm-4">
+			<input type="checkbox" class="form-control" id="idDisponible" ng-model="bienAchatForm.disponible">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idTypeBien" ng-model="bienAchatForm.typeBien">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idTypeBien" ng-model="bienAchatForm.typeBien">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idEtatBien" class="col-sm-2 control-label">Etat :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idEtatBien" ng-model="bienAchatForm.etatBien">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idPrixVente" class="col-sm-2 control-label">Prix :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idPrixVente" ng-model="bienAchatForm.prixVente">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-primary" ng-click="addBienAchat()">Ajouter</button>
+		</div>
+	</div>
+</form>
+

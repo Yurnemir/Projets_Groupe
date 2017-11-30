@@ -16,5 +16,16 @@ monApp.controller("rechercheBienLocationCtrl", function($scope, bienLocationProv
 });
 
 monApp.controller("ajoutBienLocationCtrl", function($scope, bienLocationProvider) {
-	$scope.message = "ajoutBienLocationCtrl";
+	$scope.bienLocationForm = {
+			nom:"",
+			capitale:"",
+			population:0
+		}
+		$scope.addBienAchat = function() {
+			bienLocationProvider.addBienLocation($scope.bienLocationForm, function(callBack) {
+				if (callBack!=undefined && callBack!="") {
+					$location.path("listeBiensLocation");
+				}
+			});
+		}
 });
