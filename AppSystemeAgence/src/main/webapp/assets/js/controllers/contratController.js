@@ -6,7 +6,7 @@ monApp.controller("listeContratsCtrl", function($scope, contratProvider,$locatio
 
 		// passer la liste des pays dans le scope
 		$scope.contratsListe = callBack;
-
+ 
 	});
 });
 
