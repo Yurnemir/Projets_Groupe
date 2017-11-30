@@ -2,3 +2,26 @@
 <br/>
 <br/>
 <h1 align="center">{{message}}</h1>
+
+<table class="table table-bordered">
+  <tr>
+  	<td>ID</td>
+  	<td>Date de signature</td>
+  	<td>Client</td>
+  	<td>Bien Immobilier</td>
+ 
+  	
+  </tr>
+  
+  
+  <tbody>
+  	<tr ng-repeat="contrat in contratsListe">
+  		<td>{{contrat.id}}</td>
+  		<td>{{contrat.dateSignature}}</td>
+  		<td>{{contrat.client.nom}}</td>
+  		<td>{{contrat.bien.id}}</td>
+  		
+  	
+  	</tr>
+  </tbody>
+</table>

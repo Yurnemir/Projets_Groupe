@@ -13,6 +13,7 @@ import fr.adaming.model.Contrat;
 import fr.adaming.service.IContratService;
 
 @RestController
+//@RequestMapping("/contrats")
 public class ContratRest {
 
 	@Autowired

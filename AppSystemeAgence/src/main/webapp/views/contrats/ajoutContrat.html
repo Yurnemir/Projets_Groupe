@@ -2,3 +2,30 @@
 <br/>
 <br/>
 <h1 align="center">{{message}}</h1>
+
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="idDs" class="col-sm-2 control-label">Date de Signature:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="idDs" placeholder="Date de signature" ng-model="contratForm.dateSignature">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="idCl" class="col-sm-2 control-label">Id du Client signataire :</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="idCl" placeholder="Client" ng-model="contratForm.client.id">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="idBien" class="col-sm-2 control-label">Id du bien immobilier concerné :</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="idBien" placeholder="Bien immobilier" ng-model="contratForm.bien.id">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="ajouter()" class="btn btn-info">Editer le contrat</button>
+    </div>
+  </div>
+</form>

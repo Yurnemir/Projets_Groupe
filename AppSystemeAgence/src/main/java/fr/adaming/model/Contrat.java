@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,6 +27,7 @@ public class Contrat implements Serializable {
 	@Column(name="id_co")
 	private int id;
 	@Column(name="dateSignature_co")
+	@Temporal(TemporalType.DATE)
 	private Date dateSignature; 
 	@JsonIgnore
 	@ManyToOne
