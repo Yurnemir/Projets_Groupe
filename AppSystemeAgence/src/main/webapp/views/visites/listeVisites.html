@@ -2,3 +2,27 @@
 <br/>
 <br/>
 <h1 align="center">{{message}}</h1>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Date</td>
+			<td>Heure</td>
+			<td>ID Bien</td>
+			<td>ID Client</td>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="visite in visiteListe">
+			<td>{{visite.id}}</td>
+			<td>{{visite.date}}</td>
+			<td>{{visite.heure}}</td>
+			<td>{{visite.bien.id}}</td>
+			<td>{{visite.client.id}}</td>
+		</tr>
+
+	</tbody>
+
+</table>

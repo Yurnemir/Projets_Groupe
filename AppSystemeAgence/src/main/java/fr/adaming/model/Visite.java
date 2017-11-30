@@ -14,8 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="visites")
 public class Visite implements Serializable{
@@ -26,17 +24,19 @@ public class Visite implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_v")
 	private int id;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_v")
 	private Date date;
+	
 	@Temporal(TemporalType.TIME)
 	@Column(name="heure_v")
 	private Date heure;
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
 	private BienImmobilier bien;
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="client_id", referencedColumnName="id_cl")
 	private Client client;
@@ -45,10 +45,9 @@ public class Visite implements Serializable{
 	public Visite() {
 		super();
 	}
-	public Visite(Date date, Date heure) {
+	public Visite(Date date) {
 		super();
 		this.date = date;
-		this.heure = heure;
 	}
 	public Visite(int id, Date date, Date heure) {
 		super();

@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -48,7 +49,14 @@ public class VisiteDaoImpl implements IVisiteDao{
 		
 		Session s = sf.getCurrentSession();
 		
-		s.save(visite);
+		String date = visite.getDate().toString();
+		
+		System.out.println(date);
+		
+		//visite.setDate(new Date(visite.getDate()));
+		
+		
+		s.persist(visite);
 		
 		return visite;
 	}
