@@ -1,4 +1,4 @@
-<h1 align="center">Ajout d'un Client</h1>
+<h1 align="center">Modification d'un Client</h1>
 <br/>
 <br/>
 
@@ -7,15 +7,17 @@
 
 	Agent ID:<input type="number" ng-model="agentID">
 	
+	Client ID:<input type="number" ng-model="client.id">
+	
 	Nom du Client:<input type="text" ng-model="client.nom">
 	
 	Téléphone du Client:<input type="text" ng-model="client.telephone">
 	
-	<input type="button" ng-click="ajout()" value="Ajouter">
+	<input type="button" ng-click="modif()" value="Modifier">
 	
 </form>
 
-<table class="table table-bordered" ng-show="clientCreated">
+<table class="table table-bordered" ng-show="clientModified">
 	<thead>
 		<tr>
 			<td>Id</td>
@@ -27,9 +29,9 @@
 	
 	<tbody>
 		<tr>
-			<td>{{client.id}}</td>
-			<td>{{client.nom}}</td>
-			<td>{{client.telephone}}</td>
+			<td>{{modClient.id}}</td>
+			<td>{{modClient.nom}}</td>
+			<td>{{modClient.telephone}}</td>
 		</tr>
 	</tbody>
 </table>

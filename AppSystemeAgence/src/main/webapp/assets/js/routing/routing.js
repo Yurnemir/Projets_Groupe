@@ -40,6 +40,9 @@ monApp.config(function($routeProvider) {
 	}).when("/ajoutClient", {
 		templateUrl: "views/clients/ajoutClient.html",
 		controller: "ajoutClientCtrl"
+	}).when("/modifClient", {
+		templateUrl: "views/clients/modifClient.html",
+		controller: "modifClientCtrl"
 	});
 	
 	// ====================== Contrats ======================

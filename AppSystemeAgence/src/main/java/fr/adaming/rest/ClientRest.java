@@ -37,9 +37,7 @@ public class ClientRest {
 	}
 	
 	@RequestMapping(value="/getById", method=RequestMethod.GET,produces="application/json")
-	public Client getClientById(@RequestParam(value="clientID") int clientID, @RequestParam(value="agentID") int agentID){
-		Agent agent = new Agent();
-		agent.setId(agentID);
+	public Client getClientById(@RequestParam(value="clientID") int clientID){
 		Client client = new Client();
 		client.setId(clientID);
 		
