@@ -65,3 +65,16 @@ monApp.controller("modifVisiteCtrl", function($scope, $location, visiteProvider)
 	}
 	
 });
+
+monApp.controller("supprVisiteCtrl", function($scope, $location, visiteProvider) {
+	$scope.idSuppr = undefined;
+	
+	$scope.supprVisite = function() {
+		visiteProvider.supprVisite($scope.idSuppr, function(callBack) {
+			if(callBack != undefined && callBack != "") {
+				$location.path("listeVisites");
+			}
+		});
+	}
+	
+});

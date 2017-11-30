@@ -58,10 +58,23 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
+	function supprVisiteFunction(idDel, callBack) {
+		$http({
+			method : 'DELETE',
+			url : urlRacine + '/visite?pId=' + idDel
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : "+reponse.statusText)
+		});
+	}
+	
 	return {
 		getAllVisites:getAllVisitesFunction,
 		getVisiteById:getVisiteByIdFunction,
 		addVisite:addVisiteFunction,
-		updateVisite:updateVisiteFunction
+		updateVisite:updateVisiteFunction,
+		supprVisite:supprVisiteFunction
 	}
 });

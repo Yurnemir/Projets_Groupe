@@ -79,6 +79,12 @@ monApp.config(function($routeProvider) {
 	}).when("/ajoutVisite", {
 		templateUrl: "views/visites/ajoutVisite.html",
 		controller: "ajoutVisiteCtrl"
+	}).when("/modifVisite", {
+		templateUrl: "views/visites/modifVisite.html",
+		controller: "modifVisiteCtrl"
+	}).when("/supprVisite", {
+		templateUrl: "views/visites/supprVisite.html",
+		controller: "supprVisiteCtrl"
 	});
 
 	// ====================== Accueil (Defaut) ======================
