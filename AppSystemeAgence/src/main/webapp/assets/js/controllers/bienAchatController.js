@@ -3,23 +3,16 @@ monApp.controller("listeBiensAchatCtrl", function($scope, $rootScope, $location,
 	bienAchatProvider.getAllBiensAchat(function(callBack) {
 		$scope.listeBiensAchat = callBack;
 	});
-	$rootScope.bienAchatForm = {
-		id:undefined,
-		dateSoumission:undefined,
-		dateDispo:undefined,
-		disponible:false,
-		typeBien:0,
-		etatBien:0,
-		prixVente:0
-	}
 	$scope.modifBienAchatViaLien = function(bienAchat) {
-		$rootScope.bienAchatForm.id = bienAchat.id;
-		$rootScope.bienAchatForm.dateSoumission = bienAchat.dateSoumission;
-		$rootScope.bienAchatForm.dateDispo = bienAchat.dateDispo;
-		$rootScope.bienAchatForm.disponible = bienAchat.disponible;
-		$rootScope.bienAchatForm.typeBien = bienAchat.typeBien;
-		$rootScope.bienAchatForm.etatBien = bienAchat.etatBien;
-		$rootScope.bienAchatForm.prixVente = bienAchat.prixVente;
+		$rootScope.bienAchatForm = {
+			id:bienAchat.id,
+			dateSoumission:bienAchat.dateSoumission,
+			dateDispo:bienAchat.dateDispo,
+			disponible:bienAchat.disponible,
+			typeBien:bienAchat.typeBien,
+			etatBien:bienAchat.etatBien,
+			prixVente:bienAchat.prixVente
+		};
 		$location.path("modifBienAchat");
 	}
 });
