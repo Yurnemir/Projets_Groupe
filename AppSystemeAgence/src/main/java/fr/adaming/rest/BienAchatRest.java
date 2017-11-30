@@ -1,15 +1,17 @@
 package fr.adaming.rest;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.enums.EtatBienAchat;
+import fr.adaming.enums.TypeBien;
 import fr.adaming.model.BienAchat;
 import fr.adaming.service.IBienAchatService;
 
@@ -28,8 +30,8 @@ public class BienAchatRest {
 		return this.bienAchatService.getAllBiensAchat();
 	}
 	
-	@RequestMapping(value="/bien/achat/{pId}", method=RequestMethod.GET, produces="application/json")
-	public BienAchat getBienAchatById(@PathVariable("pId") int id) {
+	@RequestMapping(value="/bien/achat", method=RequestMethod.GET, produces="application/json")
+	public BienAchat getBienAchatById(@RequestParam("pId") int id) {
 		return this.bienAchatService.getBienAchatById(id);
 	}
 	
@@ -37,6 +39,10 @@ public class BienAchatRest {
 	public BienAchat addBienAchat(@RequestBody BienAchat bienAchat) {
 		return this.bienAchatService.addBienAchat(bienAchat);
 	}
+//	@RequestMapping(value="/bien/achat", method=RequestMethod.POST, produces="application/json")
+//	public BienAchat addBienAchat() {
+//		return this.bienAchatService.addBienAchat(new BienAchat(false, new Date(), new Date(), TypeBien.BUREAU, 2000, EtatBienAchat.CORRECT));
+//	}
 	
 	@RequestMapping(value="/bien/achat", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
 	public BienAchat updateBienAchat(@RequestBody BienAchat bienAchat) {

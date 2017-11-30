@@ -41,14 +41,14 @@ public class BienLocationDaoImpl implements IBienLocationDao {
 	@Override
 	public BienLocation addBienLocation(BienLocation bienLocation) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(bienLocation);
+		session.save(bienLocation);
 		return bienLocation;
 	}
 
 	@Override
 	public BienLocation updateBienLocation(BienLocation bienLocation) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(bienLocation);
+		session.saveOrUpdate(bienLocation);
 		return bienLocation;
 	}
 

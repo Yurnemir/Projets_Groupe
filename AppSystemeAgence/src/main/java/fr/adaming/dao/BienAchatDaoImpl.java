@@ -41,14 +41,14 @@ public class BienAchatDaoImpl implements IBienAchatDao {
 	@Override
 	public BienAchat addBienAchat(BienAchat bienAchat) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(bienAchat);
+		session.save(bienAchat);
 		return bienAchat;
 	}
 	
 	@Override
 	public BienAchat updateBienAchat(BienAchat bienAchat) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(bienAchat);
+		session.saveOrUpdate(bienAchat);
 		return bienAchat;
 	}
 	

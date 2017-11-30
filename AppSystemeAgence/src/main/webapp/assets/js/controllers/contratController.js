@@ -1,12 +1,12 @@
 
-monApp.controller("listeContratsCtrl", function($scope) {
+monApp.controller("listeContratsCtrl", function($scope, contratProvider) {
 	$scope.message = "listeContratsCtrl";
 });
 
-monApp.controller("rechercheContratCtrl", function($scope) {
+monApp.controller("rechercheContratCtrl", function($scope, contratProvider) {
 	$scope.message = "rechercheContratCtrl";
 });
 
-monApp.controller("ajoutContratCtrl", function($scope) {
+monApp.controller("ajoutContratCtrl", function($scope, contratProvider) {
 	$scope.message = "ajoutContratCtrl";
 });

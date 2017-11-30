@@ -1,12 +1,12 @@
 
-monApp.controller("listeProprietairesCtrl", function($scope) {
+monApp.controller("listeProprietairesCtrl", function($scope, proprietaireProvider) {
 	$scope.message = "listeProprietairesCtrl";
 });
 
-monApp.controller("rechercheProprietaireCtrl", function($scope) {
+monApp.controller("rechercheProprietaireCtrl", function($scope, proprietaireProvider) {
 	$scope.message = "rechercheProprietaireCtrl";
 });
 
-monApp.controller("ajoutProprietaireCtrl", function($scope) {
+monApp.controller("ajoutProprietaireCtrl", function($scope, proprietaireProvider) {
 	$scope.message = "ajoutProprietaireCtrl";
 });

@@ -1,4 +1,48 @@
 <h1 align="center">Recherche d'un Bien de Location</h1>
 <br/>
 <br/>
-<h1 align="center">{{message}}</h1>
+
+<form class=form-horizontal>
+	<div class="form-group">
+		<label for="idIdRecherche" class="col-sm-2 control-label">Id :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idIdRecherche" ng-model="idRecherche">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-primary" ng-click="getBienLocationById()">Rechercher</button>
+		</div>
+	</div>
+</form>
+
+<table class="table table-bordered" ng-show="displayResult">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Date Soumission</th>
+			<th>Date Dispo</th>
+			<th>Disponible</th>
+			<th>Type</th>
+			<th>Loyer</th>
+			<th>Caution</th>
+			<th>Charges</th>
+			<th>Garnis</th>
+			<th>Bail</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{bienLocationTrouve.id}}</td>
+			<td>{{bienLocationTrouve.dateSoumission}}</td>
+			<td>{{bienLocationTrouve.dateDispo}}</td>
+			<td>{{bienLocationTrouve.disponible}}</td>
+			<td>{{bienLocationTrouve.typeBien}}</td>
+			<td>{{bienLocationTrouve.loyer}}</td>
+			<td>{{bienLocationTrouve.caution}}</td>
+			<td>{{bienLocationTrouve.charges}}</td>
+			<td>{{bienLocationTrouve.meuble}}</td>
+			<td>{{bienLocationTrouve.typeBail}}</td>
+		</tr>
+	</tbody>
+</table>

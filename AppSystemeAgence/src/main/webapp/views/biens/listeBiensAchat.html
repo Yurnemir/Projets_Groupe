@@ -1,4 +1,27 @@
 <h1 align="center">Liste des Biens d'Achat</h1>
 <br/>
 <br/>
-<h1 align="center">{{message}}</h1>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Date Soumission</th>
+			<th>Date Dispo</th>
+			<th>Disponible</th>
+			<th>Type</th>
+			<th>Etat</th>
+			<th>Prix Vente</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="bienAchat in listeBiensAchat">
+			<td>{{bienAchat.id}}</td>
+			<td>{{bienAchat.dateSoumission}}</td>
+			<td>{{bienAchat.dateDispo}}</td>
+			<td>{{bienAchat.disponible}}</td>
+			<td>{{bienAchat.typeBien}}</td>
+			<td>{{bienAchat.etatBien}}</td>
+			<td>{{bienAchat.prixVente}}</td>
+		</tr>
+	</tbody>
+</table>

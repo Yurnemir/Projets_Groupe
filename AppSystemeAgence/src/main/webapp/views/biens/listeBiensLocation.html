@@ -1,4 +1,33 @@
 <h1 align="center">Liste des Biens de Location</h1>
 <br/>
 <br/>
-<h1 align="center">{{message}}</h1>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Date Soumission</th>
+			<th>Date Dispo</th>
+			<th>Disponible</th>
+			<th>Type</th>
+			<th>Loyer</th>
+			<th>Caution</th>
+			<th>Charges</th>
+			<th>Garnis</th>
+			<th>Bail</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="bienLocation in listeBiensLocation">
+			<td>{{bienLocation.id}}</td>
+			<td>{{bienLocation.dateSoumission}}</td>
+			<td>{{bienLocation.dateDispo}}</td>
+			<td>{{bienLocation.disponible}}</td>
+			<td>{{bienLocation.typeBien}}</td>
+			<td>{{bienLocation.loyer}}</td>
+			<td>{{bienLocation.caution}}</td>
+			<td>{{bienLocation.charges}}</td>
+			<td>{{bienLocation.meuble}}</td>
+			<td>{{bienLocation.typeBail}}</td>
+		</tr>
+	</tbody>
+</table>
