@@ -28,11 +28,11 @@ public class Visite implements Serializable{
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_v")
-	private Calendar date;
+	private Date date;
 	
-//	@Temporal(TemporalType.TIME)
-//	@Column(name="heure_v")
-//	private Date heure;
+	@Temporal(TemporalType.TIME)
+	@Column(name="heure_v")
+	private Date heure;
 	
 	@ManyToOne
 	@JoinColumn(name="bien_id", referencedColumnName="id_b")
@@ -46,15 +46,16 @@ public class Visite implements Serializable{
 	public Visite() {
 		super();
 	}
-	public Visite(Calendar date) {
+	public Visite(Date date, Date heure) {
 		super();
 		this.date = date;
+		this.heure = heure;
 	}
-	public Visite(int id, Calendar date) {
+	public Visite(int id, Date date, Date heure) {
 		super();
 		this.id = id;
 		this.date = date;
-//		this.heure = heure;
+		this.heure = heure;
 	}
 
 	public int getId() {
@@ -63,18 +64,18 @@ public class Visite implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Calendar getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(Calendar date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-//	public Date getHeure() {
-//		return heure;
-//	}
-//	public void setHeure(Date heure) {
-//		this.heure = heure;
-//	}
+	public Date getHeure() {
+		return heure;
+	}
+	public void setHeure(Date heure) {
+		this.heure = heure;
+	}
 	public BienImmobilier getBien() {
 		return bien;
 	}
@@ -87,10 +88,10 @@ public class Visite implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
+	
 	//====================== Methodes ======================
 	@Override
 	public String toString() {
-		return "Visite [id=" + id + ", date=" + date + "]";
+		return "Visite [id=" + id + ", date=" + date + ", heure=" + heure + "]";
 	}
 }

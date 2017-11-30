@@ -26,21 +26,16 @@ monApp.controller("rechercheVisiteCtrl", function($scope, visiteProvider) {
 });
 
 monApp.controller("ajoutVisiteCtrl", function($scope, $location, visiteProvider) {
-	$scope.message = "ajoutVisiteCtrl";
-	
-	// Déclaration d'un
 	$scope.visiteForm = {
 		date : undefined,
 		heure : undefined,
 		bien : null,
 		client : null
 	}
-	
-	$scope.addVisite = function(){
-		
+	$scope.addVisite = function() {
 		console.log($scope.visiteForm);
-		visiteProvider.addVisite($scope.visiteForm, function(callBack){
-			if(callBack != undefined && callBack != ""){
+		visiteProvider.addVisite($scope.visiteForm, function(callBack) {
+			if(callBack != undefined && callBack != "") {
 				$location.path("listeVisites");
 			}
 		});
