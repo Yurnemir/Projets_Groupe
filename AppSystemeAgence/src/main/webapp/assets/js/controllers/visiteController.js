@@ -32,9 +32,32 @@ monApp.controller("ajoutVisiteCtrl", function($scope, $location, visiteProvider)
 		bien : null,
 		client : null
 	}
+	$scope.idBien = undefined;
+	$scope.idClient = undefined;
 	$scope.addVisite = function() {
 		console.log($scope.visiteForm);
-		visiteProvider.addVisite($scope.visiteForm, function(callBack) {
+		visiteProvider.addVisite($scope.visiteForm, $scope.idClient, $scope.idBien, function(callBack) {
+			if(callBack != undefined && callBack != "") {
+				$location.path("listeVisites");
+			}
+		});
+	}
+	
+});
+
+monApp.controller("modifVisiteCtrl", function($scope, $location, visiteProvider) {
+	$scope.visiteForm = {
+		id : undefined,
+		date : undefined,
+		heure : undefined,
+		bien : null,
+		client : null
+	}
+	$scope.idBien = undefined;
+	$scope.idClient = undefined;
+	$scope.updateVisite = function() {
+		console.log($scope.visiteForm);
+		visiteProvider.updateVisite($scope.visiteForm, $scope.idClient, $scope.idBien, function(callBack) {
 			if(callBack != undefined && callBack != "") {
 				$location.path("listeVisites");
 			}

@@ -41,20 +41,19 @@ public class VisiteDaoImpl implements IVisiteDao{
 		
 		Session s = sf.getCurrentSession();
 		
-		return (Visite) s.get(Visite.class, id);
+		Visite visiteGet = (Visite) s.get(Visite.class, id);
+		
+		if(visiteGet!=null){
+			return visiteGet;
+		}else{
+			return null;
+		}
 	}
 
 	@Override
 	public Visite addVisite(Visite visite) {
 		
-		Session s = sf.getCurrentSession();
-		
-		String date = visite.getDate().toString();
-		
-		System.out.println(date);
-		
-		//visite.setDate(new Date(visite.getDate()));
-		
+		Session s = sf.getCurrentSession();		
 		
 		s.persist(visite);
 		
@@ -69,7 +68,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		Visite vUpdate = (Visite) s.get(Visite.class, visite.getId());
 		
 		vUpdate.setDate(visite.getDate());
-//		vUpdate.setHeure(visite.getHeure());
+		vUpdate.setHeure(visite.getHeure());
 		vUpdate.setBien(visite.getBien());
 		vUpdate.setClient(visite.getClient());
 		

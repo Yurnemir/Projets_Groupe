@@ -26,11 +26,27 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
-	function addVisiteFunction(visiteAjout, callBack) {
+	function addVisiteFunction(visiteAjout, idcl, idb, callBack) {
 		$http({
 			method : 'POST',
-			url : urlRacine + '/visite',
+			url : urlRacine + '/visite?pIdcl=' + idcl + '&pIdb=' + idb,
 			data : angular.toJson(visiteAjout),
+			headers: {
+				'content-type': 'application/json'
+			}
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : "+reponse.statusText)
+		});
+	}
+	
+	function updateVisiteFunction(visiteUpdate, idcl, idb, callBack) {
+		$http({
+			method : 'PUT',
+			url : urlRacine + '/visite?pIdcl=' + idcl + '&pIdb=' + idb,
+			data : angular.toJson(visiteUpdate),
 			headers: {
 				'content-type': 'application/json'
 			}
@@ -45,6 +61,7 @@ monApp.factory("visiteProvider", function($http) {
 	return {
 		getAllVisites:getAllVisitesFunction,
 		getVisiteById:getVisiteByIdFunction,
-		addVisite:addVisiteFunction
+		addVisite:addVisiteFunction,
+		updateVisite:updateVisiteFunction
 	}
 });
