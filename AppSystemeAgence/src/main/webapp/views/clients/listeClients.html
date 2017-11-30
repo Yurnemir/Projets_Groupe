@@ -1,4 +1,28 @@
 <h1 align="center">Liste des Clients</h1>
 <br/>
 <br/>
+
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+		</tr>
+	</thead>
+	
+	
+	<tbody ng-repeat="client in listeClients">
+		<tr>
+			<td>{{client.id}}</td>
+			<td>{{client.nom}}</td>
+			<td>{{client.telephone}}</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
 <h1 align="center">{{message}}</h1>

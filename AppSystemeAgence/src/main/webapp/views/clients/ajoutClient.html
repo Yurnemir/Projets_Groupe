@@ -1,4 +1,37 @@
 <h1 align="center">Ajout d'un Client</h1>
 <br/>
 <br/>
+
+
+<form>
+
+	Agent ID:<input type="number" ng-model="agentID">
+	
+	Nom du Client:<input type="text" ng-model="client.nom">
+	
+	Téléphone du Client:<input type="text" ng-model="client.telephone">
+	
+	<input type="button" ng-click="ajout()" value="Ajouter">
+	
+</form>
+
+<table class="table table-bordered" ng-show="clientCreated">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+		</tr>
+	</thead>
+	
+	
+	<tbody>
+		<tr>
+			<td>{{client.id}}</td>
+			<td>{{client.nom}}</td>
+			<td>{{client.telephone}}</td>
+		</tr>
+	</tbody>
+</table>
+
 <h1 align="center">{{message}}</h1>

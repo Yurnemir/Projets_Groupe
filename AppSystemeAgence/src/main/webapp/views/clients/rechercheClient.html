@@ -1,4 +1,30 @@
 <h1 align="center">Recherche d'un Client</h1>
 <br/>
 <br/>
+
+
+<form>
+	<input type="number" ng-model="clientID">
+	<input type="button" ng-click="recherche()" value="Rechercher">
+</form>
+
+<table class="table table-bordered" ng-show="clientFound">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+		</tr>
+	</thead>
+	
+	
+	<tbody>
+		<tr>
+			<td>{{client.id}}</td>
+			<td>{{client.nom}}</td>
+			<td>{{client.telephone}}</td>
+		</tr>
+	</tbody>
+</table>
+
 <h1 align="center">{{message}}</h1>
