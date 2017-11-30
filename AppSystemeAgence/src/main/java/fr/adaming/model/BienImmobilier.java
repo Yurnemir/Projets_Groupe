@@ -46,9 +46,7 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
-	@JsonIgnore
-	@OneToOne(mappedBy="bien")
-	private Adresse adresse;
+
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
@@ -111,12 +109,7 @@ public abstract class BienImmobilier implements Serializable {
 	public void setTypeBien(TypeBien typeBien) {
 		this.typeBien = typeBien;
 	}
-	public Adresse getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}

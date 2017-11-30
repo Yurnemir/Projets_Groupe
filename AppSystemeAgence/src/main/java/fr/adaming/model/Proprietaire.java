@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,8 +31,8 @@ public class Proprietaire implements Serializable{
 	private String telPrive;
 	@Column(name="telTravail_p")
 	private String telTravail;
-	@JsonIgnore
-	@OneToOne(mappedBy="proprietaire")
+
+	@Embedded
 	private Adresse adresse;
 	@JsonIgnore
 	@OneToMany(mappedBy="proprietaire")

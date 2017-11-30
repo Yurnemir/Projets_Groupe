@@ -30,9 +30,7 @@ public class Client implements Serializable {
 	private String nom;
 	@Column(name="telephone_cl")
 	private String telephone;
-	@JsonIgnore
-	@OneToOne(mappedBy="client")
-	private Adresse adresse;
+
 	@JsonIgnore
 	@OneToMany(mappedBy="client")
 	private List<Visite> listeVisites;
@@ -79,12 +77,7 @@ public class Client implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public Adresse getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+
 	public List<Visite> getListeVisites() {
 		return listeVisites;
 	}
