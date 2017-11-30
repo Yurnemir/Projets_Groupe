@@ -10,10 +10,7 @@
 			<td>ID</td>
 			<td>Nom</td>
 			<td>Telephone</td>
-			<td>Numéro de rue</td>
-			<td>Rue</td>
-			<td>Code Postal</td>
-			<td>Ville</td>
+			<td>Adresse</td>
 			<td>Opération</td>
 		</tr>
 	</thead>
@@ -23,10 +20,7 @@
 			<td>{{proprio.id}}</td>
 			<td>{{proprio.nom}}</td>
 			<td>{{proprio.telPrive}} / {{proprio.telTravail}}</td>
-			<td>{{proprio.adresse.numero}}</td>
-			<td>{proprio.adresse.rue}}</td>
-			<td>{{proprio.adresse.cp}}</td>
-			<td>{{proprio.adresse.ville}}</td>
+			<td>{{proprio.adresse.numero}} {{proprio.adresse.rue}} {{proprio.adresse.cp}} {{proprio.adresse.ville}}</td>
 			<td>Opération</td>
 		</tr>
 	</tbody>

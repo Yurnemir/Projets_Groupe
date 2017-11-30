@@ -26,7 +26,13 @@ monApp.controller("ajoutProprietaireCtrl", function($scope, proprietaireProvider
 	proprioAjout={
 			nom:"",
 			telPrive:"",
-			telTravail:""
+			telTravail:"",
+			adresse :{
+					numero:"",
+					rue:"",
+					cp:"",
+					ville:""
+			}
 	}
 	
 	$scope.ajouterProprio = function (){
