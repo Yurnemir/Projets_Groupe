@@ -40,12 +40,28 @@ monApp.factory("clientProvider", function($http) {
 			callBack(response.data);
 		},function error(response){
 			console.log("----- Erreur:"+response.statusText);
-		})
+		});
+	}
+	
+	function modifClientFunction(client,idAgent,callBack){
+		$http({
+			method:'PUT',
+			url:urlRacine+"/client/update?agentID="+idAgent,
+			headers:{
+				"Content-Type":"application/json"
+			},
+			data:angular.toJson(client)
+		}).then(function succes(response){
+			callBack(response.data);
+		},function error(response){
+			console.log("----- Erreur:"+response.statusText);
+		});
 	}
 	
 	return {
 		getAllClients:getAllClientsFunction,
 		getClientById:getClientByIdFunction,
-		addClient:addClientFunction
+		addClient:addClientFunction,
+		modifClient:modifClientFunction
 	}
 });

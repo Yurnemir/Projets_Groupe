@@ -46,10 +46,37 @@ monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 			}
 		});
 	};
-	
-	
-	
-	
-	
-	
 });
+
+monApp.controller("modifClientCtrl", function($scope,clientProvider){
+	$scope.message="";
+	
+	$scope.agentID=0;
+	
+	$scope.client={
+			id:0,
+			nom:"",
+			telephone:""
+	}
+	
+	$scope.modClient={
+			id:0,
+			nom:"",
+			telephone:""
+	}
+	
+	$scope.clientModified = false;
+	
+	$scope.modif = function(){
+		clientProvider.modifClient($scope.client,$scope.agentID,function(callBack){
+			if(callBack!=undefined && callBack != ""){
+				$scope.modClient = callBack;
+				$scope.clientModified = true;
+				$scope.message = "";
+			} else {
+				$scope.clientModified = false;
+				$scope.message="Pas de Client créé";
+			}
+		});
+	};
+});	
