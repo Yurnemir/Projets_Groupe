@@ -16,6 +16,20 @@ monApp.factory("clientProvider", function($http) {
 		});
 	}
 	
+	function getClientsByAgentFunction(agentID,callBack) {
+		//envoi de la requete
+		$http({
+			method:'GET',
+			url:urlRacine+"/client/allFromAgent?agentID="+agentID
+		}).then(function success(response){
+			console.log(response.data);
+			
+			callBack(response.data);
+		},function error(response){
+			console.log("----- Erreur:"+response.statusText)
+		});
+	}
+	
 	function getClientByIdFunction(id,callBack) {
 		$http({
 			method:'GET',
@@ -60,6 +74,7 @@ monApp.factory("clientProvider", function($http) {
 	
 	return {
 		getAllClients:getAllClientsFunction,
+		getClientsByAgent:getClientsByAgentFunction,
 		getClientById:getClientByIdFunction,
 		addClient:addClientFunction,
 		modifClient:modifClientFunction
