@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,17 +50,16 @@ public abstract class BienImmobilier implements Serializable {
 	protected TypeBien typeBien;
 	
 	@Embedded
-	private Adresse adresse;
-	@JsonIgnore
+	protected Adresse adresse;
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
-	private Proprietaire proprietaire;
+	protected Proprietaire proprietaire;
 	@JsonIgnore
 	@OneToMany(mappedBy="bien")
-	private List<Visite> listeVisites;
+	protected List<Visite> listeVisites;
 	@JsonIgnore
 	@OneToMany(mappedBy="bien")
-	private List<Contrat> listeContrats;
+	protected List<Contrat> listeContrats;
 	
 	//====================== Constructeurs ======================
 	public BienImmobilier() {
