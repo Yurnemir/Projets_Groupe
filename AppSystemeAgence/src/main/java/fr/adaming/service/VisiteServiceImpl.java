@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IVisiteDao;
+import fr.adaming.model.Client;
 import fr.adaming.model.Visite;
 
 @Service
@@ -43,6 +44,11 @@ public class VisiteServiceImpl implements IVisiteService{
 	@Override
 	public void deleteVisite(int id) {
 		visiteDao.deleteVisite(id);
+	}
+
+	@Override
+	public List<Visite> getAllVisitesByClient(Client inClient) {
+		return visiteDao.getAllVisitesByClient(inClient);
 	}
 
 }

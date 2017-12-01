@@ -1,5 +1,5 @@
 
-monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, clientProvider) {
+monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, clientProvider,visiteProvider) {
 	
 	$scope.showList = true;
 	clientProvider.getAllClients(function(callBack){
@@ -19,7 +19,7 @@ monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, cl
 				$scope.message = "";
 			}
 		});
-	}
+	};
 		
 	$scope.agentDeSelect = function(){
 		clientProvider.getAllClients(function(callBack){
@@ -32,13 +32,27 @@ monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, cl
 				$scope.message = "";
 			}
 		});
-	}
+	};
 	
 	$scope.modifLien = function(client){
 		$rootScope.client = client;
 		$location.path("/modifClient");
 	};
 	
+	$scope.clientSelected = false;
+	
+	$scope.selectClient = function(client){
+		$scope.clientSelected = true;
+		clientProvider.getClientById(client.id,function(callBack){
+			$scope.selectedClient=callBack;
+		});
+	};
+	
+	$scope.showVisites = function(client){
+		visiteProvider.getAllVisitesByClient(client.id,function(callBack){
+			$scope.selectedVisites=callBack;
+		})
+	}
 	
 });
 
@@ -105,6 +119,8 @@ monApp.controller("ajoutClientCtrl", function($scope, clientProvider) {
 monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider){
 	$scope.message="";
 	
+	$scope.listeTypesBien = listeTypesBien;
+	
 	$scope.agentID=0;
 	
 	if($rootScope.client!=null){
@@ -119,6 +135,14 @@ monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider
 					rue:"",
 					cp:"",
 					ville:""
+				},
+				criteres:{
+					prixMax:undefined,
+					loyerMax:undefined,
+					surfaceMin:undefined,
+					surfaceMax:undefined,
+					bien:undefined,
+					ville:""
 				}
 		}
 	};
@@ -132,6 +156,14 @@ monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider
 				numero:0,
 				rue:"",
 				cp:"",
+				ville:""
+			},
+			criteres:{
+				prixMax:undefined,
+				loyerMax:undefined,
+				surfaceMin:undefined,
+				surfaceMax:undefined,
+				bien:undefined,
 				ville:""
 			}
 	};

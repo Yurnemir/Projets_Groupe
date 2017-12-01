@@ -14,6 +14,74 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
+	function getAllVisitesByClientFunction(idClient,callBack) {
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listeVisitesByClient?idClient='+idClient
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : " + reponse.statusText)
+		});
+	}
+
+	function getAllVisitesByAgentFunction(idAgent,callBack) {
+		//A MODIFIER
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listeVisites?idAgent'+idAgent
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : " + reponse.statusText)
+		});
+	}
+	
+	function getAllVisitesByBienAchatFunction(idBien,callBack) {
+		// A MODIFIER
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listeVisites'
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : " + reponse.statusText)
+		});
+	}
+	
+	function getAllVisitesByBienLocationFunction(idBien,callBack) {
+		// A MODIFIER
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listeVisites'
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : " + reponse.statusText)
+		});
+	}
+	
+	function getAllVisitesByDateFunction(date,callBack) {
+		// A MODIFIER
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listeVisitesByDate',
+			data:angular.toJson(date),
+			headers:{
+				"Content-Type":"application/json"
+			}
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : " + reponse.statusText)
+		});
+	}
+	
 	function getVisiteByIdFunction(idRech, callBack) {
 		$http({
 			method:'GET',

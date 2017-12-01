@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Visite;
 
 @Repository
@@ -79,6 +80,16 @@ public class VisiteDaoImpl implements IVisiteDao{
 		
 		s.delete(vDelete);
 		
+	}
+
+	@Override
+	public List<Visite> getAllVisitesByClient(Client inClient) {
+		String req = "FROM Visite v WHERE v.client.id=:idClient";
+		
+		Query query = sf.getCurrentSession().createQuery(req);
+		query.setParameter("idClient", inClient.getId());
+		
+		return query.list();
 	}
 
 }

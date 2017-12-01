@@ -38,6 +38,14 @@ public class VisiteRest {
 		return visiteService.getAllVisite();
 	}
 	
+	@RequestMapping(value="/listeVisitesByClient", method=RequestMethod.GET, produces="application/json")
+	public List<Visite> getAllVisitesByClient( @RequestParam("idClient") int idClient){
+		Client inClient = new Client();
+		inClient.setId(idClient);
+		inClient = clientService.getClientById(inClient);
+		return visiteService.getAllVisitesByClient(inClient);
+	}
+	
 	@RequestMapping(value="/visite", method=RequestMethod.GET, produces="application/json")
 	public Visite getVisiteById(@RequestParam("pId") int id){
 		return visiteService.getVisiteById(id);
