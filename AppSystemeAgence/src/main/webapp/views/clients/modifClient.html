@@ -4,7 +4,6 @@
 
 
 <form>
-
 	Agent ID:<input type="number" ng-model="agentID">
 	
 	Client ID:<input type="number" ng-model="client.id">
@@ -12,7 +11,7 @@
 	Nom du Client:<input type="text" ng-model="client.nom">
 	
 	Téléphone du Client:<input type="text" ng-model="client.telephone">
-	
+	<br/>
 	Numero:<input type="text" ng-model="client.adresse.numero">
 	
 	Rue:<input type="text" ng-model="client.adresse.rue">
@@ -20,10 +19,18 @@
 	Code Postal:<input type="text" ng-model="client.adresse.cp">
 	
 	Ville:<input type="text" ng-model="client.adresse.ville">
-	
+	<br/>
+	Preferences:<br/>
+	Prix Max: <input type="number" ng-model="client.criteres.prixMax">
+	Loyer Max: <input type="number" ng-model="client.criteres.loyerMax">
+	Surface Min: <input type="number" ng-model="client.criteres.surfaceMin">
+	Surface Max: <input type="number" ng-model="client.criteres.surfaceMax">
+	Type de Bien: <select ng-model="client.criteres.bien" ng-options="key as value for (key , value) in listeTypesBien"></select>
+	Ville: <input type="text" ng-model="client.criteres.ville">
 	<input type="button" ng-click="modif()" value="Modifier">
-	
 </form>
+
+
 
 <table class="table table-bordered" ng-show="clientModified">
 	<thead>
@@ -52,4 +59,29 @@
 	</tbody>
 </table>
 
-<h1 align="center">{{message}}</h1>
+<table class="table table-bordered" ng-show="clientModified">
+	<thead title="Preferences">
+		<tr>
+			<td>Prix Maximum</td>
+			<td>Loyer Max</td>
+			<td>Surface Mini</td>
+			<td>Surface Maxi</td>
+			<td>Type de Bien</td>
+			<td>Ville</td>
+		</tr>
+	</thead>
+	
+	
+	<tbody>
+		<tr>
+			<td>{{modClient.criteres.prixMax}}</td>
+			<td>{{modClient.criteres.loyerMax}}</td>
+			<td>{{modClient.criteres.surfaceMin}}</td>
+			<td>{{modClient.criteres.surfaceMax}}</td>
+			<td>{{modClient.criteres.bien}}</td>
+			<td>{{modClient.criteres.ville}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 align="center">{{message}}</h2>
