@@ -24,13 +24,13 @@
 	<div class="form-group">
 		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienAchatForm.typeBien" ng-options="key as value for (key , value) in listeTypesBien"></select>
+			<select ng-model="bienAchatForm.typeBien" ng-options="typeBien.key as typeBien.value for typeBien in listeTypesBien"></select>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idEtatBien" class="col-sm-2 control-label">Etat :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienAchatForm.etatBien" ng-options="key as value for (key , value) in listeEtatsBien"></select>
+			<select ng-model="bienAchatForm.etatBien" ng-options="etatBien.key as etatBien.value for etatBien in listeEtatsBien"></select>
 		</div>
 	</div>
 	<div class="form-group">
@@ -64,9 +64,9 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idProp" class="col-sm-2 control-label">Id Propriétaire :</label>
+		<label for="idProp" class="col-sm-2 control-label">Propriétaire :</label>
 		<div class="col-sm-4">
-			<input type="number" class="form-control" id="idProp" ng-model="idProp">
+			<select ng-model="idProp" ng-options="proprietaire.key as proprietaire.value for proprietaire in listeProprietaires"></select>
 		</div>
 	</div>
 	<div class="form-group">
