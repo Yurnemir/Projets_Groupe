@@ -27,13 +27,7 @@ public class VisiteServiceImpl implements IVisiteService{
 
 	@Override
 	public Visite getVisiteById(int id) {
-		Visite visiteGet = visiteDao.getVisiteById(id);
-		
-		if(visiteGet!=null){
-			return visiteGet;
-		}else{
-			return null;
-		}
+		return visiteDao.getVisiteById(id);
 	}
 
 	@Override

@@ -87,3 +87,7 @@ monApp.controller("modifBienAchatCtrl", function($scope, $rootScope, $location, 
 		});
 	}
 });
+
+
+
+

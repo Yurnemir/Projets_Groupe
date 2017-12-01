@@ -58,7 +58,7 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
-	function supprVisiteFunction(idDel, callBack) {
+	function deleteVisiteFunction(idDel, callBack) {
 		$http({
 			method : 'DELETE',
 			url : urlRacine + '/visite?pId=' + idDel
@@ -75,6 +75,6 @@ monApp.factory("visiteProvider", function($http) {
 		getVisiteById:getVisiteByIdFunction,
 		addVisite:addVisiteFunction,
 		updateVisite:updateVisiteFunction,
-		supprVisite:supprVisiteFunction
+		deleteVisite:deleteVisiteFunction
 	}
 });

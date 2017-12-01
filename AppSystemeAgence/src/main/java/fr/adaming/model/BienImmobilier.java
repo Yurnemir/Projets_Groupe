@@ -48,6 +48,10 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
+	@Column(name="image_b")
+	protected byte[] image;
+	@Column(name="description_b")
+	protected String description;
 	
 	@Embedded
 	protected Adresse adresse;
@@ -113,6 +117,18 @@ public abstract class BienImmobilier implements Serializable {
 		this.typeBien = typeBien;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Adresse getAdresse() {
 		return adresse;
 	}
