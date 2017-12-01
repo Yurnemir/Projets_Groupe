@@ -1,130 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<!-- ======================== Libs ======================== -->
-	<link rel="stylesheet" href="assets/libs/bootstrap-3.3.7/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css">
-	<link rel="stylesheet" href="assets/css/animations.css">
-	<script type="text/javascript" src="assets/libs/jquery-3.2.1.js"></script>
-	<script type="text/javascript" src="assets/libs/bootstrap-3.3.7/js/bootstrap.js"></script>
-	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular.js"></script>
-	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular-animate.js"></script>
-	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular-route.js"></script>
-	<!-- ======================== Routing ======================== -->
-	<script type="text/javascript" src="assets/js/module/app.js"></script>
-	<script type="text/javascript" src="assets/js/routing/routing.js"></script>
-	<!-- ======================== Controllers ======================== -->
-	<script type="text/javascript" src="assets/js/controllers/bienAchatController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/bienLocationController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/clientController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/contratController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/proprietaireController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/visiteController.js"></script>
-	<!-- ======================== Providers ======================== -->
-	<script type="text/javascript" src="assets/js/providers/bienAchatProvider.js"></script>
-	<script type="text/javascript" src="assets/js/providers/bienLocationProvider.js"></script>
-	<script type="text/javascript" src="assets/js/providers/clientProvider.js"></script>
-	<script type="text/javascript" src="assets/js/providers/contratProvider.js"></script>
-	<script type="text/javascript" src="assets/js/providers/proprietaireProvider.js"></script>
-	<script type="text/javascript" src="assets/js/providers/visiteProvider.js"></script>
-	<title>Accueil</title>
+<meta charset="UTF-8">
+<!-- ======================== Libs ======================== -->
+<link rel="stylesheet"
+	href="assets/libs/bootstrap-3.3.7/css/bootstrap.css">
+<link rel="stylesheet"
+	href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="text/javascript" src="assets/libs/jquery-3.2.1.js"></script>
+<script type="text/javascript"
+	src="assets/libs/bootstrap-3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="assets/libs/angular-1.6.6/angular.js"></script>
+<script type="text/javascript"
+	src="assets/libs/angular-1.6.6/angular-animate.js"></script>
+<script type="text/javascript"
+	src="assets/libs/angular-1.6.6/angular-route.js"></script>
+<!-- ======================== Routing ======================== -->
+<script type="text/javascript" src="assets/js/module/app.js"></script>
+<script type="text/javascript" src="assets/js/routing/routing.js"></script>
+<!-- ======================== Controllers ======================== -->
+<script type="text/javascript"
+	src="assets/js/controllers/bienAchatController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/bienLocationController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/clientController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/contratController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/proprietaireController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/visiteController.js"></script>
+<!-- ======================== Providers ======================== -->
+<script type="text/javascript"
+	src="assets/js/providers/bienAchatProvider.js"></script>
+<script type="text/javascript"
+	src="assets/js/providers/bienLocationProvider.js"></script>
+<script type="text/javascript"
+	src="assets/js/providers/clientProvider.js"></script>
+<script type="text/javascript"
+	src="assets/js/providers/contratProvider.js"></script>
+<script type="text/javascript"
+	src="assets/js/providers/proprietaireProvider.js"></script>
+<script type="text/javascript"
+	src="assets/js/providers/visiteProvider.js"></script>
+<title>Accueil</title>
 </head>
 <body ng-app="monApp">
 
 	<!-- ====================== Barre de Navigation ====================== -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+
+	<nav class="navbar">
 		<div class="container-fluid">
-		
+
 			<!-- ====================== Retour a l'Accueil ====================== -->
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#!accueil">Accueil</a>
 			</div>
-			
+
 			<!-- ====================== Biens Achat ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Biens Achat<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Biens Achat<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeBiensAchat">Liste</a></li>
 						<li><a href="#!rechercheBienAchat">Recherche</a></li>
 						<li><a href="#!ajoutBienAchat">Ajout</a></li>
 						<li><a href="#!modifBienAchat">Modification</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 			<!-- ====================== Biens Location ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Biens Location<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Biens Location<span
+						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeBiensLocation">Liste</a></li>
 						<li><a href="#!rechercheBienLocation">Recherche</a></li>
 						<li><a href="#!ajoutBienLocation">Ajout</a></li>
 						<li><a href="#!modifBienLocation">Modification</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 			<!-- ====================== Clients ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Clients<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Clients<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeClients">Liste</a></li>
 						<li><a href="#!rechercheClient">Recherche</a></li>
 						<li><a href="#!ajoutClient">Ajout</a></li>
 						<li><a href="#!modifClient">Modification</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 			<!-- ====================== Contrats ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Contrats<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Contrats<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeContrats">Liste</a></li>
 						<li><a href="#!rechercheContrat">Recherche</a></li>
 						<li><a href="#!ajoutContrat">Ajout</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 			<!-- ====================== Proprietaires ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Proprietaires<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Proprietaires<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeProprietaires">Liste</a></li>
 						<li><a href="#!rechercheProprietaire">Recherche</a></li>
 						<li><a href="#!ajoutProprietaire">Ajout</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 			<!-- ====================== Visites ====================== -->
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="">Visites<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="">Visites<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#!listeVisites">Liste</a></li>
 						<li><a href="#!rechercheVisite">Recherche</a></li>
 						<li><a href="#!ajoutVisite">Ajout</a></li>
 						<li><a href="#!modifVisite">Modifier</a></li>
 						<li><a href="#!supprVisite">Supprimer</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-			
+
 		</div>
 	</nav>
-	
+
 	<!-- ====================== Contenu de la Page ====================== -->
-	<div class="container" style="margin-top:70px;">
-		<div ng-view></div>
-	</div>
+	<div class="container" style="margin-top: 70px;">
+
 	
+		<div ng-view> </div>
+	</div>
+
 </body>
 </html>
