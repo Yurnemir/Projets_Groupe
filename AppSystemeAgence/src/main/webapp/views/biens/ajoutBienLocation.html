@@ -24,7 +24,7 @@
 	<div class="form-group">
 		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienLocationForm.typeBien" ng-options="key as value for (key , value) in listeTypesBien"></select>
+			<select ng-model="bienLocationForm.typeBien" ng-options="typeBien.key as typeBien.value for typeBien in listeTypesBien"></select>
 		</div>
 	</div>
 	<div class="form-group">
@@ -54,37 +54,37 @@
 	<div class="form-group">
 		<label for="idTypeBail" class="col-sm-2 control-label">Type de Bail :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienLocationForm.typeBail" ng-options="key as value for (key , value) in listeTypesBail"></select>
+			<select ng-model="bienLocationForm.typeBail" ng-options="typeBail.key as typeBail.value for typeBail in listeTypesBail"></select>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idRue" class="col-sm-2 control-label">Rue :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idRue" ng-model="bienAchatForm.adresse.rue">
+			<input type="text" class="form-control" id="idRue" ng-model="bienLocationForm.adresse.rue">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idNumero" class="col-sm-2 control-label">Numéro :</label>
 		<div class="col-sm-4">
-			<input type="number" class="form-control" id="idNumero" ng-model="bienAchatForm.adresse.numero">
+			<input type="number" class="form-control" id="idNumero" ng-model="bienLocationForm.adresse.numero">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idCP" class="col-sm-2 control-label">Code Postal :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idCP" ng-model="bienAchatForm.adresse.cp">
+			<input type="text" class="form-control" id="idCP" ng-model="bienLocationForm.adresse.cp">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idVille" class="col-sm-2 control-label">Ville :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idVille" ng-model="bienAchatForm.adresse.ville">
+			<input type="text" class="form-control" id="idVille" ng-model="bienLocationForm.adresse.ville">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idProp" class="col-sm-2 control-label">Id Propriétaire :</label>
+		<label for="idProp" class="col-sm-2 control-label">Propriétaire :</label>
 		<div class="col-sm-4">
-			<input type="number" class="form-control" id="idProp" ng-model="idProp">
+			<select ng-model="idProp" ng-options="proprietaire.key as proprietaire.value for proprietaire in listeProprietaires"></select>
 		</div>
 	</div>
 	<div class="form-group">

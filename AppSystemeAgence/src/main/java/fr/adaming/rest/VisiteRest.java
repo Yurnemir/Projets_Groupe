@@ -83,7 +83,7 @@ public class VisiteRest {
 		return visiteService.updateVisite(visite);
 	}
 	
-	@RequestMapping(value="/visite", method=RequestMethod.DELETE, produces="application/json", consumes="application/json")
+	@RequestMapping(value="/visite", method=RequestMethod.DELETE)
 	public void deleteVisite(@RequestParam("pId") int id){
 		visiteService.deleteVisite(id);
 	}

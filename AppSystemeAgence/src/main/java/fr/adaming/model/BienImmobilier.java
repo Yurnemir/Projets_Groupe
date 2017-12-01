@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,19 +48,22 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
+	@Column(name="image_b")
+	protected byte[] image;
+	@Column(name="description_b")
+	protected String description;
 	
 	@Embedded
-	private Adresse adresse;
-	@JsonIgnore
+	protected Adresse adresse;
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
-	private Proprietaire proprietaire;
+	protected Proprietaire proprietaire;
 	@JsonIgnore
 	@OneToMany(mappedBy="bien")
-	private List<Visite> listeVisites;
+	protected List<Visite> listeVisites;
 	@JsonIgnore
 	@OneToMany(mappedBy="bien")
-	private List<Contrat> listeContrats;
+	protected List<Contrat> listeContrats;
 	
 	//====================== Constructeurs ======================
 	public BienImmobilier() {
@@ -113,6 +117,18 @@ public abstract class BienImmobilier implements Serializable {
 		this.typeBien = typeBien;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Adresse getAdresse() {
 		return adresse;
 	}

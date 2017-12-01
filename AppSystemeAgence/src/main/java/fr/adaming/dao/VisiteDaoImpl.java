@@ -41,13 +41,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		
 		Session s = sf.getCurrentSession();
 		
-		Visite visiteGet = (Visite) s.get(Visite.class, id);
-		
-		if(visiteGet!=null){
-			return visiteGet;
-		}else{
-			return null;
-		}
+		return (Visite) s.get(Visite.class, id);
 	}
 
 	@Override

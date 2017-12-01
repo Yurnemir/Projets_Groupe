@@ -13,6 +13,9 @@ monApp.config(function($routeProvider) {
 	}).when("/modifBienAchat", {
 		templateUrl: "views/biens/modifBienAchat.html",
 		controller: "modifBienAchatCtrl"
+	}).when("/insererImage", {
+		templateUrl: "views/biens/insererImage.html",
+		controller: "imageCtrl"
 	});
 	
 	// ====================== Biens Location ======================
