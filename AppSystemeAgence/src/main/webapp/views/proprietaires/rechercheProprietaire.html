@@ -2,15 +2,13 @@
 <br/>
 <br/>
 
-<h1 align="center">{{message}}</h1>
-
 <form class="form-horizontal">
 
 	<div class="form-group">
 		<label for="idId" class="col-sm-2 control-label">Id</label>
 		<div class="col-sm-4">
 			<input type="number" class="form-control" id="idId"
-				placeholder="Id du propriétaire recherche" ng-model="idRecherche">
+				placeholder="Id du propriÃ©taire recherche" ng-model="idRecherche">
 		</div>
 	</div>
 
@@ -26,7 +24,7 @@
 
 
 
-<h1 style="color: gold;text-align: center;">Résultat de la recherche</h1>
+<h1 style="color: gold;text-align: center;">RÃ©sultat de la recherche</h1>
 
 <table class="table table-bordered">
 	<thead>
@@ -35,7 +33,7 @@
 			<td>Nom</td>
 			<td>Telephone</td>
 			<td>Adresse</td>
-			<td>Opération</td>
+			<td>OpÃ©ration</td>
 		</tr>
 	</thead>
 
@@ -45,6 +43,6 @@
 			<td>{{proprioChercher.nom}}</td>
 			<td>{{proprioChercher.telPrive}} / {{proprioChercher.telTravail}}</td>
 			<td>{{proprioChercher.adresse.numero}} {{proprioChercher.adresse.rue}} {{proprioChercher.adresse.cp}} {{proprioChercher.adresse.ville}}</td>
-			<td>Opération</td>
+			<td>OpÃ©ration</td>
 		</tr>
 	</tbody>
