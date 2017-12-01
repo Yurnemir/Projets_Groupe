@@ -24,10 +24,10 @@ monApp.factory("bienAchatProvider", function($http) {
 		});
 	}
 	
-	function addBienAchatFunction(bienAchatForm, callBack) {
+	function addBienAchatFunction(bienAchatForm, idProp, callBack) {
 		$http({
 			method: "POST",
-			url: urlRacine + "/bien/achat",
+			url: urlRacine + "/bien/achat?pIdProp=" + idProp,
 			data:angular.toJson(bienAchatForm),
 			headers:{
 				"content-type":"application/json"
@@ -39,10 +39,10 @@ monApp.factory("bienAchatProvider", function($http) {
 		});
 	}
 	
-	function updateBienAchatFunction(bienAchatForm, callBack) {
+	function updateBienAchatFunction(bienAchatForm, idProp, callBack) {
 		$http({
 			method: "PUT",
-			url: urlRacine + "/bien/achat",
+			url: urlRacine + "/bien/achat?pIdProp=" + idProp,
 			data:angular.toJson(bienAchatForm),
 			headers:{
 				"content-type":"application/json"

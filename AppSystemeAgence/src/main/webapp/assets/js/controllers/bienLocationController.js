@@ -54,7 +54,7 @@ monApp.controller("ajoutBienLocationCtrl", function($scope, $location, bienLocat
 	}
 	$scope.addBienLocation = function() {
 		console.log($scope.bienLocationForm);
-		bienLocationProvider.addBienLocation($scope.bienLocationForm, function(callBack) {
+		bienLocationProvider.addBienLocation($scope.bienLocationForm, $scope.idProp, function(callBack) {
 			if (callBack!=undefined && callBack!="") {
 				$location.path("listeBiensLocation");
 			}
@@ -93,7 +93,7 @@ monApp.controller("modifBienLocationCtrl", function($scope, $rootScope, $locatio
 		}
 	}
 	$scope.updateBienLocation = function() {
-		bienLocationProvider.updateBienLocation($scope.bienLocationForm, function(callBack) {
+		bienLocationProvider.updateBienLocation($scope.bienLocationForm, $scope.idProp, function(callBack) {
 			if (callBack!=undefined && callBack!="") {
 				$location.path("listeBiensLocation");
 			}

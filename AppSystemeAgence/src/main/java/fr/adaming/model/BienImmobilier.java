@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,7 +47,9 @@ public abstract class BienImmobilier implements Serializable {
 	protected Date dateDispo;
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
-
+	
+	@Embedded
+	private Adresse adresse;
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
@@ -110,6 +113,12 @@ public abstract class BienImmobilier implements Serializable {
 		this.typeBien = typeBien;
 	}
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}

@@ -14,14 +14,21 @@ import fr.adaming.enums.EtatBienAchat;
 import fr.adaming.enums.TypeBien;
 import fr.adaming.model.BienAchat;
 import fr.adaming.service.IBienAchatService;
+import fr.adaming.service.IProprietaireService;
+import fr.adaming.service.ProprietaireServiceImpl;
 
 @RestController
 public class BienAchatRest {
 	@Autowired
 	private IBienAchatService bienAchatService;
+	@Autowired
+	private IProprietaireService proprietaireService;
 
 	public void setBienAchatService(IBienAchatService bienAchatService) {
 		this.bienAchatService = bienAchatService;
+	}
+	public void setProprietaireService(IProprietaireService proprietaireService) {
+		this.proprietaireService = proprietaireService;
 	}
 
 	
@@ -36,16 +43,20 @@ public class BienAchatRest {
 	}
 	
 	@RequestMapping(value="/bien/achat", method=RequestMethod.POST, produces="application/json", consumes="application/json")
-	public BienAchat addBienAchat(@RequestBody BienAchat bienAchat) {
+	public BienAchat addBienAchat(@RequestBody BienAchat bienAchat, @RequestParam("pIdProp") int idProp) {
+//	@RequestMapping(value="/bien/achat", method=RequestMethod.POST, produces="application/json")
+//	public BienAchat addBienAchat(@RequestParam("pIdProp") int idProp) {
+//		BienAchat bienAchat = bienAchatService.getBienAchatById(3);
+		bienAchat.setProprietaire(proprietaireService.getProprietaireById(idProp));
 		return this.bienAchatService.addBienAchat(bienAchat);
 	}
-//	@RequestMapping(value="/bien/achat", method=RequestMethod.POST, produces="application/json")
-//	public BienAchat addBienAchat() {
-//		return this.bienAchatService.addBienAchat(new BienAchat(false, new Date(), new Date(), TypeBien.BUREAU, 2000, EtatBienAchat.CORRECT));
-//	}
 	
-	@RequestMapping(value="/bien/achat", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
-	public BienAchat updateBienAchat(@RequestBody BienAchat bienAchat) {
+//	@RequestMapping(value="/bien/achat", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
+//	public BienAchat updateBienAchat(@RequestBody BienAchat bienAchat, @RequestParam("pIdProp") int idProp) {
+	@RequestMapping(value="/bien/achat", method=RequestMethod.PUT, produces="application/json")
+	public BienAchat updateBienAchat(@RequestParam("pIdProp") int idProp) {
+		BienAchat bienAchat = bienAchatService.getBienAchatById(3);
+		bienAchat.setProprietaire(proprietaireService.getProprietaireById(idProp));
 		return this.bienAchatService.updateBienAchat(bienAchat);
 	}
 	

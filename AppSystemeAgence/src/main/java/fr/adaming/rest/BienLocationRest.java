@@ -14,16 +14,23 @@ import fr.adaming.enums.TypeBail;
 import fr.adaming.enums.TypeBien;
 import fr.adaming.model.BienLocation;
 import fr.adaming.service.IBienLocationService;
+import fr.adaming.service.IProprietaireService;
+import fr.adaming.service.ProprietaireServiceImpl;
 
 @RestController
 public class BienLocationRest {
 	@Autowired
 	private IBienLocationService bienLocationService;
+	@Autowired
+	private IProprietaireService proprietaireService;
 	
 	public void setBienLocationService(IBienLocationService bienLocationService) {
 		this.bienLocationService = bienLocationService;
 	}
-	
+	public void setProprietaireService(IProprietaireService proprietaireService) {
+		this.proprietaireService = proprietaireService;
+	}
+
 
 	@RequestMapping(value="/bien/location/liste", method=RequestMethod.GET, produces="application/json")
 	public List<BienLocation> getAllBiensLocation() {
@@ -36,16 +43,21 @@ public class BienLocationRest {
 	}
 	
 	@RequestMapping(value="/bien/location", method=RequestMethod.POST, produces="application/json", consumes="application/json")
-	public BienLocation addBienLocation(@RequestBody BienLocation bienLocation) {
+	public BienLocation addBienLocation(@RequestBody BienLocation bienLocation, @RequestParam("pIdProp") int idProp) {
+//	@RequestMapping(value="/bien/location", method=RequestMethod.POST, produces="application/json")
+//	public BienLocation addBienLocation(@RequestParam("pIdProp") int idProp) {
+//		BienLocation bienLocation = bienLocationService.getBienLocationById(1);
+		bienLocation.setProprietaire(proprietaireService.getProprietaireById(idProp));
 		return this.bienLocationService.addBienLocation(bienLocation);
 	}
-//	@RequestMapping(value="/bien/location", method=RequestMethod.POST, produces="application/json")
-//	public BienLocation addBienLocation() {
-//		return this.bienLocationService.addBienLocation(new BienLocation(false, new Date(), new Date(), TypeBien.APPARTEMENT, 400, 400, 400, false, TypeBail.PROFESSIONNEL));
-//	}
 	
-	@RequestMapping(value="/bien/location", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
-	public BienLocation updateBienLocation(@RequestBody BienLocation bienLocation) {
+//	@RequestMapping(value="/bien/location", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
+//	public BienLocation updateBienLocation(@RequestBody BienLocation bienLocation, @RequestParam("pIdProp") int idProp) {
+	@RequestMapping(value="/bien/location", method=RequestMethod.PUT, produces="application/json")
+	public BienLocation updateBienLocation(@RequestParam("pIdProp") int idProp) {
+		BienLocation bienLocation = bienLocationService.getBienLocationById(1);
+		bienLocation.setProprietaire(proprietaireService.getProprietaireById(idProp));
+		System.out.println("proprietaire : " + proprietaireService.getProprietaireById(idProp));
 		return this.bienLocationService.updateBienLocation(bienLocation);
 	}
 	

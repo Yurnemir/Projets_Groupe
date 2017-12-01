@@ -47,7 +47,7 @@ monApp.controller("ajoutBienAchatCtrl", function($scope, $location, bienAchatPro
 		prixVente:0
 	}
 	$scope.addBienAchat = function() {
-		bienAchatProvider.addBienAchat($scope.bienAchatForm, function(callBack) {
+		bienAchatProvider.addBienAchat($scope.bienAchatForm, $scope.idProp, function(callBack) {
 			if (callBack!=undefined && callBack!="") {
 				$location.path("listeBiensAchat");
 			}
@@ -80,7 +80,7 @@ monApp.controller("modifBienAchatCtrl", function($scope, $rootScope, $location, 
 		}
 	}
 	$scope.updateBienAchat = function() {
-		bienAchatProvider.updateBienAchat($scope.bienAchatForm, function(callBack) {
+		bienAchatProvider.updateBienAchat($scope.bienAchatForm, $scope.idProp, function(callBack) {
 			if (callBack!=undefined && callBack!="") {
 				$location.path("listeBiensAchat");
 			}

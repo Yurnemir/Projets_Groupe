@@ -24,10 +24,10 @@ monApp.factory("bienLocationProvider", function($http) {
 		});
 	}
 
-	function addBienLocationFunction(bienLocationForm, callBack) {
+	function addBienLocationFunction(bienLocationForm, idProp, callBack) {
 		$http({
 			method: "POST",
-			url: urlRacine + "/bien/location",
+			url: urlRacine + "/bien/location?pIdProp=" + idProp,
 			data:angular.toJson(bienLocationForm),
 			headers:{
 				"content-type":"application/json"
@@ -39,10 +39,10 @@ monApp.factory("bienLocationProvider", function($http) {
 		});
 	}
 	
-	function updateBienLocationFunction(bienLocationForm, callBack) {
+	function updateBienLocationFunction(bienLocationForm, idProp, callBack) {
 		$http({
 			method: "PUT",
-			url: urlRacine + "/bien/location",
+			url: urlRacine + "/bien/location?pIdProp=" + idProp,
 			data:angular.toJson(bienLocationForm),
 			headers:{
 				"content-type":"application/json"

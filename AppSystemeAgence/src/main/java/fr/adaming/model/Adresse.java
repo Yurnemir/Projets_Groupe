@@ -18,11 +18,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Adresse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	//Attributs
+	// Attributs
 	private int numero;
 	private String rue;
 	private String cp;
 	private String ville;
+	
 	// Constructeurs
 	public Adresse() {
 		super();
@@ -34,7 +35,8 @@ public class Adresse implements Serializable {
 		this.cp = cp;
 		this.ville = ville;
 	}
-	//Getters/Setters
+	
+	// Getters/Setters
 	public int getNumero() {
 		return numero;
 	}
@@ -59,13 +61,10 @@ public class Adresse implements Serializable {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+	
+	// Methodes
 	@Override
 	public String toString() {
 		return "Adresse [numero=" + numero + ", rue=" + rue + ", cp=" + cp + ", ville=" + ville + "]";
 	}
-
-	
-	
-	
-
 }
