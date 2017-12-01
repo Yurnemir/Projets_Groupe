@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.adaming.enums.EtatBienAchat;
 import fr.adaming.enums.TypeBien;
@@ -76,16 +77,20 @@ public class BienAchatRest {
 		this.bienAchatService.deleteBienAchat(id);
 	}
 
-	@RequestMapping(value = "/bien/image", produces = MediaType.IMAGE_JPEG_VALUE)
-	@ResponseBody
-	public byte[] getPhoto(BienAchat bienAchat) throws IOException {
-		BienAchat bienA = bienAchatService.getBienAchatById(bienAchat.getId());
-		if (bienA.getImage() == null) {
-			return new byte[0];
-		} else {
-			return IOUtils.toByteArray(new ByteArrayInputStream(bienA.getImage()));
-		}
+	public void addImage(@RequestParam("pImage") MultipartFile file, @RequestParam("pId") int id){
+		
 	}
+	
+//	@RequestMapping(value = "/bien/image", produces = MediaType.IMAGE_JPEG_VALUE)
+//	@ResponseBody
+//	public byte[] getPhoto(BienAchat bienAchat) throws IOException {
+//		BienAchat bienA = bienAchatService.getBienAchatById(bienAchat.getId());
+//		if (bienA.getImage() == null) {
+//			return new byte[0];
+//		} else {
+//			return IOUtils.toByteArray(new ByteArrayInputStream(bienA.getImage()));
+//		}
+//	}
 
 	
 }

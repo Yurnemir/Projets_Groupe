@@ -15,14 +15,13 @@
 	<div class="form-group">
 		<label for="idFile" class="col-sm-2 control-label">Image</label>
 		<div class="vertical-center">
-			<input type="file" ng file-model="bienAchatForm.image">
+			<input type="file" ng-model="bienAchatForm.image">
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<div class="vertical-center">
-				<input type="file" file-model="myFile">
-				<button ng-click="upload()" class="btn btn-primary btn-lg">Upload
+				<button ng-click="insererImage()" class="btn btn-primary btn-lg">Upload
 				</button>
 			</div>
 		</div>

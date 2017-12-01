@@ -65,11 +65,27 @@ monApp.factory("bienAchatProvider", function($http) {
 		});
 	}
 	
+	function addImageFunction(image, idb, callBack) {
+		$http({
+			method: "POST",
+			url: urlRacine + "/bien/image?file=" + image + "&pId=" + idb,
+			data:angular.isUndefined,
+			headers:{
+				"content-type": undefined
+			}
+		}).then(function success(response) {
+			callBack(response.data);
+		}, function error(response) {
+			console.log("error : " + response.statusText);
+		});
+	}
+	
 	return {
 		getAllBiensAchat:getAllBiensAchatFunction,
 		getBienAchatById:getBienAchatByIdFunction,
 		addBienAchat:addBienAchatFunction,
 		updateBienAchat:updateBienAchatFunction,
-		deleteBienAchat:deleteBienAchatFunction
+		deleteBienAchat:deleteBienAchatFunction,
+		addImage: addImageFunction
 	}
 });
