@@ -47,7 +47,8 @@ monApp.factory("proprietaireProvider", function($http) {
 			url:urlRacine+"/prop",
 			data:angular.toJson(proprietaire),
 			headers:{
-				'content-type' : 'application/json'
+				'content-type' : 'application/json',
+					'charset':'utf-8'
 			}
 		}).then(function success(responseWS) {
 			console.log(responseWS.data);
