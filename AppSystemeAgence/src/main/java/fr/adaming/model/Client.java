@@ -35,6 +35,9 @@ public class Client implements Serializable {
 	@Embedded
 	private Adresse adresse;
 	
+	@Embedded
+	private Criteres criteres;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy="client")
 	private List<Visite> listeVisites;
@@ -107,6 +110,12 @@ public class Client implements Serializable {
 		this.agent = agent;
 	}
 
+	public Criteres getCriteres() {
+		return criteres;
+	}
+	public void setCriteres(Criteres criteres) {
+		this.criteres = criteres;
+	}
 	//====================== Methodes ======================
 	@Override
 	public String toString() {

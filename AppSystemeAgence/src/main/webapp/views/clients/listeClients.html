@@ -31,11 +31,36 @@
 			<td>{{client.adresse.rue}}</td>
 			<td>{{client.adresse.cp}}</td>
 			<td>{{client.adresse.ville}}</td>
-			<td><a ng-click="modifLien(client)">Modifier</a></td>
+			<td><a ng-click="modifLien(client)">Modifier</a> | <a ng-click="selectClient(client)">Sélectionner</a></td>
 		</tr>
 	</tbody>
 </table>
 
-
-
 <h1 align="center">{{message}}</h1>
+
+<table class="table table-bordered" ng-show="clientSelected">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nom</td>
+			<td>Telephone</td>
+			<td>Numéro</td>
+			<td>Rue</td>
+			<td>Code Postal</td>
+			<td>Ville</td>
+		</tr>
+	</thead>
+	
+	
+	<tbody>
+		<tr>
+			<td>{{selectedClient.id}}</td>
+			<td>{{selectedClient.nom}}</td>
+			<td>{{selectedClient.telephone}}</td>
+			<td>{{selectedClient.adresse.numero}}</td>
+			<td>{{selectedClient.adresse.rue}}</td>
+			<td>{{selectedClient.adresse.cp}}</td>
+			<td>{{selectedClient.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>
