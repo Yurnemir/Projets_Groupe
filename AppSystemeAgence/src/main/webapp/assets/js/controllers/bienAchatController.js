@@ -34,7 +34,15 @@ monApp.controller("rechercheBienAchatCtrl", function($scope, bienAchatProvider) 
 	}
 });
 
-monApp.controller("ajoutBienAchatCtrl", function($scope, $location, bienAchatProvider) {
+monApp.controller("ajoutBienAchatCtrl", function($scope, $location, proprietaireProvider, bienAchatProvider) {
+	proprietaireProvider.getAllProprietaires(function(callBack) {
+		var proprietaires = callBack;
+		var listeProprietaires = {};
+		for (i=0; i<proprietaires.length; i++) {
+			listeProprietaires[proprietaires[i].id] = proprietaires[i].nom;
+		}
+		$scope.listeProprietaires = listeProprietaires;
+	});
 	$scope.listeTypesBien = listeTypesBien;
 	$scope.listeEtatsBien = listeEtatsBien;
 	$scope.bienAchatForm = {
@@ -55,7 +63,15 @@ monApp.controller("ajoutBienAchatCtrl", function($scope, $location, bienAchatPro
 	}
 });
 
-monApp.controller("modifBienAchatCtrl", function($scope, $rootScope, $location, bienAchatProvider) {
+monApp.controller("modifBienAchatCtrl", function($scope, $rootScope, $location, proprietaireProvider, bienAchatProvider) {
+	proprietaireProvider.getAllProprietaires(function(callBack) {
+		var proprietaires = callBack;
+		var listeProprietaires = {};
+		for (i=0; i<proprietaires.length; i++) {
+			listeProprietaires[proprietaires[i].id] = proprietaires[i].nom;
+		}
+		$scope.listeProprietaires = listeProprietaires;
+	});
 	$scope.listeTypesBien = listeTypesBien;
 	$scope.listeEtatsBien = listeEtatsBien;
 	if ($rootScope.bienAchatForm == undefined) {
