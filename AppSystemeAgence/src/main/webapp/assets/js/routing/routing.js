@@ -93,6 +93,7 @@ monApp.config(function($routeProvider) {
 	// ====================== Accueil (Defaut) ======================
 	$routeProvider.when("/accueil", {
 		templateUrl: "views/accueil.html",
+		controller : "accueilCtrl"
 	})
 	$routeProvider.otherwise({
 		redirectTo: "/accueil"
