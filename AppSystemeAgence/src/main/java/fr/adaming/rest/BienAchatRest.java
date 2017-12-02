@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import fr.adaming.enums.EtatBienAchat;
 import fr.adaming.enums.TypeBien;
 import fr.adaming.model.BienAchat;
+import fr.adaming.model.Client;
 import fr.adaming.service.IBienAchatService;
 import fr.adaming.service.IProprietaireService;
 import fr.adaming.service.ProprietaireServiceImpl;
@@ -92,5 +93,10 @@ public class BienAchatRest {
 //		}
 //	}
 
+	
+	@RequestMapping(value="/bienAchatInteret",method = RequestMethod.POST,produces = "application/json",consumes="application/json")
+	public List<BienAchat> listerBienAchatInteressant(@RequestBody Client client){
+		return bienAchatService.listeBienInteressant(client);
+	}
 	
 }

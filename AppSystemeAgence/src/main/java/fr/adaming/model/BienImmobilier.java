@@ -52,7 +52,8 @@ public abstract class BienImmobilier implements Serializable {
 	protected byte[] image;
 	@Column(name="description_b")
 	protected String description;
-	
+	@Column(name="superficie_b")
+	protected double superficie;
 	@Embedded
 	protected Adresse adresse;
 	@ManyToOne
@@ -154,6 +155,13 @@ public abstract class BienImmobilier implements Serializable {
 		this.listeContrats = listeContrats;
 	}
 	
+
+	public double getSuperficie() {
+		return superficie;
+	}
+	public void setSuperficie(double superficie) {
+		this.superficie = superficie;
+	}
 	//====================== Methodes ======================
 	@Override
 	public String toString() {
