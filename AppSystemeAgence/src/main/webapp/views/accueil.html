@@ -10,8 +10,8 @@
 	</div>
 </div>
 
-<br/>
-<br/>
+<br />
+<br />
 
 <!-- <div class="row"> -->
 <!-- 	<div class="col-lg"> -->
@@ -54,14 +54,43 @@
 <!-- 		</div> -->
 <!-- 	</div> -->
 <!-- </div> -->
-<div class="card" ng-repeat="visite in nextVisiteListeToday"
-	style="background-color: orange; width: 250px">
-	<div class="card-body">
-		<h4 class="card-title">Visite {{visite.client.nom}}</h4>
-		<span class="card-text"> Date : {{visite.date}} | Heure :
-			{{visite.heure}} <br /> ID du bien : {{visite.bien.id}}
-		</span> <br /> <a href="#" class="card-link">Aller vers la page du bien</a>
-		<br /> <a href="#" class="card-link">Aller vers la page du client</a>
+
+<div style="display: flex; justify-content: left"
+	ng-repeat="visite in nextVisiteListeToday">
+	<div class="panel panel-primary"
+		style="width: 270px; margin-right: 10px">
+		<div class="panel-heading">Visite {{visite.client.nom}}</div>
+		<div class="panel-body">
+			Date : {{visite.date}} | Heure : {{visite.heure}} <br /> ID du bien
+			: {{visite.bien.id}}
+			<div style="text-align: center">
+				<input type="checkbox" ng-model="afficheBien"> Voir le bien
+				| <input type="checkbox" ng-model="afficheClient"> Voir le
+				client
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-success" ng-show="afficheBien"
+		style="width: 270px; margin-right: 10px">
+		<div class="panel-heading">Bien</div>
+		<div class="panel-body">
+			ID : {{visite.bien.id}} <br /> Date de disponibilite :
+			{{visite.bien.dateDispo}} <br /> Type : {{visite.bien.typeBien}} <br />
+			Adresse : {{visite.bien.adresse.numero}} {{visite.bien.adresse.rue}}
+			{{visite.bien.adresse.cp}} {{visite.bien.adresse.ville}}
+		</div>
+	</div>
+
+	<div class="panel panel-danger" ng-show="afficheClient"
+		style="width: 270px; margin-right: 10px">
+		<div class="panel-heading">Client</div>
+		<div class="panel-body">
+			Nom : {{visite.client.nom}} <br /> Telephone :
+			{{visite.client.telephone}} <br /> Adresse :
+			{{visite.client.adresse.numero}} {{visite.client.adresse.rue}}
+			{{visite.client.adresse.cp}} {{visite.client.adresse.ville}}
+		</div>
 	</div>
 </div>
 
