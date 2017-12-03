@@ -1,5 +1,6 @@
 package fr.adaming.rest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.enums.TypeBail;
 import fr.adaming.enums.TypeBien;
 import fr.adaming.model.BienLocation;
+import fr.adaming.model.Client;
+import fr.adaming.model.Criteres;
 import fr.adaming.service.IBienLocationService;
 import fr.adaming.service.IProprietaireService;
 import fr.adaming.service.ProprietaireServiceImpl;
@@ -64,5 +67,10 @@ public class BienLocationRest {
 	@RequestMapping(value="/bien/location", method=RequestMethod.DELETE)
 	public void deleteBienLocation(@RequestParam("pId") int id) {
 		this.bienLocationService.deleteBienLocation(id);
+	}
+	
+	@RequestMapping(value="/bienLocationInteret",method = RequestMethod.POST,produces = "application/json",consumes="application/json")
+	public List<BienLocation> listerBienLocationInteret(@RequestBody Client client){
+		return bienLocationService.trierLocationParClient(client);
 	}
 }
