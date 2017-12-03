@@ -1,8 +1,16 @@
 
-monApp.controller("listeProprietairesCtrl", function($scope, proprietaireProvider) {
+monApp.controller("listeProprietairesCtrl", function($scope, proprietaireProvider,$location) {
 	proprietaireProvider.getAllProprietaires(function(callBack) {
 		$scope.listeProprio = callBack;
 	})
+	
+	$scope.supprimerProprio=function(proprio){
+		proprietaireProvider.supprimer(proprio.id,function(callBack){
+			console.log("Test");
+		})
+		$location.path("/listeProprietaires")
+
+	}
 });
 
 monApp.controller("rechercheProprietaireCtrl", function($scope, proprietaireProvider) {
@@ -44,3 +52,4 @@ monApp.controller("ajoutProprietaireCtrl", function($scope, proprietaireProvider
 	
 	
 });
+

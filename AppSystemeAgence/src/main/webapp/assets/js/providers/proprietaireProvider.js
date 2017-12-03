@@ -59,9 +59,24 @@ monApp.factory("proprietaireProvider", function($http) {
 		}
 	}
 	
+	function supprimerProprietaire(id,callBack){
+		$http({
+			method: "DELETE",
+			url : urlRacine+"/prop?pId="+id
+		}).then(function success(response){
+			console.log("Suppression effectuée")
+		}),function error(response){
+			console.log("----Erreur dans la suppression")
+			console.log(response.statusText);
+
+		}
+		
+	}
+	
 	return {
 		getAllProprietaires:getAllProprietairesFunction,
 		getProprietaireById:getProprietaireByIdFunction,
-		addProprietaire:addProprietaireFunction
+		addProprietaire:addProprietaireFunction,
+		supprimer : supprimerProprietaire
 	}
 });
