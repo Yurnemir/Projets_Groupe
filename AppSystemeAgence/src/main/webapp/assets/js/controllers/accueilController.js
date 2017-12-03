@@ -1,7 +1,6 @@
 monApp.controller("accueilCtrl", function($scope, $rootScope, visiteProvider) {
 	$scope.message = "Journal de bord";
 	$scope.date = new Date();
-	$scope.afficheClient = 
 	$scope.init = function(callBack) {
 		
 		visiteProvider.getListNextVisites($scope.date, function(callBack) {
