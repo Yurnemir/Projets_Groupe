@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import fr.adaming.model.Client;
@@ -13,4 +14,5 @@ public interface IVisiteDao {
 	public Visite updateVisite(Visite visite);
 	public void deleteVisite(int id);
 	public List<Visite> getAllVisitesByClient(Client inClient);
+	public List<Visite> getListNextVisites(Date today);
 }

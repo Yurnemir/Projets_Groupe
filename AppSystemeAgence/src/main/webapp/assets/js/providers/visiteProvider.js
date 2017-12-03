@@ -138,11 +138,24 @@ monApp.factory("visiteProvider", function($http) {
 		});
 	}
 	
+	function getListNextVisitesFunction(date, callBack) {
+		$http({
+			method: 'GET',
+			url: urlRacine + '/listNextVisites'
+		}).then(function success(reponse){
+			console.log(reponse.data);
+			callBack(reponse.data);
+		}, function error(reponse){
+			console.log("---- Error : "+reponse.statusText)
+		});
+	}
+	
 	return {
 		getAllVisites:getAllVisitesFunction,
 		getVisiteById:getVisiteByIdFunction,
 		addVisite:addVisiteFunction,
 		updateVisite:updateVisiteFunction,
-		deleteVisite:deleteVisiteFunction
+		deleteVisite:deleteVisiteFunction,
+		getListNextVisites:getListNextVisitesFunction
 	}
 });

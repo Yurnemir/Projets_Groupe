@@ -95,4 +95,10 @@ public class VisiteRest {
 	public void deleteVisite(@RequestParam("pId") int id){
 		visiteService.deleteVisite(id);
 	}
+	
+	@RequestMapping(value="/listNextVisites", method=RequestMethod.GET, produces="application/json")
+	public List<Visite> getListNextVisites(/*@RequestBody Date date*/){
+		Date date = new Date();
+		return visiteService.getListNextVisites(date);
+	}
 }

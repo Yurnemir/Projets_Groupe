@@ -1,4 +1,69 @@
 
-<h1 align="center" style="margin-top:200px;">Accueil</h1>
+<h1 align="center" style="margin-top: 200px;" ng-init="init()">Accueil</h1>
 {{message}}
-<img src="assets/images/villa.jpg" >
+
+<div class="form-group">
+	<label for="idDate" class="col-sm-2 control-label">Date</label>
+	<div class="col-sm-4">
+		<input type="datetime-local" class="form-control" id="idDate"
+			ng-model="date">
+	</div>
+</div>
+
+<br/>
+<br/>
+
+<!-- <div class="row"> -->
+<!-- 	<div class="col-lg"> -->
+<!-- 		<div class="card" ng-repeat="visite in nextVisiteListeToday" -->
+<!-- 			style="background-color: orange; width: 250px"> -->
+<!-- 			<div class="card-body"> -->
+<!-- 				<h4 class="card-title">Visite {{visite.client.nom}}</h4> -->
+<!-- 				<span class="card-text"> Date : {{visite.date}} | Heure : -->
+<!-- 					{{visite.heure}} <br /> ID du bien : {{visite.bien.id}} -->
+<!-- 				</span> <br /> <a href="#" class="card-link">Aller vers la page du -->
+<!-- 					bien</a> <br /> <a href="#" class="card-link">Aller vers la page -->
+<!-- 					du client</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<div class="col-lg"> -->
+<!-- 		<div class="card" ng-repeat="visite in nextVisiteListeTomorrow" -->
+<!-- 			style="background-color: orange; width: 250px"> -->
+<!-- 			<div class="card-body"> -->
+<!-- 				<h4 class="card-title">Visite {{visite.client.nom}}</h4> -->
+<!-- 				<span class="card-text"> Date : {{visite.date}} | Heure : -->
+<!-- 					{{visite.heure}} <br /> ID du bien : {{visite.bien.id}} -->
+<!-- 				</span> <br /> <a href="#" class="card-link">Aller vers la page du -->
+<!-- 					bien</a> <br /> <a href="#" class="card-link">Aller vers la page -->
+<!-- 					du client</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<div class="col-lg"> -->
+<!-- 		<div class="card" ng-repeat="visite in nextVisiteListeAfterTomorrow" -->
+<!-- 			style="background-color: orange; width: 250px"> -->
+<!-- 			<div class="card-body"> -->
+<!-- 				<h4 class="card-title">Visite {{visite.client.nom}}</h4> -->
+<!-- 				<span class="card-text"> Date : {{visite.date}} | Heure : -->
+<!-- 					{{visite.heure}} <br /> ID du bien : {{visite.bien.id}} -->
+<!-- 				</span> <br /> <a href="#" class="card-link">Aller vers la page du -->
+<!-- 					bien</a> <br /> <a href="#" class="card-link">Aller vers la page -->
+<!-- 					du client</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<div class="card" ng-repeat="visite in nextVisiteListeToday"
+	style="background-color: orange; width: 250px">
+	<div class="card-body">
+		<h4 class="card-title">Visite {{visite.client.nom}}</h4>
+		<span class="card-text"> Date : {{visite.date}} | Heure :
+			{{visite.heure}} <br /> ID du bien : {{visite.bien.id}}
+		</span> <br /> <a href="#" class="card-link">Aller vers la page du bien</a>
+		<br /> <a href="#" class="card-link">Aller vers la page du client</a>
+	</div>
+</div>
+
+<!-- <img src="assets/images/villa.jpg"> -->
+

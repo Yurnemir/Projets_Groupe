@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,11 @@ public class VisiteServiceImpl implements IVisiteService{
 	@Override
 	public List<Visite> getAllVisitesByClient(Client inClient) {
 		return visiteDao.getAllVisitesByClient(inClient);
+	}
+	
+	@Override
+	public List<Visite> getListNextVisites(Date today) {
+		return visiteDao.getListNextVisites(today);
 	}
 
 }

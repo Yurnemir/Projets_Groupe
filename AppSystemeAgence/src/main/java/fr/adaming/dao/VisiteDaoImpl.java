@@ -92,4 +92,20 @@ public class VisiteDaoImpl implements IVisiteDao{
 		return query.list();
 	}
 
+	@Override
+	public List<Visite> getListNextVisites(Date today) {
+		Session s = sf.getCurrentSession();
+		
+		String req = "from Visite v where v.date=:pDate and v.heure>=:pHeure";
+		
+		Query query = s.createQuery(req);
+		
+		query.setParameter("pDate", today);
+		query.setParameter("pHeure", today);
+		
+		List<Visite> listeNextVisites = query.list();
+		
+		return listeNextVisites;
+	}
+
 }
