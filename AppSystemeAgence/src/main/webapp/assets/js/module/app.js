@@ -1,5 +1,4 @@
-var monApp = angular.module("monApp", ["ngRoute", "ngAnimate"]);
-
+var monApp = angular.module("monApp", ["ngRoute", "ngAnimate", "ngCookies"]);
 
 var listeTypesBien = [
 	{"key":0, "value":"Maison"},

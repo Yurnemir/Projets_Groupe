@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import org.hibernate.NonUniqueResultException;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,14 +11,18 @@ import fr.adaming.model.Agent;
 
 @Repository
 public class AgentDaoImpl implements IAgentDao {
-
 	@Autowired
 	private SessionFactory sf;
 	
+	public void setSf(SessionFactory sf) {
+		this.sf = sf;
+	}
+
 	@Override
 	public Agent getAgent(Agent agent) {
+		Session session = this.sf.getCurrentSession();
 		String req = "FROM Agent a WHERE a.identifiant=:aID AND a.mdp=:mdpID";
-		Query query = sf.getCurrentSession().createQuery("req");
+		Query query = session.createQuery(req);
 		query.setParameter("aID", agent.getIdentifiant());
 		query.setParameter("mdpID", agent.getMdp());
 		

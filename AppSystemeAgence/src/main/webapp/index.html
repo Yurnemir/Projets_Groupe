@@ -1,55 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<!-- ======================== Libs ======================== -->
-<link rel="stylesheet"
-	href="assets/libs/bootstrap-3.3.7/css/bootstrap.css">
-<link rel="stylesheet"
-	href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css">
-<link rel="stylesheet" href="assets/css/animations.css">
-<link rel="stylesheet" href="assets/css/style.css">
-
-<script type="text/javascript" src="assets/libs/jquery-3.2.1.js"></script>
-<script type="text/javascript"
-	src="assets/libs/bootstrap-3.3.7/js/bootstrap.js"></script>
-<script type="text/javascript"
-	src="assets/libs/angular-1.6.6/angular.js"></script>
-<script type="text/javascript"
-	src="assets/libs/angular-1.6.6/angular-animate.js"></script>
-<script type="text/javascript"
-	src="assets/libs/angular-1.6.6/angular-route.js"></script>
-<!-- ======================== Routing ======================== -->
-<script type="text/javascript" src="assets/js/module/app.js"></script>
-<script type="text/javascript" src="assets/js/routing/routing.js"></script>
-<!-- ======================== Controllers ======================== -->
-<script type="text/javascript"
-	src="assets/js/controllers/bienAchatController.js"></script>
-<script type="text/javascript"
-	src="assets/js/controllers/bienLocationController.js"></script>
-<script type="text/javascript"
-	src="assets/js/controllers/clientController.js"></script>
-<script type="text/javascript"
-	src="assets/js/controllers/contratController.js"></script>
-<script type="text/javascript"
-	src="assets/js/controllers/proprietaireController.js"></script>
-<script type="text/javascript"
-	src="assets/js/controllers/visiteController.js"></script>
-<script type="text/javascript" src="assets/js/controllers/accueilController.js"></script>
-<!-- ======================== Providers ======================== -->
-<script type="text/javascript"
-	src="assets/js/providers/bienAchatProvider.js"></script>
-<script type="text/javascript"
-	src="assets/js/providers/bienLocationProvider.js"></script>
-<script type="text/javascript"
-	src="assets/js/providers/clientProvider.js"></script>
-<script type="text/javascript"
-	src="assets/js/providers/contratProvider.js"></script>
-<script type="text/javascript"
-	src="assets/js/providers/proprietaireProvider.js"></script>
-<script type="text/javascript"
-	src="assets/js/providers/visiteProvider.js"></script>
-<title>Accueil</title>
+	<meta charset="UTF-8">
+	<!-- ======================== Libs ======================== -->
+	<link rel="stylesheet" href="assets/libs/bootstrap-3.3.7/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script type="text/javascript" src="assets/libs/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular.js"></script>
+	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular-animate.js"></script>
+	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular-route.js"></script>
+	<script type="text/javascript" src="assets/libs/angular-1.6.6/angular-cookies.js"></script>
+	<script type="text/javascript" src="assets/libs/bootstrap-3.3.7/js/bootstrap.js"></script>
+	<!-- ======================== Routing ======================== -->
+	<script type="text/javascript" src="assets/js/module/app.js"></script>
+	<script type="text/javascript" src="assets/js/routing/routing.js"></script>
+	<!-- ======================== Controllers ======================== -->
+	<script type="text/javascript" src="assets/js/controllers/loginController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/accueilController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/bienAchatController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/bienLocationController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/clientController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/contratController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/proprietaireController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/visiteController.js"></script>
+	<!-- ======================== Providers ======================== -->
+	<script type="text/javascript" src="assets/js/providers/agentProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/bienAchatProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/bienLocationProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/clientProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/contratProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/proprietaireProvider.js"></script>
+	<script type="text/javascript" src="assets/js/providers/visiteProvider.js"></script>
+	<title>Accueil</title>
 </head>
 <body ng-app="monApp">
 
@@ -143,8 +127,6 @@
 
 	<!-- ====================== Contenu de la Page ====================== -->
 	<div class="container">
-
-	
 		<div ng-view> </div>
 	</div>
 

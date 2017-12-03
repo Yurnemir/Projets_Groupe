@@ -1,4 +1,4 @@
-monApp.controller("accueilCtrl", function($scope, $rootScope, visiteProvider) {
+monApp.controller("accueilCtrl", function($scope, $cookies, $location, visiteProvider) {
 	$scope.message = "Journal de bord";
 	$scope.date = new Date();
 	$scope.init = function(callBack) {
@@ -16,5 +16,10 @@ monApp.controller("accueilCtrl", function($scope, $rootScope, visiteProvider) {
 //		visiteProvider.getListNextVisites(afterTomorrow, function(callBack) {
 //			$scope.nextVisiteListeAfterTomorrow = callBack;
 //		});
+	}
+	$scope.logout = function() {
+		$cookies.remove("username");
+		$cookies.remove("password");
+		$location.path("/login");
 	}
 })

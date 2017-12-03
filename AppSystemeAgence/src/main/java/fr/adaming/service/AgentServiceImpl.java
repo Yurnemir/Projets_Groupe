@@ -14,6 +14,11 @@ public class AgentServiceImpl implements IAgentService {
 	@Autowired
 	private IAgentDao agentDao;
 	
+	public void setAgentDao(IAgentDao agentDao) {
+		this.agentDao = agentDao;
+	}
+	
+
 	@Override
 	public Agent getAgent(Agent agent) {
 		return agentDao.getAgent(agent);
