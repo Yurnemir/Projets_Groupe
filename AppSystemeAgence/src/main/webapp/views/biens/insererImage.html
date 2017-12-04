@@ -15,7 +15,7 @@
 	<div class="form-group">
 		<label for="file" class="col-sm-2 control-label">Image</label>
 		<div class="vertical-center">
-			<input type="file" id="file" demo-file-model="file" accept="image/*">
+			<input type="file" id="file" ng-model="file" onchange="angular.element(this).scope().setFile(this)" accept="image/*" base-sixty-four-input>
 		</div>
 	</div>
 	<div class="form-group">

@@ -24,6 +24,7 @@ monApp.factory("bienAchatProvider", function($http) {
 	}
 
 	function addBienAchatFunction(bienAchatForm, idProp, callBack) {
+		bienAchatForm.photo = bienAchatForm.photo.base64;
 		$http({
 			method : "POST",
 			url : urlRacine + "/bien/achat?pIdProp=" + idProp,
