@@ -41,6 +41,9 @@
 <table class="table table-bordered" ng-show="clientSelected">
 	<thead>
 		<tr>
+			<th colspan="7">Client sélectionné</th>
+		</tr>
+		<tr>
 			<td>Id</td>
 			<td>Nom</td>
 			<td>Telephone</td>
@@ -64,3 +67,45 @@
 		</tr>
 	</tbody>
 </table>
+
+<table class="table table-bordered" ng-show="clientSelected">
+	<thead>
+		<tr>
+			<th>Critères de recherche</th>
+		</tr>
+		<tr ng-show="rechLoc">
+			<td>Loyer Maxi</td>
+			<td>Surface Min</td>
+			<td>Surface Max</td>
+			<td>Type de Bien</td>
+			<td>Localisation</td>
+		</tr>
+		
+		<tr ng-show="rechAch">
+			<td>Prix Maxi</td>
+			<td>Surface Min</td>
+			<td>Surface Max</td>
+			<td>Type de Bien</td>
+			<td>Localisation</td>
+		</tr>
+	</thead>
+	
+	<tbody >
+		<tr ng-show="rechLoc">
+			<td>{{selectedClient.criteres.loyerMax}}</td>
+			<td>{{selectedClient.criteres.surfaceMin}}</td>
+			<td>{{selectedClient.criteres.surfaceMax}}</td>
+			<td>{{selectedClient.criteres.bien}}</td>
+			<td>{{selectedClient.criteres.ville}}</td>
+		</tr>
+		
+		<tr ng-show="rechAch">
+			<td>{{selectedClient.criteres.prixMax}}</td>
+			<td>{{selectedClient.criteres.surfaceMin}}</td>
+			<td>{{selectedClient.criteres.surfaceMax}}</td>
+			<td>{{selectedClient.criteres.bien}}</td>
+			<td>{{selectedClient.criteres.ville}}</td>
+		</tr>
+	</tbody>
+</table>
+

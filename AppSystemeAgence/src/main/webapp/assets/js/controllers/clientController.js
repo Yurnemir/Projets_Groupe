@@ -1,5 +1,5 @@
 
-monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, clientProvider,visiteProvider) {
+monApp.controller("listeClientsCtrl", function($cookies, $scope, $rootScope, $location, clientProvider,visiteProvider) {
 	
 	$scope.showList = true;
 	clientProvider.getAllClients(function(callBack){
@@ -7,6 +7,8 @@ monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, cl
 	});
 	
 	$scope.agentID = 0;
+	
+	
 	
 	$scope.agentSelect = function(){
 		clientProvider.getClientsByAgent($scope.agentID,function(callBack){
@@ -40,19 +42,33 @@ monApp.controller("listeClientsCtrl", function($scope, $rootScope, $location, cl
 	};
 	
 	$scope.clientSelected = false;
+	$scope.rechLoc = false;
+	$scope.rechAch = false;
 	
 	$scope.selectClient = function(client){
 		$scope.clientSelected = true;
 		clientProvider.getClientById(client.id,function(callBack){
 			$scope.selectedClient=callBack;
+			
+			if(callBack.criteres.recherche == "LOCATION"){
+				$scope.rechLoc = true;
+				$scope.rechAch = false;
+			} else if(callBack.criteres.recherche == "ACHAT"){
+				$scope.rechLoc = false;
+				$scope.rechAch = true;
+			} else {
+				$scope.rechLoc = false;
+				$scope.rechAch = false;
+			}
 		});
 	};
 	
 	$scope.showVisites = function(client){
 		visiteProvider.getAllVisitesByClient(client.id,function(callBack){
 			$scope.selectedVisites=callBack;
-		})
-	}
+		});
+	};
+	
 	
 });
 
@@ -142,7 +158,8 @@ monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider
 					surfaceMin:undefined,
 					surfaceMax:undefined,
 					bien:undefined,
-					ville:""
+					ville:"",
+					recherche:null
 				}
 		}
 	};
@@ -164,7 +181,8 @@ monApp.controller("modifClientCtrl", function($scope, $rootScope, clientProvider
 				surfaceMin:undefined,
 				surfaceMax:undefined,
 				bien:undefined,
-				ville:""
+				ville:"",
+				recherche:null
 			}
 	};
 	
