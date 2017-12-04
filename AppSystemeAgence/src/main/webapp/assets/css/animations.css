@@ -1,11 +1,11 @@
 
 div.ng-enter {
     transition: 0.5s linear all;
-    transition-delay: 0.5s;
-    transform:translateX(100%);
+    transition-delay: 0.7s;
+    opacity:0;
 }
 div.ng-enter.ng-enter-active {
-    transform:translateX(0%);
+    opacity:1;
 }
 
 div.ng-leave {
@@ -13,5 +13,5 @@ div.ng-leave {
     transform:translateX(0%);
 }
 div.ng-leave.ng-leave-active {
-    transform:translateX(-100%);
+    transform:translateX(-110%);
 }

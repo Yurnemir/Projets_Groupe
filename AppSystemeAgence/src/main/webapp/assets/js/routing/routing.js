@@ -3,7 +3,7 @@ monApp.config(function($routeProvider) {
 	// ====================== Biens Achat ======================
 	$routeProvider.when("/listeBiensAchat", {
         resolve: { "check": function($cookies, $location) {
-            if ($rootScope.get("username") == undefined) { $location.path("/login"); } }
+            if ($cookies.get("username") == undefined) { $location.path("/login"); } }
         },
 		templateUrl: "views/biens/listeBiensAchat.html",
 		controller: "listeBiensAchatCtrl"
