@@ -32,9 +32,12 @@ public class BienLocation extends BienImmobilier {
 		super();
 	}
 	public BienLocation(boolean disponible, Date dateSoumission,
-			Date dateDispo, TypeBien typeBien, double loyer, double caution,
-			double charges, boolean meuble, TypeBail typeBail) {
-		super(disponible, dateSoumission, dateDispo, typeBien);
+			Date dateDispo, TypeBien typeBien, byte[] image,
+			String description, double superficie, double longitude,
+			double latitude, double loyer, double caution, double charges,
+			boolean meuble, TypeBail typeBail) {
+		super(disponible, dateSoumission, dateDispo, typeBien, image,
+				description, superficie, longitude, latitude);
 		this.loyer = loyer;
 		this.caution = caution;
 		this.charges = charges;
@@ -42,9 +45,12 @@ public class BienLocation extends BienImmobilier {
 		this.typeBail = typeBail;
 	}
 	public BienLocation(int id, boolean disponible, Date dateSoumission,
-			Date dateDispo, TypeBien typeBien, double loyer, double caution,
-			double charges, boolean meuble, TypeBail typeBail) {
-		super(id, disponible, dateSoumission, dateDispo, typeBien);
+			Date dateDispo, TypeBien typeBien, byte[] image,
+			String description, double superficie, double longitude,
+			double latitude, double loyer, double caution, double charges,
+			boolean meuble, TypeBail typeBail) {
+		super(id, disponible, dateSoumission, dateDispo, typeBien, image,
+				description, superficie, longitude, latitude);
 		this.loyer = loyer;
 		this.caution = caution;
 		this.charges = charges;

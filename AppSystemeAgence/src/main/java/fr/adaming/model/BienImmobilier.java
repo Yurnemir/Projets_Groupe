@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,6 +53,10 @@ public abstract class BienImmobilier implements Serializable {
 	protected String description;
 	@Column(name="superficie_b")
 	protected double superficie;
+	@Column(name="longitude_b")
+	protected double longitude;
+	@Column(name="latitude_b")
+	protected double latitude;
 	@Embedded
 	protected Adresse adresse;
 	@ManyToOne
@@ -70,22 +73,38 @@ public abstract class BienImmobilier implements Serializable {
 	public BienImmobilier() {
 		super();
 	}
-	public BienImmobilier(boolean disponible, Date dateSoumission, Date dateDispo, TypeBien typeBien) {
+	public BienImmobilier(boolean disponible, Date dateSoumission,
+			Date dateDispo, TypeBien typeBien, byte[] image,
+			String description, double superficie, double longitude,
+			double latitude) {
 		super();
 		this.disponible = disponible;
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.typeBien = typeBien;
+		this.image = image;
+		this.description = description;
+		this.superficie = superficie;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
-	public BienImmobilier(int id, boolean disponible, Date dateSoumission, Date dateDispo, TypeBien typeBien) {
+	public BienImmobilier(int id, boolean disponible, Date dateSoumission,
+			Date dateDispo, TypeBien typeBien, byte[] image,
+			String description, double superficie, double longitude,
+			double latitude) {
 		super();
 		this.id = id;
 		this.disponible = disponible;
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.typeBien = typeBien;
+		this.image = image;
+		this.description = description;
+		this.superficie = superficie;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
-	
+
 	//====================== Getters / Setters ======================
 	public int getId() {
 		return id;
@@ -130,6 +149,24 @@ public abstract class BienImmobilier implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public double getSuperficie() {
+		return superficie;
+	}
+	public void setSuperficie(double superficie) {
+		this.superficie = superficie;
+	}
+	public double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+	public double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -155,13 +192,6 @@ public abstract class BienImmobilier implements Serializable {
 		this.listeContrats = listeContrats;
 	}
 	
-
-	public double getSuperficie() {
-		return superficie;
-	}
-	public void setSuperficie(double superficie) {
-		this.superficie = superficie;
-	}
 	//====================== Methodes ======================
 	@Override
 	public String toString() {

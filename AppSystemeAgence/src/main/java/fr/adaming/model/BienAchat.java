@@ -1,9 +1,11 @@
 package fr.adaming.model;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+
 import fr.adaming.enums.EtatBienAchat;
 import fr.adaming.enums.TypeBien;
 
@@ -23,15 +25,20 @@ public class BienAchat extends BienImmobilier {
 		super();
 	}
 	public BienAchat(boolean disponible, Date dateSoumission, Date dateDispo,
-			TypeBien typeBien, double prixVente, EtatBienAchat etatBien) {
-		super(disponible, dateSoumission, dateDispo, typeBien);
+			TypeBien typeBien, byte[] image, String description,
+			double superficie, double longitude, double latitude,
+			double prixVente, EtatBienAchat etatBien) {
+		super(disponible, dateSoumission, dateDispo, typeBien, image,
+				description, superficie, longitude, latitude);
 		this.prixVente = prixVente;
 		this.etatBien = etatBien;
 	}
 	public BienAchat(int id, boolean disponible, Date dateSoumission,
-			Date dateDispo, TypeBien typeBien, double prixVente,
-			EtatBienAchat etatBien) {
-		super(id, disponible, dateSoumission, dateDispo, typeBien);
+			Date dateDispo, TypeBien typeBien, byte[] image,
+			String description, double superficie, double longitude,
+			double latitude, double prixVente, EtatBienAchat etatBien) {
+		super(id, disponible, dateSoumission, dateDispo, typeBien, image,
+				description, superficie, longitude, latitude);
 		this.prixVente = prixVente;
 		this.etatBien = etatBien;
 	}
