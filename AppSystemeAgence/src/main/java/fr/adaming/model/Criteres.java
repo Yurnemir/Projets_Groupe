@@ -6,11 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import fr.adaming.enums.TypeBien;
+import fr.adaming.enums.TypeRecherche;
 
 @Embeddable
 public class Criteres implements Serializable {
 	
 	//Creation de criteres de filtrage préenregistrés par client
+	private TypeRecherche recherche;
 	
 	private double prixMax;
 	private double loyerMax;
@@ -27,7 +29,7 @@ public class Criteres implements Serializable {
 		super();
 	}
 
-	public Criteres(double prixMax, double loyerMax, double surfaceMin, double surfaceMax, TypeBien bien, String ville) {
+	public Criteres(double prixMax, double loyerMax, double surfaceMin, double surfaceMax, TypeBien bien, String ville, TypeRecherche recherche) {
 		super();
 		this.prixMax = prixMax;
 		this.loyerMax = loyerMax;
@@ -35,6 +37,7 @@ public class Criteres implements Serializable {
 		this.surfaceMax = surfaceMax;
 		this.bien = bien;
 		this.ville = ville;
+		this.recherche = recherche;
 	}
 
 	public double getPrixMax() {
@@ -84,7 +87,12 @@ public class Criteres implements Serializable {
 	public void setLoyerMax(double loyerMax) {
 		this.loyerMax = loyerMax;
 	}
-
+	public TypeRecherche getRecherche() {
+		return recherche;
+	}
+	public void setRecherche(TypeRecherche recherche) {
+		this.recherche = recherche;
+	}
 	@Override
 	public String toString() {
 		return "Criteres [prixMax=" + prixMax + ", loyerMax=" + loyerMax + ", surfaceMin=" + surfaceMin

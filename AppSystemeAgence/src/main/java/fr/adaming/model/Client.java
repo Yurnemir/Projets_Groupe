@@ -17,6 +17,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import fr.adaming.enums.TypeRecherche;
+
 @Entity
 @Table(name="clients")
 public class Client implements Serializable {
@@ -116,10 +118,10 @@ public class Client implements Serializable {
 	public void setCriteres(Criteres criteres) {
 		this.criteres = criteres;
 	}
-	//====================== Methodes ======================
+
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", nom=" + nom + ", telephone=" + telephone
-				+ "]";
+		return "Client [id=" + id + ", nom=" + nom + ", telephone=" + telephone + ", adresse=" + adresse
+				+ ", agent=" + agent + "]";
 	}
 }
