@@ -25,7 +25,7 @@
 	Loyer Max: <input type="number" ng-model="client.criteres.loyerMax">
 	Surface Min: <input type="number" ng-model="client.criteres.surfaceMin">
 	Surface Max: <input type="number" ng-model="client.criteres.surfaceMax">
-	Type de Bien: <select ng-model="client.criteres.bien" ng-options="key as value for (key , value) in listeTypesBien"></select>
+	Type de Bien: <select ng-model="client.criteres.bien" ng-options="bien.key as bien.value for bien in listeTypesBien"></select>
 	Ville: <input type="text" ng-model="client.criteres.ville">
 	<input type="button" ng-click="modif()" value="Modifier">
 </form>

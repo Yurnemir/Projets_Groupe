@@ -20,3 +20,8 @@ var listeTypesBail = [
 	{"key":0, "value":"Professionnel"},
 	{"key":1, "value":"Habitation"}
 ];
+var listeTypesRecherche = [
+	{"key":0, "value":"Aucune"},
+	{"key":1, "value":"Location"},
+	{"key":2, "value":"Achat"}
+];

@@ -41,15 +41,38 @@ monApp.controller("listeClientsCtrl", function($cookies, $scope, $rootScope, $lo
 		$location.path("/modifClient");
 	};
 	
+	$scope.listeTypesBien = listeTypesBien;
+	
 	$scope.clientSelected = false;
 	$scope.rechLoc = false;
 	$scope.rechAch = false;
+	$scope.selectedClient={
+			id:0,
+			nom:"",
+			telephone:"",
+			adresse:{
+				numero:0,
+				rue:"",
+				cp:"",
+				ville:""
+			},
+			criteres:{
+				prixMax:undefined,
+				loyerMax:undefined,
+				surfaceMin:undefined,
+				surfaceMax:undefined,
+				bien:"",
+				ville:"",
+				recherche:undefined
+			}
+	};
 	
 	$scope.selectClient = function(client){
-		$scope.clientSelected = true;
 		clientProvider.getClientById(client.id,function(callBack){
-			$scope.selectedClient=callBack;
-			
+			console.log("Le callBack"+callBack.criteres.bien);
+			$scope.selectedClient.criteres.bien=callBack.criteres.bien;
+			$scope.selectedClient = callBack;
+			$scope.clientSelected = true;
 			if(callBack.criteres.recherche == "LOCATION"){
 				$scope.rechLoc = true;
 				$scope.rechAch = false;

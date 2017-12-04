@@ -68,6 +68,7 @@
 	</tbody>
 </table>
 
+<form>
 <table class="table table-bordered" ng-show="clientSelected">
 	<thead>
 		<tr>
@@ -92,20 +93,33 @@
 	
 	<tbody >
 		<tr ng-show="rechLoc">
-			<td>{{selectedClient.criteres.loyerMax}}</td>
-			<td>{{selectedClient.criteres.surfaceMin}}</td>
-			<td>{{selectedClient.criteres.surfaceMax}}</td>
-			<td>{{selectedClient.criteres.bien}}</td>
-			<td>{{selectedClient.criteres.ville}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.loyerMax">{{selectedClient.criteres.loyerMax}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
+			<td><select id=selectBienLoc ng-options="bien.key as bien.value for bien in listeTypesBien" ng-model="selectedClient.criteres.bien"></select></td>
+			<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
 		</tr>
 		
 		<tr ng-show="rechAch">
-			<td>{{selectedClient.criteres.prixMax}}</td>
-			<td>{{selectedClient.criteres.surfaceMin}}</td>
-			<td>{{selectedClient.criteres.surfaceMax}}</td>
-			<td>{{selectedClient.criteres.bien}}</td>
-			<td>{{selectedClient.criteres.ville}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.prixMax">{{selectedClient.criteres.prixMax}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
+			<td><input type="number" ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
+			<td><select id=selectBienAch ng-options="bien.key as bien.value for bien in listeTypesBien" ng-model="selectedClient.criteres.bien" ></select></td>
+			<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
 		</tr>
 	</tbody>
 </table>
+</form>
 
+<table class="table table-bordered" ng-show="clientSelected">
+	<thead>
+		<tr ng-show="rechLoc">
+			
+		</tr>	
+	</thead>
+	
+	<tbody>
+		<tr ng-show="rechLoc" ng-repeat="bien in biensLoc|filter:search">
+	</tbody>
+	
+</table>
