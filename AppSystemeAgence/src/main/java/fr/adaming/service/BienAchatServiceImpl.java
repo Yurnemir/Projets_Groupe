@@ -56,11 +56,12 @@ public class BienAchatServiceImpl implements IBienAchatService {
 		boolean surfaceMinAcceptable = false;
 		Criteres critere = client.getCriteres();
 		System.out.println(critere);
-		if (critere.getRecherche()!=TypeRecherche.ACHAT) {
+		
+		if (critere.getRecherche()==TypeRecherche.ACHAT) {
 			// Sprix max achat = 0 alors le client veut une location
-			location = true;
-		} else {
 			location = false;
+		} else {
+			location = true;
 		}
 		System.out.println(location);
 		// On test le critere achat location

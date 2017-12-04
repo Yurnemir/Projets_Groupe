@@ -1,11 +1,11 @@
 <h1 align="center">Liste des Clients</h1>
-<br/>
-<br/>
+<br />
+<br />
 
 <form>
-	ID Agent: <input type="number" ng-model="agentID">
-	<input type="button" ng-click="agentSelect()" value="Restreindre">
-	<input type="button" ng-click="agentDeSelect()" value="Annuler">
+	ID Agent: <input type="number" ng-model="agentID"> <input
+		type="button" ng-click="agentSelect()" value="Restreindre"> <input
+		type="button" ng-click="agentDeSelect()" value="Annuler">
 </form>
 
 <table class="table table-bordered">
@@ -21,7 +21,7 @@
 			<td>Operations</td>
 		</tr>
 	</thead>
-	
+
 	<tbody ng-repeat="client in listeClients">
 		<tr>
 			<td>{{client.id}}</td>
@@ -31,7 +31,8 @@
 			<td>{{client.adresse.rue}}</td>
 			<td>{{client.adresse.cp}}</td>
 			<td>{{client.adresse.ville}}</td>
-			<td><a ng-click="modifLien(client)">Modifier</a> | <a ng-click="selectClient(client)">Sélectionner</a></td>
+			<td><a ng-click="modifLien(client)">Modifier</a> | <a
+				ng-click="selectClient(client)">Sélectionner</a></td>
 		</tr>
 	</tbody>
 </table>
@@ -53,8 +54,8 @@
 			<td>Ville</td>
 		</tr>
 	</thead>
-	
-	
+
+
 	<tbody>
 		<tr>
 			<td>{{selectedClient.id}}</td>
@@ -69,57 +70,122 @@
 </table>
 
 <form>
-<table class="table table-bordered" ng-show="clientSelected">
-	<thead>
-		<tr>
-			<th>Critères de recherche</th>
-		</tr>
-		<tr ng-show="rechLoc">
-			<td>Loyer Maxi</td>
-			<td>Surface Min</td>
-			<td>Surface Max</td>
-			<td>Type de Bien</td>
-			<td>Localisation</td>
-		</tr>
-		
-		<tr ng-show="rechAch">
-			<td>Prix Maxi</td>
-			<td>Surface Min</td>
-			<td>Surface Max</td>
-			<td>Type de Bien</td>
-			<td>Localisation</td>
-		</tr>
-	</thead>
-	
-	<tbody >
-		<tr ng-show="rechLoc">
-			<td><input type="number" ng-model="selectedClient.criteres.loyerMax">{{selectedClient.criteres.loyerMax}}</td>
-			<td><input type="number" ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
-			<td><input type="number" ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
-			<td><select id=selectBienLoc ng-options="bien.key as bien.value for bien in listeTypesBien" ng-model="selectedClient.criteres.bien"></select></td>
-			<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
-		</tr>
-		
-		<tr ng-show="rechAch">
-			<td><input type="number" ng-model="selectedClient.criteres.prixMax">{{selectedClient.criteres.prixMax}}</td>
-			<td><input type="number" ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
-			<td><input type="number" ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
-			<td><select id=selectBienAch ng-options="bien.key as bien.value for bien in listeTypesBien" ng-model="selectedClient.criteres.bien" ></select></td>
-			<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="table table-bordered" ng-show="clientSelected">
+		<thead>
+			<tr>
+				<th>Critères de recherche</th>
+			</tr>
+			<tr ng-show="rechLoc">
+				<td>Loyer Maxi</td>
+				<td>Surface Min</td>
+				<td>Surface Max</td>
+				<td>Type de Bien</td>
+				<td>Localisation</td>
+			</tr>
+
+			<tr ng-show="rechAch">
+				<td>Prix Maxi</td>
+				<td>Surface Min</td>
+				<td>Surface Max</td>
+				<td>Type de Bien</td>
+				<td>Localisation</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-show="rechLoc">
+				<td><input type="number"
+					ng-model="selectedClient.criteres.loyerMax">{{selectedClient.criteres.loyerMax}}</td>
+				<td><input type="number"
+					ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
+				<td><input type="number"
+					ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
+				<td><select id=selectBienLoc
+					ng-options="bien.key as bien.value for bien in listeTypesBien"
+					ng-model="selectedClient.criteres.bien"></select></td>
+				<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
+				<td>
+					<button ng-click="rechercheCritere(selectedClient)">Rechercher
+						une location correspondant</button>
+			</tr>
+
+
+			<tr ng-show="rechAch">
+				<td><input type="number"
+					ng-model="selectedClient.criteres.prixMax">{{selectedClient.criteres.prixMax}}</td>
+				<td><input type="number"
+					ng-model="selectedClient.criteres.surfaceMin">{{selectedClient.criteres.surfaceMin}}</td>
+				<td><input type="number"
+					ng-model="selectedClient.criteres.surfaceMax">{{selectedClient.criteres.surfaceMax}}</td>
+				<td><select id=selectBienAch
+					ng-options="bien.key as bien.value for bien in listeTypesBien"
+					ng-model="selectedClient.criteres.bien"></select></td>
+				<td><input type="text" ng-model="selectedClient.criteres.ville">{{selectedClient.criteres.ville}}</td>
+			</tr>
+		</tbody>
+
+
+
+
+	</table>
+
+	<table ng-show="rechLoc" class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Date Soumission</th>
+				<th>Date Dispo</th>
+				<th>Disponible</th>
+				<th>Type</th>
+				<th>Loyer</th>
+				<th>Caution</th>
+				<th>Charges</th>
+				<th>Garnis</th>
+				<th>Bail</th>
+				<th>Rue</th>
+				<th>Numero</th>
+				<th>Code Postal</th>
+				<th>Ville</th>
+				<th>Propriétaire</th>
+				<th>Operations</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="bienLocation in listeBienInteret">
+				<td>{{bienLocation.id}}</td>
+				<td>{{bienLocation.dateSoumission}}</td>
+				<td>{{bienLocation.dateDispo}}</td>
+				<td>{{bienLocation.disponible}}</td>
+				<td>{{bienLocation.typeBien}}</td>
+				<td>{{bienLocation.loyer}}</td>
+				<td>{{bienLocation.caution}}</td>
+				<td>{{bienLocation.charges}}</td>
+				<td>{{bienLocation.meuble}}</td>
+				<td>{{bienLocation.typeBail}}</td>
+				<td>{{bienLocation.adresse.rue}}</td>
+				<td>{{bienLocation.adresse.numero}}</td>
+				<td>{{bienLocation.adresse.cp}}</td>
+				<td>{{bienLocation.adresse.ville}}</td>
+				<td>{{bienLocation.proprietaire.id}}</td>
+				<td><img ng-src="">
+				<td><a ng-click="modifBienLocationViaLien(bienLocation)">Modifier
+						| </a> <a ng-click="supprBienLocationViaLien(bienLocation.id)">Suprimer</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
 </form>
 
 <table class="table table-bordered" ng-show="clientSelected">
 	<thead>
 		<tr ng-show="rechLoc">
-			
-		</tr>	
+
+		</tr>
 	</thead>
-	
+
 	<tbody>
 		<tr ng-show="rechLoc" ng-repeat="bien in biensLoc|filter:search">
 	</tbody>
-	
+
 </table>

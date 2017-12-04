@@ -6,6 +6,13 @@ monApp.controller("listeClientsCtrl", function($cookies, $scope, $rootScope, $lo
 		$scope.listeClients = callBack;
 	});
 	
+	$scope.rechercheCritere = function(selectedClient){
+		console.log(selectedClient)
+		clientProvider.trierLocation(selectedClient,function(callBack){
+			$scope.listeBienInteret = callBack;
+		})
+	}
+	
 	$scope.agentID = 0;
 	
 	

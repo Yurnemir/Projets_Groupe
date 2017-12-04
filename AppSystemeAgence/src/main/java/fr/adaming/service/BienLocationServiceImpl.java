@@ -60,7 +60,7 @@ public class BienLocationServiceImpl implements IBienLocationService {
 		List<BienLocation> listeBienLocation = bienLocationDao.getAllBiensLocation();
 		List<BienLocation> listeBienLocationInteret = new ArrayList<>();
 
-		if (critere.getRecherche() != TypeRecherche.LOCATION) {
+		if (critere.getRecherche() == TypeRecherche.LOCATION) {
 			location = false;
 		} else {
 			location = true;
@@ -86,8 +86,9 @@ public class BienLocationServiceImpl implements IBienLocationService {
 						}
 					}
 				}
+				System.out.println(bien.getAdresse());
 
-				if (surfaceMinAcceptable == true&&bien.getAdresse().getVille().equals(critere.getVille())) {
+				if (surfaceMinAcceptable == true && bien.getAdresse().getVille().equals(critere.getVille())) {
 					listeBienLocationInteret.add(bien);
 				}
 			}

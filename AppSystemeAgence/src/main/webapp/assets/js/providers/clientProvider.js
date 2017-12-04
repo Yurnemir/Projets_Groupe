@@ -72,11 +72,28 @@ monApp.factory("clientProvider", function($http) {
 		});
 	}
 	
+	function triLocation(client,callBack){
+		console.log(client)
+		$http({
+			method:"POST",
+			url:urlRacine+"/bienLocationInteret",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			data:angular.toJson(client)
+		}).then(function success(response) {
+			console.log(response.data);
+			callBack(response.data);
+		},function error(response){
+			console.log("----- Erreur:"+response.statusText);
+		})
+	}
 	return {
 		getAllClients:getAllClientsFunction,
 		getClientsByAgent:getClientsByAgentFunction,
 		getClientById:getClientByIdFunction,
 		addClient:addClientFunction,
-		modifClient:modifClientFunction
+		modifClient:modifClientFunction,
+		trierLocation:triLocation
 	}
 });
