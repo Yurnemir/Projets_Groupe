@@ -118,17 +118,39 @@ monApp.controller("modifBienAchatCtrl", function($scope, $rootScope, $location,
 	}
 });
 
-monApp.controller("imageCtrl", function($scope, $location,
-		proprietaireProvider, bienAchatProvider) {
+// monApp.controller("imageCtrl", function($scope, $location, bienAchatProvider)
+// {
+//
+// $scope.idRech = undefined;
+// $scope.addImage = function() {
+// var image = document.getElementById('file').files[0];
+// var lecture = new FileReader();
+// lecture.onloadend = function(evenement) {
+// var donnees = evenement.target.result;
+// bienAchatProvider.addImage(donnees, $scope.idRech, function(
+// callBack) {
+// if (callBack != undefined && callBack != "") {
+// $location.path("listeBiensAchat");
+// }
+// });
+// }
+// }
+// });
 
-	$scope.idb = undefined;
-	$scope.image = undefined;
-	$scope.addImage = function() {
-		bienAchatProvider.addImage($scope.image, $scope.idb,
-			function(callBack) {
-				if (callBack != undefined && callBack != "") {
-					$location.path("listeBiensAchat");
-				}
-			});
+monApp.controller('imageCtrl', function($scope, bienAchatProvider) {
+	$scope.idRech = undefined;
+	$scope.uploadFile = function() {
+		var file = $scope.file;
+
+		var fileFormData = new FormData();
+		fileFormData.append('file', file);
+
+		bienAchatProvider.addImage(fileFormData, $scope.idRech, function(
+				callBack) {
+			if (callBack != undefined && callBack != "") {
+				$location.path("listeBiensAchat");
+			}
+		});
 	}
+
 });

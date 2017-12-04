@@ -82,6 +82,21 @@ public class BienAchatRest {
 		
 	}
 	
+	@RequestMapping(value = "/bien/addImage", method=RequestMethod.PUT)
+	public void getPhoto(@RequestParam("pId") int id, MultipartFile file) throws IOException {
+		BienAchat bienAchatGet = bienAchatService.getBienAchatById(id);
+		
+		try {
+			if (!file.isEmpty()) {
+				bienAchatGet.setImage(file.getBytes());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		bienAchatService.updateBienAchat(bienAchatGet);
+	}
+	
 //	@RequestMapping(value = "/bien/image", produces = MediaType.IMAGE_JPEG_VALUE)
 //	@ResponseBody
 //	public byte[] getPhoto(BienAchat bienAchat) throws IOException {
