@@ -154,3 +154,9 @@ monApp.controller('imageCtrl', function($scope, bienAchatProvider) {
 	}
 
 });
+
+
+monApp.controller("mappingBienAchatCtrl", function($scope, bienAchatProvider) {
+	$scope.message = "mappingBienAchatCtrl";
+});
+

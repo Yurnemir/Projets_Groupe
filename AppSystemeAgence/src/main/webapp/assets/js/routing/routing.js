@@ -25,6 +25,12 @@ monApp.config(function($routeProvider) {
         },
 		templateUrl: "views/biens/modifBienAchat.html",
 		controller: "modifBienAchatCtrl"
+	}).when("/mappingBienAchat", {
+        resolve: { "check": function($cookies, $location) {
+            if ($cookies.get("username") == undefined) { $location.path("/login"); } }
+        },
+		templateUrl: "views/biens/mappingBienAchat.html",
+		controller: "mappingBienAchatCtrl"
 	}).when("/insererImage", {
         resolve: { "check": function($cookies, $location) {
             if ($cookies.get("username") == undefined) { $location.path("/login"); } }
@@ -58,6 +64,12 @@ monApp.config(function($routeProvider) {
         },
 		templateUrl: "views/biens/modifBienLocation.html",
 		controller: "modifBienLocationCtrl"
+	}).when("/mappingBienLocation", {
+        resolve: { "check": function($cookies, $location) {
+            if ($cookies.get("username") == undefined) { $location.path("/login"); } }
+        },
+		templateUrl: "views/biens/mappingBienLocation.html",
+		controller: "mappingBienLocationCtrl"
 	});
 	
 	// ====================== Clients ======================

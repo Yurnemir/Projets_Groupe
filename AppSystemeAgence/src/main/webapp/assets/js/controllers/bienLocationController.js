@@ -118,3 +118,7 @@ monApp.controller("modifBienLocationCtrl", function($scope, $rootScope, $locatio
 		});
 	}
 });
+
+monApp.controller("mappingBienLocationCtrl", function($scope, bienLocationProvider) {
+	$scope.message = "mappingBienLocationCtrl";
+});
