@@ -65,6 +65,7 @@ monApp.factory("proprietaireProvider", function($http) {
 			url : urlRacine+"/prop?pId="+id
 		}).then(function success(response){
 			console.log("Suppression effectuée")
+			callBack(response.data);
 		}),function error(response){
 			console.log("----Erreur dans la suppression")
 			console.log(response.statusText);

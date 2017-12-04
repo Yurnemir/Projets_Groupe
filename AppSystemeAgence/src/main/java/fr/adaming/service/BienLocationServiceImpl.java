@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IBienLocationDao;
+import fr.adaming.enums.TypeRecherche;
 import fr.adaming.model.BienLocation;
 import fr.adaming.model.Client;
 import fr.adaming.model.Criteres;
@@ -21,7 +22,6 @@ public class BienLocationServiceImpl implements IBienLocationService {
 	public void setBienLocationDao(IBienLocationDao bienLocationDao) {
 		this.bienLocationDao = bienLocationDao;
 	}
-	
 
 	@Override
 	public List<BienLocation> getAllBiensLocation() {
@@ -47,34 +47,53 @@ public class BienLocationServiceImpl implements IBienLocationService {
 	public void deleteBienLocation(int id) {
 		bienLocationDao.getBienLocationById(id);
 	}
-	
-	
 
 	@Override
 	public List<BienLocation> trierLocationParClient(Client client) {
 		boolean location;
+		boolean prixAcceptable = false;
+		boolean surfaceMaxAcceptable = false;
+		boolean surfaceMinAcceptable = false;
+
 		Criteres critere = client.getCriteres();
 		System.out.println(client);
 		List<BienLocation> listeBienLocation = bienLocationDao.getAllBiensLocation();
 		List<BienLocation> listeBienLocationInteret = new ArrayList<>();
-		
-		if(critere.getLoyerMax()==0){
-			location =false;
-		}else{
-			location =true;
+
+		if (critere.getRecherche() != TypeRecherche.LOCATION) {
+			location = false;
+		} else {
+			location = true;
 		}
-		
-		if(location=false){
+
+		if (location = false) {
 			return listeBienLocationInteret;
-		}else{
-			for(BienLocation bien : listeBienLocation){
-				if(bien.getLoyer()<=critere.getLoyerMax()&&bien.getSuperficie()<critere.getSurfaceMax()&&bien.getSuperficie()>critere.getSurfaceMin()){
+		} else {
+			for (BienLocation bien : listeBienLocation) {
+				prixAcceptable = false;
+				surfaceMaxAcceptable = false;
+				surfaceMinAcceptable = false;
+
+				if (bien.getTypeBien().equals(critere.getBien())) {
+					if (bien.getLoyer() <= critere.getLoyerMax() || critere.getLoyerMax() == 0) {
+						if (bien.getSuperficie() <= critere.getSurfaceMax() || critere.getSurfaceMax() == 0) {
+							// surfaceMaxAcceptable = true;
+							System.out.println("Surface Max OK");
+							if (bien.getSuperficie() >= critere.getSurfaceMin() || critere.getSurfaceMin() == 0) {
+								surfaceMinAcceptable = true;
+								System.out.println("Surface Min OK");
+							}
+						}
+					}
+				}
+
+				if (surfaceMinAcceptable == true&&bien.getAdresse().getVille().equals(critere.getVille())) {
 					listeBienLocationInteret.add(bien);
 				}
 			}
 			return listeBienLocationInteret;
 		}
-		
+
 	}
 
 }

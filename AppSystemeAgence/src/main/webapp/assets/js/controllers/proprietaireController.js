@@ -6,9 +6,11 @@ monApp.controller("listeProprietairesCtrl", function($scope, proprietaireProvide
 	
 	$scope.supprimerProprio=function(proprio){
 		proprietaireProvider.supprimer(proprio.id,function(callBack){
-			console.log("Test");
+			
+			proprietaireProvider.getAllProprietaires(function(callBack) {
+				$scope.listeProprio = callBack;
+			})		
 		})
-		$location.path("/listeProprietaires")
 
 	}
 });
