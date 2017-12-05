@@ -120,7 +120,42 @@ monApp.controller("modifBienLocationCtrl", function($scope, $rootScope, $locatio
 });
 
 monApp.controller("mappingBienLocationCtrl", function($scope, bienLocationProvider) {
-	bienLocationProvider.getAllBiensLocation(function(callBack) {
-		$scope.listeBiensLocation = callBack;
-	});
+	$scope.init = function() {
+		bienLocationProvider.getAllBiensLocation(function(callBack) {
+			var style = new ol.style.Style({
+				image: new ol.style.Icon(({
+					color: [80, 80, 255],
+					crossOrigin: 'anonymous',
+					src: 'https://openlayers.org/en/v4.5.0/examples/data/dot.png'
+				}))
+			})
+			var markers = [];
+			var marker;
+			for (i=0; i<callBack.length; i++) {
+				marker = new ol.Feature({
+					geometry: new ol.geom.Point(ol.proj.fromLonLat([callBack[i].longitude, callBack[i].latitude]))
+				});
+				marker.setStyle(style);
+				markers.push(marker);
+			}
+			
+			var vectorSource = new ol.source.Vector({
+				features: markers
+			});
+			var vectorLayer = new ol.layer.Vector({
+				source: vectorSource
+			});
+			var rasterLayer = new ol.layer.Tile({
+				source: new ol.source.OSM()
+			});
+			var map = new ol.Map({
+				layers: [rasterLayer, vectorLayer],
+				target: document.getElementById("mapLocation"),
+				view: new ol.View({
+					center: ol.proj.fromLonLat([2.601598, 46.5326709]),
+					zoom: 5
+				})
+			});
+		});
+	}
 });
