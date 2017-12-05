@@ -1,42 +1,41 @@
 <h1 align="center">Liste des Biens d'Achat</h1>
-<br/>
-<br/>
+<br />
+<br />
 <table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Id</th>
+			<th>Photo</th>
 			<th>Date Soumission</th>
 			<th>Date Dispo</th>
 			<th>Disponible</th>
 			<th>Type</th>
 			<th>Etat</th>
 			<th>Prix Vente</th>
-			<th>Rue</th>
-			<th>Numero</th>
-			<th>Code Postal</th>
-			<th>Ville</th>
-			<th>Propriétaire</th>
-			<th>Opération</th>
+			<th>Adresse</th>
+			<th>Superficie</th>
+			<th>Description</th>
+			<th>Proprietaire</th>
+			<th>Operation</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="bienAchat in listeBiensAchat">
 			<td>{{bienAchat.id}}</td>
+			<td><img ng-src="data:image/JPEG;base64,{{bienAchat.photo}}" style="width: 200px"></td>
 			<td>{{bienAchat.dateSoumission}}</td>
 			<td>{{bienAchat.dateDispo}}</td>
 			<td>{{bienAchat.disponible}}</td>
 			<td>{{bienAchat.typeBien}}</td>
 			<td>{{bienAchat.etatBien}}</td>
 			<td>{{bienAchat.prixVente}}</td>
-			<td>{{bienAchat.adresse.rue}}</td>
-			<td>{{bienAchat.adresse.numero}}</td>
-			<td>{{bienAchat.adresse.cp}}</td>
-			<td>{{bienAchat.adresse.ville}}</td>
+			<td>{{bienAchat.adresse.numero}}, {{bienAchat.adresse.rue}}
+				{{bienAchat.adresse.cp}} {{bienAchat.adresse.ville}}</td>
+			<td>{{bienAchat.superficie}}</td>
+			<td>{{bienAchat.description}}</td>
 			<td>{{bienAchat.proprietaire.id}}</td>
-			<td>
-				<a ng-click="modifBienAchatViaLien(bienAchat)">Modifier | </a>
-				<a ng-click="supprBienAchatViaLien(bienAchat.id)">Suprimer</a>
-			</td>
+			<td><a ng-click="modifBienAchatViaLien(bienAchat)">Modifier
+					| </a> <a ng-click="supprBienAchatViaLien(bienAchat.id)">Suprimer</a></td>
 		</tr>
 	</tbody>
 </table>

@@ -12,6 +12,11 @@ monApp.controller("listeBiensAchatCtrl", function($scope, $rootScope,
 			typeBien : bienAchat.typeBien,
 			etatBien : bienAchat.etatBien,
 			prixVente : bienAchat.prixVente
+//			photo : bienAchat.photo,
+//			superficie: bienAchat.superficie,
+//			description: bienAchat.description,
+//			latitude: bienAchat.latitude,
+//			longitude: bienAchat.longitude
 		};
 		$location.path("modifBienAchat");
 	}
@@ -59,8 +64,14 @@ monApp.controller("ajoutBienAchatCtrl", function($scope, $location,
 		disponible : false,
 		typeBien : 0,
 		etatBien : 0,
-		prixVente : 0
+		prixVente : 0,
+		photo : null,
+		superficie: undefined,
+		description: "",
+		latitude: 0,
+		longitude: 0
 	}
+	
 	$scope.addBienAchat = function() {
 		bienAchatProvider.addBienAchat($scope.bienAchatForm, $scope.idProp,
 				function(callBack) {
@@ -68,6 +79,19 @@ monApp.controller("ajoutBienAchatCtrl", function($scope, $location,
 						$location.path("listeBiensAchat");
 					}
 				});
+	}
+	
+	$scope.setFile = function(element) {
+		$scope.currentFile = element.files[0];
+		var reader = new FileReader();
+
+		reader.onload = function(event) {
+			$scope.image_source = event.target.result
+			$scope.$apply()
+
+		}
+		// when the file is read it triggers the onload event above.
+		reader.readAsDataURL(element.files[0]);
 	}
 });
 

@@ -1,7 +1,3 @@
-/*! angular-base64-upload - v0.1.23
-* https://github.com/adonespitogo/angular-base64-upload
-* Copyright (c) Adones Pitogo <pitogo.adones@gmail.com> [Sat Aug 05 2017]
-* Licensed MIT */
 (function(window, undefined) {
 
   'use strict';
@@ -308,9 +304,7 @@
               _onAfterValidate(e);
             }
 
-            if (attrs.allowSameFile) {
-              scope._clearInput();
-            }
+            scope._clearInput();
 
           });
 

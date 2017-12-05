@@ -77,37 +77,6 @@ public class BienAchatRest {
 	public void deleteBienAchat(@RequestParam("pId") int id) {
 		this.bienAchatService.deleteBienAchat(id);
 	}
-
-	public void addImage(@RequestParam("pImage") MultipartFile file, @RequestParam("pId") int id){
-		
-	}
-	
-	@RequestMapping(value = "/bien/addImage", method=RequestMethod.PUT)
-	public void getPhoto(@RequestParam("pId") int id, MultipartFile file) throws IOException {
-		BienAchat bienAchatGet = bienAchatService.getBienAchatById(id);
-		
-		try {
-			if (!file.isEmpty()) {
-				bienAchatGet.setImage(file.getBytes());
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		bienAchatService.updateBienAchat(bienAchatGet);
-	}
-	
-//	@RequestMapping(value = "/bien/image", produces = MediaType.IMAGE_JPEG_VALUE)
-//	@ResponseBody
-//	public byte[] getPhoto(BienAchat bienAchat) throws IOException {
-//		BienAchat bienA = bienAchatService.getBienAchatById(bienAchat.getId());
-//		if (bienA.getImage() == null) {
-//			return new byte[0];
-//		} else {
-//			return IOUtils.toByteArray(new ByteArrayInputStream(bienA.getImage()));
-//		}
-//	}
-
 	
 	@RequestMapping(value="/bienAchatInteret",method = RequestMethod.POST,produces = "application/json",consumes="application/json")
 	public List<BienAchat> listerBienAchatInteressant(@RequestBody Client client){

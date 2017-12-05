@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -48,7 +49,8 @@ public abstract class BienImmobilier implements Serializable {
 	@Column(name="typeBien_b")
 	protected TypeBien typeBien;
 	@Column(name="image_b")
-	protected byte[] image;
+	@Lob
+	protected byte[] photo;
 	@Column(name="description_b")
 	protected String description;
 	@Column(name="superficie_b")
@@ -74,7 +76,7 @@ public abstract class BienImmobilier implements Serializable {
 		super();
 	}
 	public BienImmobilier(boolean disponible, Date dateSoumission,
-			Date dateDispo, TypeBien typeBien, byte[] image,
+			Date dateDispo, TypeBien typeBien, byte[] photo,
 			String description, double superficie, double longitude,
 			double latitude) {
 		super();
@@ -82,14 +84,14 @@ public abstract class BienImmobilier implements Serializable {
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.typeBien = typeBien;
-		this.image = image;
+		this.photo = photo;
 		this.description = description;
 		this.superficie = superficie;
 		this.longitude = longitude;
 		this.latitude = latitude;
 	}
 	public BienImmobilier(int id, boolean disponible, Date dateSoumission,
-			Date dateDispo, TypeBien typeBien, byte[] image,
+			Date dateDispo, TypeBien typeBien, byte[] photo,
 			String description, double superficie, double longitude,
 			double latitude) {
 		super();
@@ -98,7 +100,7 @@ public abstract class BienImmobilier implements Serializable {
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.typeBien = typeBien;
-		this.image = image;
+		this.photo = photo;
 		this.description = description;
 		this.superficie = superficie;
 		this.longitude = longitude;
@@ -137,11 +139,11 @@ public abstract class BienImmobilier implements Serializable {
 		this.typeBien = typeBien;
 	}
 
-	public byte[] getImage() {
-		return image;
+	public byte[] getPhoto() {
+		return photo;
 	}
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
 	}
 	public String getDescription() {
 		return description;

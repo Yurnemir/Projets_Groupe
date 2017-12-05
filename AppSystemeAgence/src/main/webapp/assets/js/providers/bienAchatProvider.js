@@ -38,8 +38,9 @@ monApp.factory("bienAchatProvider", function($http) {
 			console.log("error : " + response.statusText);
 		});
 	}
-
+	
 	function updateBienAchatFunction(bienAchatForm, idProp, callBack) {
+//		bienAchatForm.photo = bienAchatForm.photo.base64;
 		$http({
 			method : "PUT",
 			url : urlRacine + "/bien/achat?pIdProp=" + idProp,

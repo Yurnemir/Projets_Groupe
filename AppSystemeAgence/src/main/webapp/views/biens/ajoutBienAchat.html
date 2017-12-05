@@ -1,77 +1,131 @@
 <h1 align="center">Ajout d'un Bien d'Achat</h1>
-<br/>
-<br/>
+<br />
+<br />
 
 <form class="form-horizontal">
 	<div class="form-group">
-		<label for="idDateSoumission" class="col-sm-2 control-label">Date Soumission :</label>
+		<label for="idDateSoumission" class="col-sm-2 control-label">Date
+			Soumission :</label>
 		<div class="col-sm-4">
-			<input type="date" class="form-control" id="idDateSoumission" ng-model="bienAchatForm.dateSoumission">
+			<input type="date" class="form-control" id="idDateSoumission"
+				ng-model="bienAchatForm.dateSoumission">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idDateDispo" class="col-sm-2 control-label">Date Dispo :</label>
+		<label for="idDateDispo" class="col-sm-2 control-label">Date
+			Dispo :</label>
 		<div class="col-sm-4">
-			<input type="date" class="form-control" id="idDateDispo" ng-model="bienAchatForm.dateDispo">
+			<input type="date" class="form-control" id="idDateDispo"
+				ng-model="bienAchatForm.dateDispo">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idDisponible" class="col-sm-2 control-label">Disponible :</label>
+		<label for="idDisponible" class="col-sm-2 control-label">Disponible
+			:</label>
 		<div class="col-sm-4">
-			<input type="checkbox" class="form-control" id="idDisponible" ng-model="bienAchatForm.disponible">
+			<input type="checkbox" class="form-control" id="idDisponible"
+				ng-model="bienAchatForm.disponible">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idTypeBien" class="col-sm-2 control-label">Type de Bien :</label>
+		<label for="idTypeBien" class="col-sm-2 control-label">Type de
+			Bien :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienAchatForm.typeBien" ng-options="typeBien.key as typeBien.value for typeBien in listeTypesBien"></select>
+			<select ng-model="bienAchatForm.typeBien"
+				ng-options="typeBien.key as typeBien.value for typeBien in listeTypesBien"></select>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idEtatBien" class="col-sm-2 control-label">Etat :</label>
 		<div class="col-sm-4">
-			<select ng-model="bienAchatForm.etatBien" ng-options="etatBien.key as etatBien.value for etatBien in listeEtatsBien"></select>
+			<select ng-model="bienAchatForm.etatBien"
+				ng-options="etatBien.key as etatBien.value for etatBien in listeEtatsBien"></select>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idPrixVente" class="col-sm-2 control-label">Prix :</label>
 		<div class="col-sm-4">
-			<input type="number" class="form-control" id="idPrixVente" ng-model="bienAchatForm.prixVente">
+			<input type="number" class="form-control" id="idPrixVente"
+				ng-model="bienAchatForm.prixVente">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idRue" class="col-sm-2 control-label">Rue :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idRue" ng-model="bienAchatForm.adresse.rue">
+			<input type="text" class="form-control" id="idRue"
+				ng-model="bienAchatForm.adresse.rue">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idNumero" class="col-sm-2 control-label">Numéro :</label>
 		<div class="col-sm-4">
-			<input type="number" class="form-control" id="idNumero" ng-model="bienAchatForm.adresse.numero">
+			<input type="number" class="form-control" id="idNumero"
+				ng-model="bienAchatForm.adresse.numero">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idCP" class="col-sm-2 control-label">Code Postal :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idCP" ng-model="bienAchatForm.adresse.cp">
+			<input type="text" class="form-control" id="idCP"
+				ng-model="bienAchatForm.adresse.cp">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="idVille" class="col-sm-2 control-label">Ville :</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="idVille" ng-model="bienAchatForm.adresse.ville">
+			<input type="text" class="form-control" id="idVille"
+				ng-model="bienAchatForm.adresse.ville">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="idProp" class="col-sm-2 control-label">Proprietaire :</label>
+		<label for="idSuperficie" class="col-sm-2 control-label">Superficie :</label>
 		<div class="col-sm-4">
-			<select ng-model="idProp" ng-options="proprietaire.key as proprietaire.value for proprietaire in listeProprietaires"></select>
+			<input type="number" class="form-control" id="idSuperficie"
+				ng-model="bienAchatForm.superficie">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idDescription" class="col-sm-2 control-label">Description :</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="idDescription"
+				ng-model="bienAchatForm.description">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idProp" class="col-sm-2 control-label">Proprietaire
+			:</label>
+		<div class="col-sm-4">
+			<select ng-model="idProp"
+				ng-options="proprietaire.key as proprietaire.value for proprietaire in listeProprietaires"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idLatitude" class="col-sm-2 control-label">Latitude :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idLatitude"
+				ng-model="bienAchatForm.latitude">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="idLongitude" class="col-sm-2 control-label">Longitude :</label>
+		<div class="col-sm-4">
+			<input type="number" class="form-control" id="idLongitude"
+				ng-model="bienAchatForm.longitude">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="file" class="col-sm-2 control-label">Image</label>
+		<div class="vertical-center">
+			<input type="file" id="myfile" ng-model="bienAchatForm.photo"
+				style="display: none;" accept="image/*" base-sixty-four-input>
+			<input type="button" value="Upload"
+				onclick="document.getElementById('myfile').click();" />
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<button class="btn btn-primary" ng-click="addBienAchat()">Ajouter</button>
+			<button type="submit" class="btn btn-primary"
+				ng-click="addBienAchat()">Ajouter</button>
 		</div>
 	</div>
 </form>
